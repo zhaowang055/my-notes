@@ -6,488 +6,586 @@
 <title>产品经理完全指南</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAFAF8;
-    --bg-card: #FFFFFF;
-    --bg-code: #F1F5F9;
-    --bg-callout-blue: #EFF6FF;
-    --bg-callout-yellow: #FFFBEB;
-    --bg-callout-green: #F0FDF4;
-    --text: #1A1A2E;
-    --text-secondary: #475569;
-    --text-muted: #64748B;
-    --accent: #2563EB;
-    --accent-light: #DBEAFE;
-    --border: #E2E8F0;
-    --border-light: #F1F5F9;
+    --bg: #FAFAF8; --bg-card: #FFFFFF; --bg-code: #F1F5F9;
+    --bg-callout-blue: #EFF6FF; --bg-callout-yellow: #FFFBEB;
+    --bg-callout-green: #F0FDF4; --bg-callout-orange: #FFF7ED;
+    --bg-table-header: #F1F5F9; --bg-table-alt: #F8FAFC;
+    --text: #1A1A2E; --text-secondary: #475569; --text-muted: #64748B;
+    --accent: #2563EB; --accent-light: #DBEAFE;
+    --border: #E2E8F0; --border-light: #F1F5F9;
+    --code-text: #0F172A;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
     --radius: 8px;
-    --toc-width: 260px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0F172A;
-      --bg-card: #1E293B;
-      --bg-code: #1E293B;
-      --bg-callout-blue: #172554;
-      --bg-callout-yellow: #422006;
-      --bg-callout-green: #052E16;
-      --text: #E2E8F0;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-      --accent: #60A5FA;
-      --accent-light: #1E3A5F;
-      --border: #334155;
-      --border-light: #1E293B;
+      --bg: #0F172A; --bg-card: #1E293B; --bg-code: #1E293B;
+      --bg-callout-blue: #172554; --bg-callout-yellow: #422006;
+      --bg-callout-green: #052E16; --bg-callout-orange: #431407;
+      --bg-table-header: #1E293B; --bg-table-alt: #0F172A;
+      --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+      --accent: #60A5FA; --accent-light: #1E3A5F;
+      --border: #334155; --border-light: #1E293B;
+      --code-text: #E2E8F0;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
     }
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root[data-theme="dark"] {
+    --bg: #0F172A; --bg-card: #1E293B; --bg-code: #1E293B;
+    --bg-callout-blue: #172554; --bg-callout-yellow: #422006;
+    --bg-callout-green: #052E16; --bg-callout-orange: #431407;
+    --bg-table-header: #1E293B; --bg-table-alt: #0F172A;
+    --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+    --accent: #60A5FA; --accent-light: #1E3A5F;
+    --border: #334155; --border-light: #1E293B;
+    --code-text: #E2E8F0;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
   body {
-    font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
   }
-
-  /* 顶部导航 */
-  .topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
+  .page { display: flex; min-height: 100vh; }
+  .sidebar {
+    position: sticky; top: 0; height: 100vh; width: 280px; min-width: 280px;
+    overflow-y: auto; padding: 32px 24px; border-right: 1px solid var(--border);
+    background: var(--bg-card); z-index: 10;
   }
-  .topbar a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .sidebar-title {
+    font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em;
+    text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
   }
-  .topbar a:hover { text-decoration: underline; }
-  .topbar-title {
-    margin-left: 16px;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .sidebar a {
+    display: block; padding: 6px 0; color: var(--text-secondary); text-decoration: none;
+    font-size: 13px; line-height: 1.5; transition: color 0.15s;
   }
-
-  /* 目录侧边栏 */
-  .toc-sidebar {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    bottom: 0;
-    width: var(--toc-width);
-    padding: 24px 16px 24px 20px;
-    overflow-y: auto;
-    border-right: 1px solid var(--border);
-    background: var(--bg-card);
-    z-index: 50;
+  .sidebar a:hover { color: var(--accent); }
+  .sidebar a.section-link { font-weight: 600; color: var(--text); margin-top: 16px; font-size: 14px; }
+  .sidebar a.sub-link { padding-left: 16px; font-weight: 400; }
+  .main { flex: 1; max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
+  .theme-toggle {
+    position: fixed; top: 20px; right: 24px; z-index: 100;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 14px; cursor: pointer; font-size: 14px; color: var(--text-secondary);
+    box-shadow: var(--shadow-md); transition: all 0.2s;
   }
-  .toc-sidebar h3 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    font-weight: 600;
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+  h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 56px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); line-height: 1.3; }
+  h3 { font-size: 1.2rem; font-weight: 600; margin: 36px 0 12px; line-height: 1.4; }
+  h4 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; color: var(--text-secondary); }
+  p { margin-bottom: 16px; color: var(--text); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  .intro { margin-bottom: 40px; }
+  .intro p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; }
+  .callout {
+    padding: 16px 20px; border-radius: var(--radius); margin: 20px 0;
+    font-size: 0.95rem; line-height: 1.7; border-left: 4px solid;
   }
-  .toc-list {
-    list-style: none;
+  .callout-blue { background: var(--bg-callout-blue); border-color: var(--accent); }
+  .callout-yellow { background: var(--bg-callout-yellow); border-color: #F59E0B; }
+  .callout-green { background: var(--bg-callout-green); border-color: #22C55E; }
+  .callout-orange { background: var(--bg-callout-orange); border-color: #F97316; }
+  code {
+    font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+    font-size: 0.88em; background: var(--bg-code); color: var(--code-text);
+    padding: 2px 6px; border-radius: 4px;
   }
-  .toc-list li { margin: 0; }
-  .toc-list a {
-    display: block;
-    padding: 5px 10px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    border-radius: 4px;
-    border-left: 2px solid transparent;
-    transition: all 0.15s ease;
+  pre {
+    background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px; margin: 16px 0; overflow-x: auto; font-size: 0.88rem; line-height: 1.65;
   }
-  .toc-list a:hover {
-    color: var(--accent);
-    background: var(--accent-light);
+  pre code { background: none; padding: 0; font-size: inherit; }
+  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th {
+    background: var(--bg-table-header); text-align: left; padding: 12px 16px;
+    font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--text-muted); border-bottom: 2px solid var(--border);
   }
-  .toc-list a.active {
-    color: var(--accent);
-    border-left-color: var(--accent);
-    background: var(--accent-light);
-    font-weight: 500;
+  td { padding: 10px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--bg-table-alt); }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--accent); }
+  .section-num {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--accent);
+    background: var(--accent-light); padding: 2px 10px; border-radius: 12px;
+    margin-right: 8px; letter-spacing: 0.02em;
   }
-  .toc-list .toc-h3 { padding-left: 24px; font-size: 0.78rem; }
-  .toc-list .toc-h4 { padding-left: 38px; font-size: 0.75rem; }
-
-  /* 移动端目录按钮 */
-  .toc-toggle {
-    display: none;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 200;
-    box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-  }
-
-  /* 主内容区 */
-  .content {
-    margin-left: var(--toc-width);
-    padding: 80px 48px 80px 48px;
-    max-width: 860px;
-  }
-
-  /* 文章样式 */
-  .article h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-  .article h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--border);
-    scroll-margin-top: 72px;
-  }
-  .article h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 32px 0 12px;
-    scroll-margin-top: 72px;
-  }
-  .article h4 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 24px 0 8px;
-    scroll-margin-top: 72px;
-  }
-  .article p {
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-  .article blockquote {
-    border-left: 4px solid var(--accent);
-    padding: 12px 20px;
-    margin: 20px 0;
-    background: var(--accent-light);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    color: var(--text-secondary);
-  }
-  .article blockquote p { margin-bottom: 0; }
-  .article ul, .article ol {
-    margin: 0 0 16px 24px;
-  }
-  .article li { margin-bottom: 6px; }
-  .article code {
-    background: var(--bg-code);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.88em;
-  }
-  .article pre {
-    background: var(--bg-code);
-    padding: 16px 20px;
-    border-radius: var(--radius);
-    overflow-x: auto;
-    margin: 16px 0;
-    border: 1px solid var(--border);
-  }
-  .article pre code {
-    background: none;
-    padding: 0;
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-  .article table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0 24px;
-    font-size: 0.9rem;
-  }
-  .article th {
-    background: var(--bg-code);
-    font-weight: 600;
-    text-align: left;
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-  }
-  .article td {
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-  }
-  .article tr:nth-child(even) td {
-    background: var(--border-light);
-  }
-  .article strong { font-weight: 600; }
-  .article hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 32px 0;
-  }
-  .article a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .article a:hover { text-decoration: underline; }
-
-  /* 响应式 */
   @media (max-width: 900px) {
-    .toc-sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.25s ease;
-      width: 280px;
-    }
-    .toc-sidebar.open { transform: translateX(0); }
-    .toc-toggle { display: flex; align-items: center; justify-content: center; }
-    .content {
-      margin-left: 0;
-      padding: 72px 20px 60px;
-    }
+    .sidebar { display: none; }
+    .main { padding: 32px 20px 60px; }
+    .theme-toggle { top: 12px; right: 12px; }
   }
 </style>
 </head>
 <body>
 
-<nav class="topbar">
-  <a href="index.html">← 返回主页</a>
-  <span class="topbar-title">产品经理完全指南</span>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">🌓 主题</button>
+
+<div class="page">
+<nav class="sidebar">
+  <div class="sidebar-title">📖 目录导航</div>
+  <a href="index.html" style="display:inline-block;margin-bottom:20px;padding:6px 14px;background:var(--accent-light);color:var(--accent);border-radius:6px;font-size:13px;font-weight:500;">← 返回主页</a>
+  <a href="#s1" class="section-link"><span class="section-num">一</span>产品经理是什么</a>
+  <a href="#s1-1" class="sub-link">1.1 通俗理解</a>
+  <a href="#s1-2" class="sub-link">1.2 产品经理 vs 其他角色</a>
+  <a href="#s1-3" class="sub-link">1.3 产品经理的分类</a>
+  <a href="#s2" class="section-link"><span class="section-num">二</span>核心能力模型</a>
+  <a href="#s2-1" class="sub-link">2.1 能力全景图</a>
+  <a href="#s2-2" class="sub-link">2.2 七项核心硬技能</a>
+  <a href="#s3" class="section-link"><span class="section-num">三</span>产品工作全流程</a>
+  <a href="#s3-1" class="sub-link">3.1 日常工作流</a>
+  <a href="#s3-2" class="sub-link">3.2 需求管理全流程</a>
+  <a href="#s3-3" class="sub-link">3.3 产品方案评审要点</a>
+  <a href="#s4" class="section-link"><span class="section-num">四</span>B 端产品经理专题</a>
+  <a href="#s4-1" class="sub-link">4.1 B 端 vs C 端</a>
+  <a href="#s4-2" class="sub-link">4.2 B 端产品设计原则</a>
+  <a href="#s4-3" class="sub-link">4.3 企业系统典型场景</a>
+  <a href="#s5" class="section-link"><span class="section-num">五</span>AI 时代的产品经理</a>
+  <a href="#s5-1" class="sub-link">5.1 新能力要求</a>
+  <a href="#s5-2" class="sub-link">5.2 AI 提升效率</a>
+  <a href="#s5-3" class="sub-link">5.3 Vibe Coding</a>
+  <a href="#s6" class="section-link"><span class="section-num">六</span>产品经理成长路径</a>
+  <a href="#s6-1" class="sub-link">6.1 职业发展阶段</a>
+  <a href="#s6-2" class="sub-link">6.2 新人成长建议</a>
+  <a href="#s6-3" class="sub-link">6.3 推荐书单</a>
+  <a href="#s7" class="section-link"><span class="section-num">七</span>常用工具箱</a>
+  <a href="#s7-1" class="sub-link">7.1 工具链</a>
+  <a href="#s7-2" class="sub-link">7.2 常用模板</a>
+  <a href="#s8" class="section-link"><span class="section-num">八</span>常见问题 FAQ</a>
+  <a href="#s9" class="section-link"><span class="section-num">九</span>飞书内部资源速查</a>
 </nav>
 
-<aside class="toc-sidebar" id="tocSidebar">
-  <h3>目录</h3>
-  <ul class="toc-list" id="tocList"></ul>
-</aside>
+<main class="main">
 
-<button class="toc-toggle" id="tocToggle" aria-label="打开目录">📑</button>
+<div class="intro">
+<h1>产品经理完全指南（从入门到进阶）</h1>
+<p>产品经理是「用产品解决用户问题」的人——你不是写代码的工程师，不是画图的设计师，而是那个决定「做什么」和「为什么做」的人。你是产品的 CEO，对产品的成败负责。</p>
+</div>
 
-<main class="content">
-  <article class="article" id="article"></article>
+<h2 id="s1"><span class="section-num">一</span>产品经理是什么</h2>
+
+<h3 id="s1-1">1.1 通俗理解</h3>
+<p>产品经理（Product Manager，简称 PM）就像<strong>餐厅的总策划人</strong>：</p>
+<ul>
+  <li>你决定菜单上有什么菜（产品功能）</li>
+  <li>你研究顾客喜欢吃什么（用户需求）</li>
+  <li>你协调后厨、服务员、采购（跨团队协作）</li>
+  <li>你关注营业额和口碑（商业指标）</li>
+</ul>
+<p>你不一定亲自炒菜（写代码），但每道菜的诞生都和你有关。</p>
+
+<h3 id="s1-2">1.2 产品经理 vs 其他角色</h3>
+<div class="table-wrap"><table>
+  <tr><th>对比维度</th><th>产品经理</th><th>项目经理</th><th>交互设计师</th></tr>
+  <tr><td>核心职责</td><td>做正确的事</td><td>正确地做事</td><td>让事情好用</td></tr>
+  <tr><td>关注重点</td><td>用户价值 + 商业价值</td><td>进度 + 质量 + 成本</td><td>用户体验 + 交互逻辑</td></tr>
+  <tr><td>典型产出</td><td>PRD、原型、路线图</td><td>项目计划、甘特图</td><td>交互稿、设计规范</td></tr>
+  <tr><td>决策权</td><td>做什么、为什么做</td><td>怎么做、何时做</td><td>长什么样、怎么交互</td></tr>
+</table></div>
+
+<h3 id="s1-3">1.3 产品经理的分类</h3>
+<div class="table-wrap"><table>
+  <tr><th>类型</th><th>特点</th><th>典型场景</th></tr>
+  <tr><td><strong>C 端产品经理</strong></td><td>面向普通用户，注重用户体验和增长</td><td>微信、抖音、淘宝</td></tr>
+  <tr><td><strong>B 端产品经理</strong></td><td>面向企业用户，注重效率和流程</td><td>CRM、ERP、OA 系统</td></tr>
+  <tr><td><strong>数据产品经理</strong></td><td>以数据为核心，构建数据产品</td><td>数据平台、BI 系统</td></tr>
+  <tr><td><strong>策略产品经理</strong></td><td>用算法和规则驱动产品</td><td>推荐系统、搜索引擎</td></tr>
+  <tr><td><strong>AI 产品经理</strong></td><td>将 AI 能力融入产品</td><td>智能助手、大模型应用</td></tr>
+</table></div>
+
+<h2 id="s2"><span class="section-num">二</span>核心能力模型</h2>
+
+<div class="callout callout-blue">💪 产品经理的能力像一座冰山：水面上是可见的硬技能（写 PRD、画原型），水面下是决定成长上限的软技能（商业思维、用户洞察、影响力）。</div>
+
+<h3 id="s2-1">2.1 能力全景图</h3>
+<div class="table-wrap"><table>
+  <tr><th>能力维度</th><th>初级（0-2年）</th><th>中级（2-5年）</th><th>高级（5年+）</th></tr>
+  <tr><td><strong>用户研究</strong></td><td>能做用户访谈、整理反馈</td><td>能设计用研方案、建立用户画像体系</td><td>能洞察未被满足的需求、预判趋势</td></tr>
+  <tr><td><strong>需求分析</strong></td><td>能拆解需求、写用户故事</td><td>能做需求优先级排序、建立需求池</td><td>能从战略层面规划产品方向</td></tr>
+  <tr><td><strong>产品设计</strong></td><td>能画原型、写 PRD</td><td>能设计复杂业务流程、信息架构</td><td>能定义产品框架、设计产品矩阵</td></tr>
+  <tr><td><strong>数据分析</strong></td><td>能看报表、做基础分析</td><td>能设计指标体系、做 AB 测试</td><td>能用数据驱动战略决策</td></tr>
+  <tr><td><strong>项目管理</strong></td><td>能跟进需求进度</td><td>能管理多项目并行</td><td>能管理产品组合和资源分配</td></tr>
+  <tr><td><strong>商业思维</strong></td><td>理解业务流程</td><td>能做竞品分析、商业建模</td><td>能设计商业模式、制定增长策略</td></tr>
+  <tr><td><strong>沟通影响力</strong></td><td>能清晰表达方案</td><td>能推动跨团队协作</td><td>能影响高层决策、塑造团队文化</td></tr>
+  <tr><td><strong>AI/技术理解</strong></td><td>了解基本技术概念</td><td>能评估技术可行性</td><td>能用 AI 重构产品体验</td></tr>
+</table></div>
+
+<h3 id="s2-2">2.2 七项核心硬技能</h3>
+
+<h4>① 用户研究</h4>
+<div class="callout callout-blue">洞察从来不是灵光一现，而是长期实地业务体感的积累与思考。</div>
+<p><strong>实地调研七字诀</strong>：法、备、看、问、记、结、撰</p>
+<div class="table-wrap"><table>
+  <tr><th>步骤</th><th>说明</th><th>关键要点</th></tr>
+  <tr><td><strong>法</strong></td><td>选择方法</td><td>定性（访谈/观察）vs 定量（问卷/数据）</td></tr>
+  <tr><td><strong>备</strong></td><td>充分准备</td><td>明确目标、准备提纲、了解背景</td></tr>
+  <tr><td><strong>看</strong></td><td>实地观察</td><td>看用户真实操作，而非听用户说</td></tr>
+  <tr><td><strong>问</strong></td><td>深度访谈</td><td>用开放式问题，避免引导性提问</td></tr>
+  <tr><td><strong>记</strong></td><td>详细记录</td><td>录音+笔记，记录行为和情绪</td></tr>
+  <tr><td><strong>结</strong></td><td>及时总结</td><td>当天整理，趁记忆新鲜</td></tr>
+  <tr><td><strong>撰</strong></td><td>撰写报告</td><td>提炼洞察，给出可执行建议</td></tr>
+</table></div>
+
+<p><strong>常见用研方法对比</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>方法</th><th>适用场景</th><th>优点</th><th>缺点</th></tr>
+  <tr><td>用户访谈</td><td>深入了解需求</td><td>信息丰富、可追问</td><td>耗时、样本小</td></tr>
+  <tr><td>问卷调查</td><td>大规模收集数据</td><td>样本大、可量化</td><td>深度不够</td></tr>
+  <tr><td>可用性测试</td><td>验证设计方案</td><td>发现真实问题</td><td>需要原型</td></tr>
+  <tr><td>数据分析</td><td>验证假设</td><td>客观、可量化</td><td>看不到原因</td></tr>
+  <tr><td>竞品分析</td><td>了解市场格局</td><td>快速获取信息</td><td>容易模仿而非创新</td></tr>
+  <tr><td>A/B 测试</td><td>方案对比决策</td><td>科学、可量化</td><td>需要流量和技术支持</td></tr>
+</table></div>
+
+<h4>② 需求分析与优先级</h4>
+<p><strong>需求分析框架：KANO 模型</strong></p>
+<div class="table-wrap"><table>
+  <tr><th>需求类型</th><th>说明</th><th>例子</th></tr>
+  <tr><td>基本型需求</td><td>没有会不满，有了觉得理所当然</td><td>微信能发消息</td></tr>
+  <tr><td>期望型需求</td><td>做得越好满意度越高</td><td>消息撤回功能</td></tr>
+  <tr><td>兴奋型需求</td><td>没有不会不满，有了很惊喜</td><td>拍一拍功能</td></tr>
+</table></div>
+<p><strong>优先级排序方法</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>方法</th><th>维度</th><th>适用场景</th></tr>
+  <tr><td>RICE</td><td>覆盖面×影响×信心÷投入</td><td>需要量化评估时</td></tr>
+  <tr><td>MoSCoW</td><td>Must/Should/Could/Won't</td><td>快速分类时</td></tr>
+  <tr><td>价值/复杂度矩阵</td><td>用户价值 vs 实现成本</td><td>日常需求排序</td></tr>
+  <tr><td>ICE</td><td>影响×信心×容易度</td><td>增长实验排序</td></tr>
+</table></div>
+
+<h4>③ PRD 撰写</h4>
+<div class="callout callout-blue">📋 PRD（产品需求文档）是产品经理的核心产出物，它是连接「想法」和「实现」的桥梁。一份好的 PRD 应该让开发看完后不需要再来问你问题。</div>
+<p><strong>PRD 标准结构</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>章节</th><th>内容</th><th>常见错误</th></tr>
+  <tr><td>背景与目标</td><td>为什么做、解决什么问题</td><td>只写功能不写原因</td></tr>
+  <tr><td>用户故事</td><td>作为XX，我想要XX，以便XX</td><td>跳过用户视角</td></tr>
+  <tr><td>功能范围</td><td>做什么、不做什么</td><td>范围不清晰</td></tr>
+  <tr><td>详细设计</td><td>交互流程、字段说明、异常处理</td><td>漏掉边界条件</td></tr>
+  <tr><td>数据需求</td><td>埋点方案、指标定义</td><td>上线后才想到数据</td></tr>
+  <tr><td>非功能需求</td><td>性能、安全、兼容性</td><td>完全忽略</td></tr>
+  <tr><td>风险与依赖</td><td>技术风险、外部依赖</td><td>后期才发现阻塞</td></tr>
+  <tr><td>排期建议</td><td>里程碑、优先级</td><td>没有分阶段</td></tr>
+</table></div>
+<p><strong>PRD 质量自检清单</strong>：</p>
+<ul>
+  <li>☐ 目标明确：能否用一句话说清楚这个需求要解决什么问题？</li>
+  <li>☐ 范围清晰：是否明确了做什么和不做什么？</li>
+  <li>☐ 流程完整：正常流程和异常流程都覆盖了吗？</li>
+  <li>☐ 边界清楚：极端情况（空值、超长、并发）考虑了吗？</li>
+  <li>☐ 数据可衡量：上线后怎么判断成功？指标是什么？</li>
+  <li>☐ 无歧义：开发和测试能否独立理解，不需要反复确认？</li>
+</ul>
+
+<h4>④ 产品路线图（Roadmap）</h4>
+<div class="table-wrap"><table>
+  <tr><th>原则</th><th>说明</th></tr>
+  <tr><td>按目标而非功能</td><td>写「提升用户留存」而非「加个签到功能」</td></tr>
+  <tr><td>时间粒度灵活</td><td>Now / Next / Later，不用精确日期</td></tr>
+  <tr><td>对齐 OKR</td><td>每个模块都能追溯到战略目标</td></tr>
+  <tr><td>区分受众</td><td>给老板看战略方向，给开发看具体计划</td></tr>
+  <tr><td>定期更新</td><td>每季度回顾调整，不是写完就锁死</td></tr>
+</table></div>
+
+<h4>⑤ 数据分析</h4>
+<p><strong>B 端产品数据埋点要点</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>要点</th><th>说明</th></tr>
+  <tr><td>核心指标先行</td><td>先定义北极星指标，再拆解子指标</td></tr>
+  <tr><td>行为 + 属性</td><td>记录用户做了什么 + 用户是谁</td></tr>
+  <tr><td>漏斗思维</td><td>关键路径的每一步转化率</td></tr>
+  <tr><td>异常监控</td><td>关注异常值和断崖式下跌</td></tr>
+</table></div>
+<p><strong>常用分析框架</strong>：</p>
+<ul>
+  <li><strong>AARRR 模型</strong>：获客→激活→留存→收入→推荐</li>
+  <li><strong>用户分层</strong>：RFM 模型、用户生命周期</li>
+  <li><strong>归因分析</strong>：找出关键转化因素</li>
+</ul>
+
+<h4>⑥ 竞品分析</h4>
+<div class="table-wrap"><table>
+  <tr><th>维度</th><th>分析内容</th></tr>
+  <tr><td>产品定位</td><td>目标用户、核心价值主张</td></tr>
+  <tr><td>功能对比</td><td>核心功能、差异化功能</td></tr>
+  <tr><td>用户体验</td><td>关键流程的易用性对比</td></tr>
+  <tr><td>商业模式</td><td>收入来源、定价策略</td></tr>
+  <tr><td>市场表现</td><td>用户量、增长率、口碑</td></tr>
+  <tr><td>技术方案</td><td>技术栈选择、架构特点</td></tr>
+</table></div>
+
+<h4>⑦ 项目管理</h4>
+<p><strong>需求排期最佳实践</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>实践</th><th>说明</th></tr>
+  <tr><td>方案评审前置</td><td>研发负责人在评审前就介入沟通</td></tr>
+  <tr><td>双向沟通</td><td>产品经理与研发保持积极双向沟通</td></tr>
+  <tr><td>子任务拆解</td><td>需求拆成可执行的子任务，明确负责人和工时</td></tr>
+  <tr><td>倒排期应对</td><td>活动类需求提前规划年度排期，沉淀历史数据</td></tr>
+</table></div>
+<p><strong>倒排期场景应对策略</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>场景</th><th>应对策略</th></tr>
+  <tr><td>电商活动（发布会/大促）</td><td>与业务方共同梳理年度活动排期，提前预留资源</td></tr>
+  <tr><td>大型项目规划</td><td>辟出专用资源，冲突时及时调整优先级</td></tr>
+  <tr><td>业务老板需求</td><td>建立快速响应机制</td></tr>
+  <tr><td>临时政策调整</td><td>预留 buffer，建立应急预案</td></tr>
+</table></div>
+
+<h2 id="s3"><span class="section-num">三</span>产品工作全流程</h2>
+
+<h3 id="s3-1">3.1 产品经理的日常工作流</h3>
+<p>发现机会 → 用户研究 → 需求定义 → 方案设计 → 产品评审 → 开发跟进 → 测试验收 → 上线发布 → 数据复盘 → 回到发现机会</p>
+
+<h3 id="s3-2">3.2 需求管理全流程</h3>
+<div class="callout callout-blue">📌 需求是产品经理的基本功。管理好需求，就是管理好产品的方向。</div>
+<p><strong>需求来源</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>来源</th><th>说明</th><th>处理方式</th></tr>
+  <tr><td>用户反馈</td><td>用户直接提出的痛点</td><td>用研验证后纳入需求池</td></tr>
+  <tr><td>数据分析</td><td>从数据中发现的问题</td><td>量化影响后评估优先级</td></tr>
+  <tr><td>业务方</td><td>业务部门提出的诉求</td><td>评估业务价值和技术可行性</td></tr>
+  <tr><td>竞品启发</td><td>竞品的新功能或策略</td><td>判断是否适合自身产品</td></tr>
+  <tr><td>战略规划</td><td>公司级战略方向</td><td>直接纳入高优先级</td></tr>
+  <tr><td>技术驱动</td><td>技术升级带来的机会</td><td>评估用户体验提升空间</td></tr>
+</table></div>
+<p><strong>需求评估五问</strong>：</p>
+<ol>
+  <li>这个需求解决了什么问题？（问题定义）</li>
+  <li>这个问题有多严重？（影响范围）</li>
+  <li>有多少人遇到这个问题？（用户覆盖）</li>
+  <li>不做会怎样？（紧迫程度）</li>
+  <li>做了能怎样？（预期收益）</li>
+</ol>
+
+<h3 id="s3-3">3.3 产品方案评审要点</h3>
+<p><strong>评审前准备</strong>：</p>
+<ul>
+  <li>方案文档已提前发送给参会人</li>
+  <li>关键数据和用户调研结论已准备充分</li>
+  <li>已与核心开发提前沟通技术可行性</li>
+  <li>明确评审目标：是收集意见还是达成决策</li>
+</ul>
+<p><strong>评审后跟进</strong>：</p>
+<ul>
+  <li>当天输出评审结论和 Action Items</li>
+  <li>跟进修改项的完成情况</li>
+  <li>更新文档版本并通知相关人</li>
+</ul>
+
+<h2 id="s4"><span class="section-num">四</span>B 端产品经理专题</h2>
+
+<h3 id="s4-1">4.1 B 端 vs C 端产品经理</h3>
+<div class="table-wrap"><table>
+  <tr><th>维度</th><th>B 端</th><th>C 端</th></tr>
+  <tr><td>用户特点</td><td>角色多样、流程复杂</td><td>用户单一、操作简单</td></tr>
+  <tr><td>决策方式</td><td>组织决策、流程驱动</td><td>个人决策、情感驱动</td></tr>
+  <tr><td>核心价值</td><td>效率提升、成本降低</td><td>体验愉悦、情感满足</td></tr>
+  <tr><td>获客方式</td><td>销售驱动、口碑推荐</td><td>增长驱动、病毒传播</td></tr>
+  <tr><td>迭代节奏</td><td>稳定迭代、兼容旧版</td><td>快速迭代、大胆试错</td></tr>
+  <tr><td>成功标准</td><td>客户续费率、使用深度</td><td>DAU、留存率、LTV</td></tr>
+</table></div>
+
+<h3 id="s4-2">4.2 B 端产品设计原则</h3>
+<div class="table-wrap"><table>
+  <tr><th>原则</th><th>说明</th><th>反面案例</th></tr>
+  <tr><td>流程优先</td><td>先理清业务流程再设计功能</td><td>堆砌功能页，用户不知从何开始</td></tr>
+  <tr><td>角色清晰</td><td>不同角色看到不同内容和操作</td><td>所有人看到一样，信息过载</td></tr>
+  <tr><td>效率为王</td><td>减少操作步骤，支持批量操作</td><td>一个审批要点 10 次</td></tr>
+  <tr><td>容错设计</td><td>操作可撤销，关键操作二次确认</td><td>误删数据无法恢复</td></tr>
+  <tr><td>数据驱动</td><td>提供数据看板，支持决策</td><td>只有录入没有分析</td></tr>
+</table></div>
+
+<h3 id="s4-3">4.3 企业系统典型场景</h3>
+<p><strong>需求管理实践</strong>（来自 MIT 飞书项目最佳实践）：</p>
+<div class="table-wrap"><table>
+  <tr><th>场景</th><th>最佳实践</th></tr>
+  <tr><td>需求提交</td><td>统一空间提交，自动化拉群通知</td></tr>
+  <tr><td>需求评估</td><td>产品评估后创建产品需求并关联业务需求</td></tr>
+  <tr><td>视图定制</td><td>按业务线/项目定制视图，避免信息过载</td></tr>
+  <tr><td>排期管理</td><td>评审后统一排期，子任务明确到人</td></tr>
+  <tr><td>延期管控</td><td>设置关注人，延期自动通知</td></tr>
+  <tr><td>例会应用</td><td>晨会看进度，周会看全局</td></tr>
+</table></div>
+
+<h2 id="s5"><span class="section-num">五</span>AI 时代的产品经理</h2>
+
+<div class="callout callout-yellow">🤖 AI 不会取代产品经理，但会用 AI 的产品经理会取代不会用的。2025-2026 年，AI 正在重塑产品经理的工作方式。</div>
+
+<h3 id="s5-1">5.1 AI 时代产品经理的新能力要求</h3>
+<div class="table-wrap"><table>
+  <tr><th>能力</th><th>说明</th><th>实践方式</th></tr>
+  <tr><td>AI 产品设计</td><td>设计 AI 驱动的产品体验</td><td>理解 LLM 能力边界，设计合理的 AI 交互</td></tr>
+  <tr><td>提示工程</td><td>用 Prompt 驱动 AI 工作</td><td>用 AI 辅助写 PRD、做竞品分析</td></tr>
+  <tr><td>数据飞轮思维</td><td>构建数据闭环</td><td>用户行为→数据→模型优化→更好体验</td></tr>
+  <tr><td>伦理意识</td><td>关注 AI 的公平性和安全性</td><td>避免算法偏见，保护用户隐私</td></tr>
+</table></div>
+
+<h3 id="s5-2">5.2 AI 如何提升产品经理效率</h3>
+<div class="table-wrap"><table>
+  <tr><th>场景</th><th>AI 工具</th><th>效率提升</th></tr>
+  <tr><td>写 PRD</td><td>Claude/ChatGPT 辅助撰写</td><td>初稿时间减少 50%</td></tr>
+  <tr><td>竞品分析</td><td>AI 自动抓取和对比</td><td>信息收集效率提升 3 倍</td></tr>
+  <tr><td>用户反馈分析</td><td>AI 情感分析和聚类</td><td>从海量反馈中快速提炼洞察</td></tr>
+  <tr><td>数据分析</td><td>AI 辅助数据解读</td><td>降低数据分析门槛</td></tr>
+  <tr><td>原型设计</td><td>AI 生成初版设计</td><td>快速验证想法</td></tr>
+  <tr><td>代码实现</td><td>Vibe Coding</td><td>产品经理可以直接实现简单功能</td></tr>
+</table></div>
+
+<h3 id="s5-3">5.3 Vibe Coding：产品经理的新技能</h3>
+<p>Vibe Coding 是指产品经理利用 AI 编程工具（如 Claude Code、Cursor 等）直接实现简单功能的能力。</p>
+<p><strong>适合 Vibe Coding 的场景</strong>：</p>
+<ul>
+  <li>数据处理脚本</li>
+  <li>简单的内部工具</li>
+  <li>原型验证</li>
+  <li>自动化报表</li>
+</ul>
+<p><strong>不适合的场景</strong>：</p>
+<ul>
+  <li>核心业务系统</li>
+  <li>涉及安全敏感的功能</li>
+  <li>需要长期维护的生产代码</li>
+</ul>
+
+<h2 id="s6"><span class="section-num">六</span>产品经理成长路径</h2>
+
+<h3 id="s6-1">6.1 职业发展阶段</h3>
+<div class="table-wrap"><table>
+  <tr><th>阶段</th><th>年限</th><th>关键词</th><th>核心任务</th></tr>
+  <tr><td><strong>入门期</strong></td><td>0-1 年</td><td>执行力</td><td>写好 PRD、跟进需求、学习业务</td></tr>
+  <tr><td><strong>成长期</strong></td><td>1-3 年</td><td>独立负责</td><td>独立负责模块、建立用研体系</td></tr>
+  <tr><td><strong>成熟期</strong></td><td>3-5 年</td><td>产品规划</td><td>负责完整产品线、制定路线图</td></tr>
+  <tr><td><strong>专家期</strong></td><td>5-8 年</td><td>战略思维</td><td>产品矩阵管理、商业模式设计</td></tr>
+  <tr><td><strong>领导者</strong></td><td>8 年+</td><td>组织影响力</td><td>建设产品团队、塑造产品文化</td></tr>
+</table></div>
+
+<h3 id="s6-2">6.2 新人成长建议</h3>
+<div class="callout callout-green">🌱 给产品经理新人的三条建议：
+<ol>
+  <li><strong>先做后想</strong>：不要追求完美方案，先快速执行再迭代优化</li>
+  <li><strong>靠近用户</strong>：每周至少和 1 个真实用户聊天</li>
+  <li><strong>写下来</strong>：把思考写下来，写作是最好的学习方式</li>
+</ol></div>
+<p><strong>新人 90 天计划</strong>：</p>
+<div class="table-wrap"><table>
+  <tr><th>阶段</th><th>时间</th><th>目标</th><th>行动</th></tr>
+  <tr><td>熟悉期</td><td>第 1-30 天</td><td>了解业务和团队</td><td>读文档、跟需求、参加评审</td></tr>
+  <tr><td>上手期</td><td>第 31-60 天</td><td>独立完成小需求</td><td>写 PRD、跟进开发、上线验收</td></tr>
+  <tr><td>贡献期</td><td>第 61-90 天</td><td>独立负责模块</td><td>主导需求、提出改进建议</td></tr>
+</table></div>
+
+<h3 id="s6-3">6.3 推荐书单</h3>
+<div class="table-wrap"><table>
+  <tr><th>书名</th><th>作者</th><th>适合阶段</th><th>核心收获</th></tr>
+  <tr><td>《启示录》</td><td>Marty Cagan</td><td>入门</td><td>PM 基本功和思维方式</td></tr>
+  <tr><td>《精益创业》</td><td>Eric Ries</td><td>入门</td><td>MVP 思维和快速验证</td></tr>
+  <tr><td>《用户体验要素》</td><td>Jesse James Garrett</td><td>入门</td><td>产品设计的五层框架</td></tr>
+  <tr><td>《俞军产品方法论》</td><td>俞军</td><td>成长</td><td>交易模型和用户价值</td></tr>
+  <tr><td>《走出软件构建陷阱》</td><td>Melissa Perri</td><td>成长</td><td>产品战略和路线图</td></tr>
+  <tr><td>《商业模式新生代》</td><td>Alexander Osterwalder</td><td>进阶</td><td>商业模式设计</td></tr>
+  <tr><td>《增长黑客》</td><td>Sean Ellis</td><td>进阶</td><td>增长方法论</td></tr>
+</table></div>
+
+<h2 id="s7"><span class="section-num">七</span>常用工具箱</h2>
+
+<h3 id="s7-1">7.1 产品经理工具链</h3>
+<div class="table-wrap"><table>
+  <tr><th>类别</th><th>工具</th><th>用途</th></tr>
+  <tr><td><strong>需求管理</strong></td><td>飞书项目(Meego)、Jira、Linear</td><td>需求跟踪、迭代管理</td></tr>
+  <tr><td><strong>原型设计</strong></td><td>Figma、Axure、墨刀</td><td>交互原型、设计稿</td></tr>
+  <tr><td><strong>文档协作</strong></td><td>飞书文档、Notion、Confluence</td><td>PRD、方案文档</td></tr>
+  <tr><td><strong>数据分析</strong></td><td>神策、GrowingIO、Tableau</td><td>埋点分析、数据看板</td></tr>
+  <tr><td><strong>用户研究</strong></td><td>问卷星、UserTesting、腾讯问卷</td><td>问卷、可用性测试</td></tr>
+  <tr><td><strong>项目管理</strong></td><td>飞书项目、Tapd、禅道</td><td>进度跟踪、风险管理</td></tr>
+  <tr><td><strong>思维导图</strong></td><td>XMind、飞书思维笔记</td><td>思路梳理、方案发散</td></tr>
+  <tr><td><strong>AI 工具</strong></td><td>Claude、ChatGPT、MiCo</td><td>辅助写作、分析、编程</td></tr>
+</table></div>
+
+<h3 id="s7-2">7.2 产品经理常用模板</h3>
+<div class="table-wrap"><table>
+  <tr><th>模板</th><th>用途</th><th>关键字段</th></tr>
+  <tr><td>PRD 模板</td><td>需求文档</td><td>背景、目标、用户故事、功能设计、数据需求</td></tr>
+  <tr><td>竞品分析模板</td><td>市场研究</td><td>产品定位、功能对比、SWOT 分析</td></tr>
+  <tr><td>用户画像模板</td><td>用户研究</td><td>基本信息、行为特征、痛点需求</td></tr>
+  <tr><td>需求池模板</td><td>需求管理</td><td>需求描述、来源、优先级、状态</td></tr>
+  <tr><td>复盘模板</td><td>项目总结</td><td>目标回顾、结果分析、经验教训</td></tr>
+</table></div>
+
+<h2 id="s8"><span class="section-num">八</span>常见问题 FAQ</h2>
+
+<h4>Q：产品经理需要会写代码吗？</h4>
+<div class="callout callout-blue">不需要，但需要理解技术。你不需要自己写代码，但要能和开发顺畅沟通，理解技术方案的可行性和成本。随着 AI 工具的发展，产品经理可以通过 Vibe Coding 实现简单的数据处理和原型。</div>
+
+<h4>Q：产品经理最大的挑战是什么？</h4>
+<div class="callout callout-blue">在有限资源下做出正确的取舍。永远有做不完的需求，关键是判断什么不做。</div>
+
+<h4>Q：如何提升用户洞察能力？</h4>
+<div class="callout callout-blue">三个方法：1）定期做用户访谈，建立「用户声音」库；2）深度使用自己的产品，走完所有流程；3）分析用户行为数据，找到数据背后的「为什么」。</div>
+
+<h4>Q：B 端和 C 端产品经理怎么选？</h4>
+<div class="callout callout-blue">看你的兴趣：喜欢研究人性和情感选 C 端，喜欢研究流程和效率选 B 端。B 端更稳定，C 端变化更快。两者没有高下之分，关键是深耕一个领域。</div>
+
+<h4>Q：如何处理需求变更？</h4>
+<div class="callout callout-blue">1）理解变更原因，是真的需求变化还是之前没想清楚；2）评估变更影响（范围、进度、资源）；3）与相关方达成共识；4）更新文档并通知所有人；5）总结经验，下次提前识别风险。</div>
+
+<h4>Q：产品经理如何做向上管理？</h4>
+<div class="callout callout-blue">1）用数据说话，减少主观判断；2）提前对齐预期，不要给惊喜；3）给选择题而非问答题；4）主动同步进展，不让老板来问你；5）关键时刻敢于说「不」并给出理由。</div>
+
+<h2 id="s9"><span class="section-num">九</span>飞书内部资源速查</h2>
+
+<div class="callout callout-blue">📚 以下资源来自团队飞书文档，可直接访问学习。</div>
+<div class="table-wrap"><table>
+  <tr><th>分类</th><th>资源</th><th>说明</th></tr>
+  <tr><td>组织成长</td><td>HandMI MIT武汉产品经理成长小组</td><td>定期组织思懂会、培训等活动</td></tr>
+  <tr><td>能力模型</td><td>【产品类-后台产品】能力模型</td><td>后台产品能力评估标准</td></tr>
+  <tr><td>PRD 模板</td><td>MIT 产品方案文档模版 V1.8</td><td>P1/P2 项目通用模板</td></tr>
+  <tr><td>用研方法</td><td>浅浅分享用户研究方法</td><td>用研方法论分享</td></tr>
+  <tr><td>实战案例</td><td>MIT产品经理实战案例分享</td><td>集成工作台、体验设计、现场调研等</td></tr>
+  <tr><td>AI 能力</td><td>产品经理 Vibe Coding 知识库</td><td>帮助 PM 提升 AI 工作技能</td></tr>
+  <tr><td>典型实践</td><td>产品经理-典型场景实践</td><td>需求管理、排期、例会等最佳实践</td></tr>
+</table></div>
+
+<hr>
+<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center;">本指南基于 AI 知识库、公开资源及团队飞书文档整理，2026年8月更新</p>
+
 </main>
+</div>
 
 <script>
+function toggleTheme() {
+  var root = document.documentElement;
+  if (root.getAttribute('data-theme') === 'dark') {
+    root.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    root.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+}
 (function() {
-  const MD_FILE = '产品经理_完全指南.md';
-
-  // 简易 Markdown → HTML 转换
-  function mdToHtml(md) {
-    let html = '';
-    const lines = md.split('\n');
-    let inCode = false;
-    let inTable = false;
-    let tableRows = [];
-    let inList = false;
-    let listType = '';
-    let inBlockquote = false;
-    let blockquoteLines = [];
-
-    function flushBlockquote() {
-      if (inBlockquote && blockquoteLines.length) {
-        html += '<blockquote><p>' + blockquoteLines.join('<br>') + '</p></blockquote>\n';
-        blockquoteLines = [];
-        inBlockquote = false;
-      }
-    }
-    function flushTable() {
-      if (inTable && tableRows.length) {
-        html += '<table>';
-        tableRows.forEach(function(row, i) {
-          const tag = i === 0 ? 'th' : 'td';
-          const cells = row.split('|').map(function(s) { return s.trim(); }).filter(Boolean);
-          if (i === 1) return; // separator row
-          html += '<tr>' + cells.map(function(c) { return '<' + tag + '>' + inline(c) + '</' + tag + '>'; }).join('') + '</tr>';
-        });
-        html += '</table>\n';
-        tableRows = [];
-        inTable = false;
-      }
-    }
-    function flushList() {
-      if (inList) {
-        html += '</' + listType + '>\n';
-        inList = false;
-      }
-    }
-
-    function inline(text) {
-      return text
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/`([^`]+)`/g, '<code>$1</code>')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-    }
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-
-      // 代码块
-      if (line.trim().startsWith('```')) {
-        flushBlockquote(); flushTable(); flushList();
-        if (inCode) {
-          html += '</code></pre>\n';
-          inCode = false;
-        } else {
-          html += '<pre><code>';
-          inCode = true;
-        }
-        continue;
-      }
-      if (inCode) {
-        html += line.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '\n';
-        continue;
-      }
-
-      // 空行
-      if (!line.trim()) {
-        flushBlockquote(); flushTable(); flushList();
-        continue;
-      }
-
-      // 标题
-      const headingMatch = line.match(/^(#{1,6})\s+(.+)/);
-      if (headingMatch) {
-        flushBlockquote(); flushTable(); flushList();
-        const level = headingMatch[1].length;
-        const text = headingMatch[2].replace(/\s*\{[^}]*\}/, '');
-        const id = 'h-' + text.replace(/[^\w一-鿿]+/g, '-').replace(/^-|-$/g, '');
-        html += '<h' + level + ' id="' + id + '">' + inline(text) + '</h' + level + '>\n';
-        continue;
-      }
-
-      // 表格
-      if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
-        flushBlockquote(); flushList();
-        if (!inTable) inTable = true;
-        tableRows.push(line.trim());
-        continue;
-      } else {
-        flushTable();
-      }
-
-      // 引用
-      if (line.trim().startsWith('>')) {
-        flushTable(); flushList();
-        inBlockquote = true;
-        blockquoteLines.push(inline(line.trim().replace(/^>\s*/, '')));
-        continue;
-      } else {
-        flushBlockquote();
-      }
-
-      // 列表
-      const ulMatch = line.match(/^(\s*)[-*]\s+(.+)/);
-      const olMatch = line.match(/^(\s*)\d+\.\s+(.+)/);
-      if (ulMatch || olMatch) {
-        flushBlockquote(); flushTable();
-        const match = ulMatch || olMatch;
-        const type = ulMatch ? 'ul' : 'ol';
-        if (!inList || listType !== type) {
-          flushList();
-          html += '<' + type + '>\n';
-          inList = true;
-          listType = type;
-        }
-        html += '<li>' + inline(match[2]) + '</li>\n';
-        continue;
-      } else {
-        flushList();
-      }
-
-      // 分隔线
-      if (/^---+$/.test(line.trim())) {
-        flushBlockquote(); flushTable(); flushList();
-        html += '<hr>\n';
-        continue;
-      }
-
-      // 普通段落
-      flushBlockquote(); flushTable(); flushList();
-      html += '<p>' + inline(line) + '</p>\n';
-    }
-    flushBlockquote(); flushTable(); flushList();
-    if (inCode) html += '</code></pre>\n';
-    return html;
-  }
-
-  // 生成目录
-  function buildToc() {
-    const headings = document.querySelectorAll('.article h2, .article h3, .article h4');
-    const tocList = document.getElementById('tocList');
-    headings.forEach(function(h) {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = '#' + h.id;
-      a.textContent = h.textContent;
-      a.className = 'toc-' + h.tagName.toLowerCase();
-      a.addEventListener('click', function() {
-        document.getElementById('tocSidebar').classList.remove('open');
-      });
-      li.appendChild(a);
-      tocList.appendChild(li);
-    });
-
-    // 滚动高亮
-    const tocLinks = tocList.querySelectorAll('a');
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          tocLinks.forEach(function(a) { a.classList.remove('active'); });
-          const active = tocList.querySelector('a[href="#' + entry.target.id + '"]');
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-72px 0px -70% 0px' });
-    headings.forEach(function(h) { observer.observe(h); });
-  }
-
-  // 加载 MD 文件
-  fetch(MD_FILE)
-    .then(function(r) { return r.text(); })
-    .then(function(md) {
-      document.getElementById('article').innerHTML = mdToHtml(md);
-      buildToc();
-    })
-    .catch(function() {
-      document.getElementById('article').innerHTML = '<p>加载文档失败，请确认 ' + MD_FILE + ' 文件存在。</p>';
-    });
-
-  // 移动端目录切换
-  document.getElementById('tocToggle').addEventListener('click', function() {
-    document.getElementById('tocSidebar').classList.toggle('open');
-  });
-  document.addEventListener('click', function(e) {
-    var sidebar = document.getElementById('tocSidebar');
-    var toggle = document.getElementById('tocToggle');
-    if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
-      sidebar.classList.remove('open');
-    }
-  });
+  var saved = localStorage.getItem('theme');
+  if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
 })();
 </script>
 </body>
