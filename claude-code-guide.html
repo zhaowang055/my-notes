@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 完全指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --bg-card: #FFFFFF;
+    --bg-code: #F1F5F9;
+    --bg-callout-blue: #EFF6FF;
+    --bg-callout-yellow: #FFFBEB;
+    --bg-callout-green: #F0FDF4;
+    --bg-callout-orange: #FFF7ED;
+    --bg-table-header: #F1F5F9;
+    --bg-table-alt: #F8FAFC;
+    --text: #1A1A2E;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --accent: #2563EB;
+    --accent-light: #DBEAFE;
+    --border: #E2E8F0;
+    --border-light: #F1F5F9;
+    --code-text: #0F172A;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --radius: 8px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F172A;
+      --bg-card: #1E293B;
+      --bg-code: #1E293B;
+      --bg-callout-blue: #172554;
+      --bg-callout-yellow: #422006;
+      --bg-callout-green: #052E16;
+      --bg-callout-orange: #431407;
+      --bg-table-header: #1E293B;
+      --bg-table-alt: #0F172A;
+      --text: #E2E8F0;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent: #60A5FA;
+      --accent-light: #1E3A5F;
+      --border: #334155;
+      --border-light: #1E293B;
+      --code-text: #E2E8F0;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F172A;
+    --bg-card: #1E293B;
+    --bg-code: #1E293B;
+    --bg-callout-blue: #172554;
+    --bg-callout-yellow: #422006;
+    --bg-callout-green: #052E16;
+    --bg-callout-orange: #431407;
+    --bg-table-header: #1E293B;
+    --bg-table-alt: #0F172A;
+    --text: #E2E8F0;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --accent: #60A5FA;
+    --accent-light: #1E3A5F;
+    --border: #334155;
+    --border-light: #1E293B;
+    --code-text: #E2E8F0;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Layout */
+  .page { display: flex; min-height: 100vh; }
+  .sidebar {
+    position: sticky; top: 0; height: 100vh; width: 280px; min-width: 280px;
+    overflow-y: auto; padding: 32px 24px; border-right: 1px solid var(--border);
+    background: var(--bg-card); z-index: 10;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .sidebar-title {
+    font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em;
+    text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .sidebar a {
+    display: block; padding: 6px 0; color: var(--text-secondary); text-decoration: none;
+    font-size: 13px; line-height: 1.5; transition: color 0.15s;
+  }
+  .sidebar a:hover { color: var(--accent); }
+  .sidebar a.section-link { font-weight: 600; color: var(--text); margin-top: 16px; font-size: 14px; }
+  .sidebar a.sub-link { padding-left: 16px; font-weight: 400; }
+  .main { flex: 1; max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed; top: 20px; right: 24px; z-index: 100;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 14px; cursor: pointer; font-size: 14px; color: var(--text-secondary);
+    box-shadow: var(--shadow-md); transition: all 0.2s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  /* Typography */
+  h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; text-wrap: balance; }
+  h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 56px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); line-height: 1.3; text-wrap: balance; }
+  h3 { font-size: 1.2rem; font-weight: 600; margin: 36px 0 12px; line-height: 1.4; text-wrap: balance; }
+  h4 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; color: var(--text-secondary); }
+  p { margin-bottom: 16px; color: var(--text); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  /* Intro section */
+  .intro { margin-bottom: 40px; }
+  .intro p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; }
+  /* Callout */
+  .callout {
+    padding: 16px 20px; border-radius: var(--radius); margin: 20px 0;
+    font-size: 0.95rem; line-height: 1.7; border-left: 4px solid;
+  }
+  .callout-blue { background: var(--bg-callout-blue); border-color: var(--accent); }
+  .callout-yellow { background: var(--bg-callout-yellow); border-color: #F59E0B; }
+  .callout-green { background: var(--bg-callout-green); border-color: #22C55E; }
+  .callout-orange { background: var(--bg-callout-orange); border-color: #F97316; }
+  .callout .emoji { margin-right: 6px; }
+  /* Code */
+  code {
+    font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    font-size: 0.88em; background: var(--bg-code); color: var(--code-text);
+    padding: 2px 6px; border-radius: 4px; font-variant-ligatures: none;
+  }
+  pre {
+    background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px; margin: 16px 0; overflow-x: auto; font-size: 0.88rem;
+    line-height: 1.65; box-shadow: var(--shadow-sm);
+  }
+  pre code { background: none; padding: 0; font-size: inherit; }
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: var(--radius); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th {
+    background: var(--bg-table-header); text-align: left; padding: 12px 16px;
+    font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--text-muted); border-bottom: 2px solid var(--border);
+  }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--bg-table-alt); }
+  /* Lists */
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; }
+  li::marker { color: var(--accent); }
+  /* Section numbering */
+  .section-num {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--accent);
+    background: var(--accent-light); padding: 2px 10px; border-radius: 12px;
+    margin-right: 8px; letter-spacing: 0.02em;
+  }
+  /* Comparison cards */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .compare-card {
+    padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);
+    background: var(--bg-card);
+  }
+  .compare-card h4 { margin: 0 0 8px; font-size: 0.95rem; }
+  /* Responsive */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .main { padding: 32px 20px 60px; }
+    .compare { grid-template-columns: 1fr; }
+    .theme-toggle { top: 12px; right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">🌓 主题</button>
+
+<div class="page">
+<nav class="sidebar">
+  <div class="sidebar-title">📖 目录导航</div>
+  <a href="#what" class="section-link">什么是 Claude Code</a>
+  <a href="#prereq" class="section-link">0. 前置知识</a>
+  <a href="#terminal" class="sub-link">终端/命令行</a>
+  <a href="#commands5" class="sub-link">5 个基础命令</a>
+  <a href="#nodejs" class="sub-link">Node.js 与 npm</a>
+  <a href="#install" class="section-link">1. 安装与启动</a>
+  <a href="#auth" class="sub-link">认证登录</a>
+  <a href="#usage" class="section-link">2. 基本使用</a>
+  <a href="#slash" class="section-link">3. 斜杠命令</a>
+  <a href="#tips" class="section-link">4. 实用技巧</a>
+  <a href="#skill" class="section-link">5. 核心概念</a>
+  <a href="#skill-detail" class="sub-link">Skill 技能</a>
+  <a href="#mcp" class="sub-link">MCP 协议</a>
+  <a href="#claude-md" class="sub-link">CLAUDE.md</a>
+  <a href="#memory" class="sub-link">Memory 记忆</a>
+  <a href="#plan-mode" class="sub-link">Plan Mode</a>
+  <a href="#sub-agents" class="sub-link">子代理</a>
+  <a href="#hooks" class="sub-link">Hooks</a>
+  <a href="#openclaw" class="section-link">6. Claude Code 与 OpenClaw</a>
+  <a href="#cases" class="section-link">7. 实战案例</a>
+  <a href="#advanced" class="section-link">8. 进阶技巧</a>
+  <a href="#best" class="section-link">9. 最佳实践</a>
+  <a href="#faq" class="section-link">10. 常见问题</a>
+</nav>
+
+<main class="main">
+
+<div class="intro">
+<h1>Claude Code 完全指南</h1>
+<p>从入门到进阶，一本面向零基础用户的 Claude Code 使用手册。涵盖环境准备、核心概念、实战案例、进阶技巧，以及与 OpenClaw 的关系。</p>
+</div>
+
+<!-- ==================== 什么是 Claude Code ==================== -->
+<h2 id="what">什么是 Claude Code？</h2>
+
+<div class="callout callout-blue">
+  <span class="emoji">💡</span> <strong>一句话理解</strong>：Claude Code 是一个住在你终端（命令行）里的 AI 编程助手。你用自然语言告诉它想做什么，它就能帮你读代码、写代码、运行命令、管理文件——就像一个随时在线的程序员搭档。
+</div>
+
+<h3>它能做什么？</h3>
+<div class="table-wrap"><table>
+<tr><th>能力</th><th>举例</th></tr>
+<tr><td>📖 阅读和理解代码</td><td>"帮我解释一下这个项目的代码结构"</td></tr>
+<tr><td>✏️ 编写和修改代码</td><td>"帮我写一个 Python 快速排序函数"</td></tr>
+<tr><td>🖥️ 执行终端命令</td><td>"帮我运行 npm install"</td></tr>
+<tr><td>🐛 调试和修复 Bug</td><td>"这段代码报错了，帮我找原因并修复"</td></tr>
+<tr><td>📁 管理文件</td><td>"帮我在 src 目录下创建一个新的组件文件"</td></tr>
+<tr><td>🔍 搜索代码库</td><td>"帮我找到所有调用 getUserInfo 的地方"</td></tr>
+</table></div>
+
+<h3>它和 ChatGPT / 网页版 Claude 有什么区别？</h3>
+<div class="table-wrap"><table>
+<tr><th>对比项</th><th>ChatGPT / 网页版 Claude</th><th>Claude Code</th></tr>
+<tr><td>运行环境</td><td>浏览器里聊天</td><td>你电脑的终端里</td></tr>
+<tr><td>能否读你的代码</td><td>不能，需要你手动粘贴</td><td>能，直接读取你的项目文件</td></tr>
+<tr><td>能否修改文件</td><td>不能</td><td>能，直接帮你创建和编辑文件</td></tr>
+<tr><td>能否运行命令</td><td>不能</td><td>能，帮你在终端执行命令</td></tr>
+<tr><td>适用场景</td><td>通用问答、写小段代码</td><td>真正的项目开发工作</td></tr>
+</table></div>
+
+<!-- ==================== 前置知识 ==================== -->
+<h2 id="prereq"><span class="section-num">0</span>前置知识</h2>
+
+<div class="callout callout-yellow">
+  <span class="emoji">📚</span> 如果你从未接触过编程，这一章会帮你理解后面会反复出现的几个基本概念。已经有一定基础的同学可以跳过。
+</div>
+
+<h3 id="terminal">什么是终端（Terminal）/ 命令行？</h3>
+<p><strong>你平时怎么操作电脑？</strong> 点击图标、双击文件、右键菜单——这叫"图形界面"。<strong>终端是另一种操作电脑的方式</strong>：你输入一行文字命令，电脑执行后把结果显示出来。</p>
+<p>举个例子：</p>
+<ul>
+<li>图形界面操作：打开文件管理器 → 找到文件夹 → 右键 → 删除</li>
+<li>终端操作：输入 <code>rm -rf 文件夹名</code> → 回车 → 完成</li>
+</ul>
+<p><strong>为什么 Claude Code 要用终端？</strong> 因为终端是最高效的"人机对话"方式。Claude Code 住在终端里，你在终端里和它用文字对话，它就能帮你操作电脑。</p>
+
+<div class="table-wrap"><table>
+<tr><th>系统</th><th>打开方式</th></tr>
+<tr><td>Windows</td><td>按 <code>Win + X</code>，选择"Windows PowerShell"或"终端"；或者在开始菜单搜索"PowerShell"</td></tr>
+<tr><td>Mac</td><td>按 <code>Command + 空格</code>，输入 <code>Terminal</code>，按回车</td></tr>
+</table></div>
+
+<div class="callout callout-green">
+  <span class="emoji">💡</span> <strong>小技巧</strong>：建议把终端固定到任务栏/Dock 栏上，后续你会经常用到它。
+</div>
+
+<h3 id="commands5">终端基础命令速查（5 个就够了）</h3>
+<div class="table-wrap"><table>
+<tr><th>命令</th><th>含义</th><th>例子</th></tr>
+<tr><td><code>pwd</code></td><td>我在哪？（显示当前路径）</td><td><code>pwd</code> → <code>/Users/yourname</code></td></tr>
+<tr><td><code>ls</code> / <code>dir</code></td><td>这里有什么？（列出文件）</td><td><code>ls</code> → 显示当前目录文件列表</td></tr>
+<tr><td><code>cd 文件夹名</code></td><td>去别的地方（进入目录）</td><td><code>cd Desktop</code> → 进入桌面</td></tr>
+<tr><td><code>mkdir 文件夹名</code></td><td>创建新文件夹</td><td><code>mkdir my-project</code> → 创建项目目录</td></tr>
+<tr><td><code>clear</code></td><td>清空屏幕</td><td>屏幕太乱时用</td></tr>
+</table></div>
+
+<div class="callout callout-green">
+  <span class="emoji">🎯</span> <strong>练习一下</strong>：打开终端，依次执行 <code>pwd</code> → <code>ls</code> → <code>cd Desktop</code> → <code>mkdir ai-tools</code> → <code>cd ai-tools</code>。如果每一步都成功了，终端入门完成！
+</div>
+
+<h3>什么是目录/文件夹和根目录？</h3>
+<p>"目录"就是"文件夹"，两个词是同一个东西。<strong>根目录</strong>就是你项目文件夹的最顶层：</p>
+<pre><code>my-website/            ← 这就是项目根目录
+├── src/               ← 源代码目录
+│   ├── index.js
+│   └── style.css
+├── package.json       ← 项目配置文件
+└── README.md          ← 项目说明文件</code></pre>
+
+<h3 id="nodejs">什么是 Node.js？什么是 npm？</h3>
+<p><strong>Node.js</strong> 是一个让 JavaScript 代码能在电脑上运行的环境。Claude Code 是用 JavaScript 写的，所以需要 Node.js 才能运行。</p>
+<p><strong>npm</strong> 是 Node.js 的"应用商店"，用来安装各种工具。<code>npm install xxx</code> 就像在应用商店点"安装"。npm 随着 Node.js 一起安装，装了 Node.js 就自动有了 npm。</p>
+
+<h3>什么是项目依赖（Dependencies）？</h3>
+<p><strong>依赖就是你的项目需要用到的"别人的代码"。</strong> 比如你做网站需要用到 React（别人写好的 UI 框架）。<strong>package.json</strong> 是项目的"购物清单"，记录了需要哪些依赖。<code>npm install</code> 就是按清单把所有依赖下载下来。</p>
+
+<h3>什么是 .md 文件？</h3>
+<p><code>.md</code> 是 Markdown 文件，一种简单的排版语言，用纯文本就能写出带格式的文档。飞书、Notion 底层很多都是 Markdown。</p>
+
+<!-- ==================== 安装 ==================== -->
+<h2 id="install"><span class="section-num">1</span>环境准备与安装</h2>
+
+<h3>安装 Claude Code</h3>
+<p>Claude Code 提供了<strong>原生安装器</strong>，不需要安装 Node.js 也能用，一行命令搞定。</p>
+<p><strong>Mac 用户：</strong></p>
+<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+<p><strong>Windows 用户（PowerShell）：</strong></p>
+<pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+<p><strong>验证安装：</strong></p>
+<pre><code>claude --version</code></pre>
+<p>看到版本号说明安装成功。</p>
+
+<div class="callout callout-green">
+  <span class="emoji">💡</span> <strong>不想用命令行安装？</strong> 也可以在 VSCode 扩展商店搜索 "Claude Code" 安装，直接在编辑器里使用。
+</div>
+
+<h3 id="auth">认证登录</h3>
+<p><strong>方式一：API Key（推荐）</strong></p>
+<ol>
+<li>访问 <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>，注册账号</li>
+<li>在 API Keys 页面创建密钥（<code>sk-ant-</code> 开头）</li>
+<li>在 Billing 页面添加付款方式，设置月度上限（如 $20）</li>
+<li>在终端设置环境变量：</li>
+</ol>
+<pre><code># Mac/Linux
+export ANTHROPIC_API_KEY="sk-ant-你的密钥"
+
+# Windows PowerShell
+$env:ANTHROPIC_API_KEY="sk-ant-你的密钥"</code></pre>
+
+<p><strong>方式二：Claude Pro/Max 订阅</strong></p>
+<p>直接在终端输入 <code>claude</code>，会弹出浏览器让你用 claude.ai 账号登录。</p>
+<p><strong>确认登录成功：</strong></p>
+<pre><code>claude doctor</code></pre>
+
+<div class="callout callout-yellow">
+  <span class="emoji">💰</span> <strong>费用参考</strong>：日常轻度使用，月费用大约 $5-$15。建议在 Anthropic Console 设置月度上限，防止意外超支。
+</div>
+
+<h3>启动</h3>
+<pre><code>cd 你的项目目录    # 先进入项目文件夹
+claude             # 启动</code></pre>
+<p>看到 <code>></code> 提示符后就可以对话了。<strong>退出方式</strong>：输入 <code>/exit</code> 或按 <code>Ctrl + C</code> 两次。</p>
+
+<!-- ==================== 基本使用 ==================== -->
+<h2 id="usage"><span class="section-num">2</span>基本使用方式</h2>
+
+<h3>直接提问</h3>
+<pre><code>> 帮我解释一下这个项目的代码结构</code></pre>
+
+<h3>让它执行命令</h3>
+<pre><code>> 帮我运行 npm install</code></pre>
+
+<h3>让它写代码</h3>
+<pre><code>> 帮我写一个 Python 函数，实现快速排序</code></pre>
+
+<h3>让它修改现有代码</h3>
+<pre><code>> 帮我给 src/utils.js 里的 formatDate 函数加上时区处理</code></pre>
+
+<h3>多行输入</h3>
+<p>按 <strong>Shift + Enter</strong> 换行，输入完再按 Enter 发送。</p>
+
+<!-- ==================== 斜杠命令 ==================== -->
+<h2 id="slash"><span class="section-num">3</span>常用斜杠命令</h2>
+
+<div class="table-wrap"><table>
+<tr><th>命令</th><th>说明</th><th>使用场景</th></tr>
+<tr><td><code>/help</code></td><td>查看帮助信息</td><td>不知道怎么用的时候</td></tr>
+<tr><td><code>/model</code></td><td>切换 AI 模型</td><td>想用更强/更快的模型时</td></tr>
+<tr><td><code>/clear</code></td><td>清除当前对话上下文</td><td>换一个新话题时</td></tr>
+<tr><td><code>/compact</code></td><td>压缩对话历史</td><td>对话太长、响应变慢时</td></tr>
+<tr><td><code>/cost</code></td><td>查看 token 用量和费用</td><td>想知道花了多少钱时</td></tr>
+<tr><td><code>/config</code></td><td>查看或修改配置</td><td>调整设置时</td></tr>
+<tr><td><code>/fast</code></td><td>切换快速模式</td><td>想要更快的响应时</td></tr>
+<tr><td><code>/init</code></td><td>自动生成 CLAUDE.md</td><td>初始化项目配置时</td></tr>
+<tr><td><code>/context</code></td><td>查看上下文窗口使用情况</td><td>想知道哪些内容占了空间时</td></tr>
+</table></div>
+
+<!-- ==================== 实用技巧 ==================== -->
+<h2 id="tips"><span class="section-num">4</span>实用技巧</h2>
+
+<h3>用 <code>!</code> 直接执行命令</h3>
+<p>加 <code>!</code> 前缀可以直接运行命令，省去 Claude 思考的时间和费用：</p>
+<pre><code>> ! git status
+> ! dir</code></pre>
+
+<h3>用 <code>@</code> 引用文件</h3>
+<pre><code>> 请阅读 @README.md 并告诉我这个项目是做什么的
+> 看看 @src/components/Header.tsx 有什么问题</code></pre>
+
+<h3>用 <code>think</code> 触发深度思考</h3>
+<pre><code>> think hard: 请帮我设计一个完整的用户增长漏斗分析框架</code></pre>
+
+<h3>拖拽文件到终端</h3>
+<p>图片、PDF、CSV 等文件可以直接拖拽到终端窗口，自动填入路径。</p>
+
+<h3>粘贴图片</h3>
+<p>Claude Code 支持直接粘贴图片（Ctrl+V）。可以粘贴 UI 设计稿让它照着实现，或粘贴报错截图让它诊断。</p>
+
+<h3>设置预算上限</h3>
+<pre><code>claude --max-budget-usd 5</code></pre>
+<p>这次对话最多花 $5，到了上限自动停止。</p>
+
+<h3>权限模式</h3>
+<p>按 <strong>Shift + Tab</strong> 可以在三种模式间切换：</p>
+<div class="table-wrap"><table>
+<tr><th>模式</th><th>说明</th></tr>
+<tr><td>建议模式（默认）</td><td>Claude 先告诉你计划，你确认后才执行</td></tr>
+<tr><td>自动模式</td><td>自动批准安全操作</td></tr>
+<tr><td>Plan Mode</td><td>只读不写，用于探索和规划</td></tr>
+</table></div>
+
+<!-- ==================== 核心概念 ==================== -->
+<h2 id="skill"><span class="section-num">5</span>核心概念详解</h2>
+
+<h3 id="skill-detail">Skill（技能）—— 给 Claude Code 装"技能包"</h3>
+<div class="callout callout-blue">
+  <span class="emoji">🎯</span> <strong>一句话理解</strong>：Skill 就是你预先写好的"操作手册"，告诉 Claude Code "遇到某类任务时，按这个步骤来做"。
+</div>
+<p>Skill 本质上就是一个 <code>.md</code> 文件，用自然语言写清楚执行步骤。就像你写给同事的操作手册，只不过"同事"换成了 Claude Code。</p>
+
+<h4>两种 Skill 类型</h4>
+<div class="table-wrap"><table>
+<tr><th>类型</th><th>说明</th><th>触发方式</th></tr>
+<tr><td><strong>参考型</strong></td><td>Claude 需要时自动加载</td><td>自动，不用管</td></tr>
+<tr><td><strong>工作流型</strong></td><td>你主动用 <code>/命令</code> 触发</td><td>手动输入命令</td></tr>
+</table></div>
+
+<p><strong>工作流型示例</strong>（代码审查）：</p>
+<pre><code># .claude/skills/review/SKILL.md
+---
+name: review
+description: 代码审查流程
+---
+当用户要求审查代码时：
+1. 检查语法错误
+2. 检查潜在 Bug
+3. 检查代码风格
+4. 检查安全漏洞
+5. 给出改进建议</code></pre>
+
+<div class="callout callout-green">
+  <span class="emoji">💡</span> <strong>不知道怎么创建？</strong> 直接让 Claude Code 帮你："帮我创建 .claude/skills/ 目录，并在里面创建一个 review.md 文件。" 它会自动完成。
+</div>
+
+<h4>Skills 生态资源</h4>
+<div class="table-wrap"><table>
+<tr><th>资源</th><th>地址</th></tr>
+<tr><td>官方 Skills 仓库</td><td>github.com/anthropics/skills</td></tr>
+<tr><td>Skills 市场</td><td>skills.sh / skillsmp.com</td></tr>
+<tr><td>ClawHub 社区</td><td>clawhub.ai</td></tr>
+<tr><td>OpenClaw Skills</td><td>通过 <code>openclaw plugins install</code> 安装</td></tr>
+</table></div>
+
+<hr>
+
+<h3 id="mcp">MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</h3>
+<div class="callout callout-blue">
+  <span class="emoji">🔌</span> <strong>一句话理解</strong>：MCP 就是一个"插头"，让 Claude Code 能连接飞书、GitHub、数据库等外部服务。
+</div>
+<p>想象 Claude Code 是一个很聪明的人，但被关在一间屋子里（你的电脑终端）。<strong>MCP 就是给这个屋子装了很多扇窗户和门</strong>：</p>
+<ul>
+<li>通过"飞书窗户"读写飞书文档</li>
+<li>通过"GitHub 门"操作代码仓库</li>
+<li>通过"数据库窗户"查询数据</li>
+</ul>
+
+<p><strong>怎么配置？</strong> 在配置文件中添加 MCP 服务器：</p>
+<pre><code>// ~/.claude/settings.json
+{
+  "mcpServers": {
+    "feishu": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/feishu-mcp-server"],
+      "env": {
+        "FEISHU_APP_ID": "你的应用ID",
+        "FEISHU_APP_SECRET": "你的应用密钥"
+      }
+    }
+  }
+}</code></pre>
+
+<div class="callout callout-yellow">
+  <span class="emoji">⚠️</span> <strong>注意</strong>：每个 MCP Server 会占用上下文空间。装太多会吃掉大量空间。用 <code>/mcp</code> 命令查看占用情况，按需启停。
+</div>
+
+<hr>
+
+<h3 id="claude-md">CLAUDE.md（项目记忆文件）</h3>
+<div class="callout callout-blue">
+  <span class="emoji">📋</span> <strong>一句话理解</strong>：CLAUDE.md 就是你写给 Claude Code 的"项目说明书"，每次启动时它会自动阅读。
+</div>
+<p><strong>快速创建</strong>：在项目文件夹里启动 Claude Code 后，输入 <code>/init</code>，Claude 会自动扫描项目帮你生成。</p>
+
+<h4>写 CLAUDE.md 的核心原则</h4>
+<p><strong>只写 Claude 无法自己推断出来的东西。</strong></p>
+<div class="compare">
+  <div class="compare-card">
+    <h4>✅ 应该写的</h4>
+    <ul>
+      <li>构建和测试命令</li>
+      <li>代码规范中的特殊约定</li>
+      <li>重要注意事项（用 <code>IMPORTANT:</code> 标记）</li>
+    </ul>
+  </div>
+  <div class="compare-card">
+    <h4>❌ 不应该写的</h4>
+    <ul>
+      <li>Claude 读代码就能知道的</li>
+      <li>标准语言约定</li>
+      <li>经常变化的信息</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout callout-green">
+  <span class="emoji">💡</span> <strong>检验标准</strong>：对每一行问自己——"删掉这行，Claude 会犯错吗？"如果不会，就删掉。臃肿的 CLAUDE.md 反而会让 Claude 忽略重要指令。
+</div>
+
+<h4>模块化规则</h4>
+<p>规范太多？用 <code>.claude/rules/</code> 目录拆分：</p>
+<pre><code>.claude/
+├── CLAUDE.md              # 主文件：核心规范
+└── rules/
+    ├── code-style.md      # 代码风格
+    ├── testing.md          # 测试约定
+    └── api-design.md       # API 设计规范</code></pre>
+
+<hr>
+
+<h3 id="memory">Memory（记忆系统）</h3>
+<div class="callout callout-blue">
+  <span class="emoji">🧠</span> <strong>一句话理解</strong>：Memory 是 Claude Code 的"笔记本"，把重要信息记下来，下次对话还记得。
+</div>
+<pre><code>> 记住：我习惯用 4 空格缩进
+> 记住：我更喜欢用 Tailwind CSS</code></pre>
+
+<hr>
+
+<h3 id="plan-mode">Plan Mode（规划模式）</h3>
+<div class="callout callout-blue">
+  <span class="emoji">🗺️</span> <strong>一句话理解</strong>：Plan Mode 让 Claude 先把"施工计划"给你看，你批准后才开始干活。
+</div>
+<h4>最佳工作流：探索 → 规划 → 执行</h4>
+<ol>
+<li><strong>探索</strong>（按 Shift+Tab 进入 Plan Mode）：<code>> 读一下 src/auth/ 目录，帮我理解登录流程</code></li>
+<li><strong>规划</strong>（还在 Plan Mode）：<code>> 我想加上 Google OAuth 登录，给我一个详细计划</code></li>
+<li><strong>执行</strong>（再按 Shift+Tab 切回）：<code>> 按照计划实现，写好后跑测试</code></li>
+<li><strong>提交</strong>：<code>> 用描述性的 commit message 提交，然后开 PR</code></li>
+</ol>
+
+<hr>
+
+<h3 id="sub-agents">子代理（Sub-agents）</h3>
+<div class="callout callout-blue">
+  <span class="emoji">👥</span> <strong>一句话理解</strong>：子代理是 Claude 派出的"分身"，在独立的上下文中完成子任务，做完只把结论带回来。
+</div>
+<p>上下文窗口是有限的。子代理在独立的上下文窗口里工作，就像让实习生去做调研，ta 看了 100 页材料，最后给你一页摘要。</p>
+<pre><code>> 帮我做一个代码库审计。用子代理分别检查：
+> 1. 安全漏洞
+> 2. 性能问题
+> 3. 代码规范违规
+> 最后汇总给我一份报告</code></pre>
+
+<hr>
+
+<h3 id="hooks">Hooks（钩子）</h3>
+<div class="callout callout-blue">
+  <span class="emoji">⚙️</span> <strong>一句话理解</strong>：Hook 是在特定节点<strong>强制自动执行</strong>的脚本。CLAUDE.md 是"建议"，Hook 是"必须执行"。
+</div>
+<ul>
+<li>每次编辑文件后自动跑 ESLint</li>
+<li>禁止 Claude 修改某些敏感文件</li>
+<li>每次提交前自动运行测试</li>
+</ul>
+
+<!-- ==================== Claude Code 与 OpenClaw ==================== -->
+<h2 id="openclaw"><span class="section-num">6</span>Claude Code 与 OpenClaw 的关系</h2>
+
+<div class="callout callout-blue">
+  <span class="emoji">🔌</span> 很多人会混淆 Claude Code 和 OpenClaw。简单说：<strong>它们是两个独立的工具，解决不同的问题，但共享同一个 AI 大脑（Claude）。</strong>
+</div>
+
+<h3>三者的关系</h3>
+<pre><code>Claude（AI 模型，真正"会思考"的部分）
+  ├── Claude Code 调用它来工作
+  └── OpenClaw 调用它来工作</code></pre>
+
+<h3>一句话类比</h3>
+<div class="table-wrap"><table>
+<tr><th>工具</th><th>类比</th></tr>
+<tr><td>Claude</td><td>公司里的 AI 专家（大脑）</td></tr>
+<tr><td>Claude Code</td><td>你去专家办公室找他——主动上门、用完离开</td></tr>
+<tr><td>OpenClaw</td><td>专家住在你家里——7×24 小时在线、主动帮你干活</td></tr>
+</table></div>
+
+<h3>核心区别</h3>
+<div class="table-wrap"><table>
+<tr><th>对比项</th><th>Claude Code</th><th>OpenClaw</th></tr>
+<tr><td>运行方式</td><td>你主动打开，用完关掉</td><td>常驻后台，7×24 在线</td></tr>
+<tr><td>交互方式</td><td>在终端里对话</td><td>在飞书/WhatsApp 里发消息</td></tr>
+<tr><td>核心优势</td><td>深度理解代码库，专注项目开发</td><td>连接消息平台，碎片化使用</td></tr>
+<tr><td>官方产品</td><td>✅ Anthropic 官方</td><td>❌ 开源社区产品</td></tr>
+</table></div>
+
+<h3>常见误解</h3>
+<ul>
+<li><strong>"必须先装 Claude Code 才能用 OpenClaw"</strong> → 不需要，完全独立安装。</li>
+<li><strong>"OpenClaw 自带 AI"</strong> → 不对，必须配置 LLM（如 Claude）才能工作。</li>
+<li><strong>"Claude Code 只能写代码"</strong> → 不对，PM 可以用它搭原型、写 PRD、分析数据。</li>
+</ul>
+
+<h3>OpenClaw 快速了解</h3>
+<div class="callout callout-blue">
+  <span class="emoji">🦞</span> <strong>一句话理解</strong>：OpenClaw 是一个开源的 AI Agent 平台，让 AI "住进"你每天用的飞书里，像发微信一样和 AI 对话。
+</div>
+<p><strong>它能做什么？</strong></p>
+<ul>
+<li><strong>主动提醒你</strong>（定时任务、日程提醒）</li>
+<li><strong>记住你的偏好</strong>（持久记忆，跨对话保持上下文）</li>
+<li><strong>操作你的电脑</strong>（读写文件、执行命令、浏览网页）</li>
+<li><strong>连接多个平台</strong>（飞书、WhatsApp、Telegram 等同时在线）</li>
+</ul>
+<p><strong>安装</strong>（需要 Node.js 22+）：</p>
+<pre><code>npm install -g openclaw@latest
+openclaw onboard --install-daemon</code></pre>
+<p><strong>日常运维</strong>：</p>
+<pre><code>openclaw gateway status          # 查看状态
+openclaw gateway restart         # 重启
+openclaw logs --follow           # 查看日志
+openclaw doctor                  # 诊断问题</code></pre>
+
+<div class="callout callout-orange">
+  <span class="emoji">⚠️</span> <strong>安全要点</strong>：<code>dmPolicy</code> 保持 <code>"pairing"</code>，不要改 <code>"open"</code>；不要在存有敏感数据的电脑上安装；在 Anthropic Console 设好月度费用上限。
+</div>
+
+<!-- ==================== 实战案例 ==================== -->
+<h2 id="cases"><span class="section-num">7</span>实战案例</h2>
+
+<h3>案例 1：从零创建项目</h3>
+<pre><code>> 帮我创建一个 Python Flask 项目，实现待办事项 API
+> 支持增删改查、SQLite 存储、基本错误处理
+> 顺便写好 README 和 .gitignore</code></pre>
+
+<h3>案例 2：修复 Bug</h3>
+<pre><code>> 运行 npm start 报错："TypeError: Cannot read property 'map' of undefined"
+> 帮我找到原因并修复</code></pre>
+
+<h3>案例 3：快速搭建原型</h3>
+<pre><code>> 帮我创建一个 todo-app.html，实现待办事项应用原型：
+> - 顶部输入框和"添加"按钮
+> - 待办列表，可标记完成和删除
+> - 现代简洁 UI，蓝白为主
+> - 所有代码放在一个 HTML 文件里</code></pre>
+
+<h3>案例 4：数据分析</h3>
+<pre><code>> 请读取 user_data.csv，告诉我：
+> 1. 一共有多少条数据
+> 2. 有哪些字段
+> 3. 有没有异常值或空值
+> 4. 给一个简单的数据摘要</code></pre>
+
+<h3>案例 5：写竞品分析</h3>
+<pre><code>> 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：
+> 分析 Jasper、Copy.ai、Notion AI
+> 每个列出：核心功能、定价、目标用户、优势和不足
+> 最后给出对比总结表格，用中文撰写</code></pre>
+
+<h3>案例 6：批量操作</h3>
+<pre><code>> 帮我把 src/components/ 下所有 .jsx 文件改成 .tsx
+> 并且给每个组件的 props 添加 TypeScript 类型定义</code></pre>
+
+<!-- ==================== 进阶技巧 ==================== -->
+<h2 id="advanced"><span class="section-num">8</span>进阶技巧</h2>
+
+<h3>提示词的进阶技巧</h3>
+<h4>委派，不要指令</h4>
+<div class="compare">
+  <div class="compare-card">
+    <h4>❌ 不好的方式</h4>
+    <pre><code>> 打开 src/auth/login.ts，
+> 找到第 42 行的 refreshToken
+> 函数，把 if 条件改成
+> token.expiry < Date.now()
+> - 60000</code></pre>
+  </div>
+  <div class="compare-card">
+    <h4>✅ 更好的方式</h4>
+    <pre><code>> 登录流程中，用户的 token
+> 过期后刷新失败了。
+> 相关代码在 src/auth/ 目录。
+> 帮我查一下问题并修复它。</code></pre>
+  </div>
+</div>
+<p>把 Claude 当成有能力的同事来委派任务，给它方向和上下文，让它自己决定怎么做。</p>
+
+<h3>上下文窗口管理</h3>
+<div class="table-wrap"><table>
+<tr><th>命令</th><th>作用</th></tr>
+<tr><td><code>/clear</code></td><td>清空上下文，新任务开始前用</td></tr>
+<tr><td><code>/compact</code></td><td>压缩历史，保留关键信息丢弃细节</td></tr>
+<tr><td><code>/context</code></td><td>查看上下文使用情况</td></tr>
+</table></div>
+
+<h3>模型选择指南</h3>
+<div class="table-wrap"><table>
+<tr><th>模型</th><th>特点</th><th>适用场景</th></tr>
+<tr><td>Sonnet</td><td>快速、性价比高</td><td>日常使用，大多数任务</td></tr>
+<tr><td>Opus</td><td>更强大、更贵</td><td>复杂推理、长文档分析</td></tr>
+<tr><td>Haiku</td><td>最快、最便宜</td><td>简单问答</td></tr>
+</table></div>
+
+<h3>省钱实战指南</h3>
+<div class="table-wrap"><table>
+<tr><th>技巧</th><th>说明</th></tr>
+<tr><td>选对模型</td><td>日常用 Sonnet，复杂任务才用 Opus</td></tr>
+<tr><td>管理上下文</td><td>用 <code>/clear</code> 和 <code>/compact</code> 减少无效 token</td></tr>
+<tr><td>精准提示词</td><td>"修复 src/auth/login.ts 的 token 刷新 bug" 比 "修复那个 bug" 省很多</td></tr>
+<tr><td>设预算上限</td><td><code>claude --max-budget-usd 5</code> 限制单次会话费用</td></tr>
+<tr><td>用 <code>!</code> 执行命令</td><td>省去 Claude 思考的 token</td></tr>
+</table></div>
+
+<div class="callout callout-yellow">
+  <span class="emoji">💰</span> <strong>费用参考</strong>：使用 Sonnet，平均每位开发者每天约 $6，90% 的用户每天不超过 $12。作为轻度使用预计远低于此。
+</div>
+
+<!-- ==================== 最佳实践 ==================== -->
+<h2 id="best"><span class="section-num">9</span>最佳实践</h2>
+
+<div class="compare">
+  <div class="compare-card">
+    <h4>✅ 这样做效果更好</h4>
+    <ul>
+      <li><strong>在项目根目录启动</strong> — Claude Code 能读取完整项目结构</li>
+      <li><strong>清晰描述需求</strong> — "帮我用 React 写一个带搜索和分页的用户列表页面" 比 "帮我写个页面" 好得多</li>
+      <li><strong>提供上下文</strong> — 告诉它技术栈、约束条件、参考示例</li>
+      <li><strong>善用 Plan Mode</strong> — 复杂任务先看计划再执行</li>
+      <li><strong>检查结果</strong> — 输出不一定完美，养成检查的习惯</li>
+      <li><strong>用 CLAUDE.md 保存项目规范</strong> — 避免每次重复说明</li>
+    </ul>
+  </div>
+  <div class="compare-card">
+    <h4>❌ 避免这样做</h4>
+    <ul>
+      <li>不要一句话描述模糊需求（"帮我做个网站"）</li>
+      <li>不要让它一次性修改太多不相关的文件</li>
+      <li>不要忽略它的确认提示直接说"全部同意"</li>
+      <li>不要在不清楚后果的情况下让它执行删除操作</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== 常见问题 ==================== -->
+<h2 id="faq"><span class="section-num">10</span>常见问题</h2>
+
+<h3>Q: 完全不懂编程，能用 Claude Code 吗？</h3>
+<p>A: 能！核心交互方式是自然语言——你用中文告诉它想做什么就行。它会帮你写代码、执行命令、创建文件。你只需要检查结果是否符合预期。</p>
+
+<h3>Q: 使用 Claude Code 要花多少钱？</h3>
+<p>A: 用 <code>/cost</code> 查看费用。日常轻度使用月费约 $5-$15，建议设置月度上限。</p>
+
+<h3>Q: 对话太长、响应变慢怎么办？</h3>
+<p>A: 用 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清除重新开始。复杂任务建议拆成多次短对话。</p>
+
+<h3>Q: Claude Code 写的代码有 Bug 怎么办？</h3>
+<p>A: 直接告诉它："运行时报错了，错误是 xxx，帮我修复。"</p>
+
+<h3>Q: 怎么让 Claude Code 记住我的偏好？</h3>
+<p>A: 两种方式：写在 CLAUDE.md 里（永久生效），或直接说"记住：xxx"。</p>
+
+<h3>Q: Claude Code 会不会把我电脑搞坏？</h3>
+<p>A: 它在执行任何操作前都会先告诉你并等你确认。仔细看操作说明再确认就不会有问题。</p>
+
+<h3>Q: Claude Code 和 OpenClaw 必须一起用吗？</h3>
+<p>A: 不需要，完全独立。你可以只用其中一个，装了两个也互不干扰。</p>
+
+<h3>Q: 这些工具安全吗？</h3>
+<p>A: Claude Code 是 Anthropic 官方产品，传输加密。但发给 AI 的内容会发送到服务器处理，请避免发送密码、银行卡号等敏感信息。</p>
+
+<hr>
+
+<div class="callout callout-blue">
+  <span class="emoji">🚀</span> <strong>最后的话</strong>：善用 Skill 让重复工作自动化，善用 MCP 连接外部工具，善用 CLAUDE.md 让它了解你的项目，善用 OpenClaw 让 AI 住进你的飞书——你会发现工作效率大大提升！
+</div>
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  if (current === 'dark') {
+    root.removeAttribute('data-theme');
+  } else if (current === 'light') {
+    root.setAttribute('data-theme', 'dark');
+  } else {
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  }
+}
+</script>
+</body>
+</html>
