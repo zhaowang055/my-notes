@@ -73,6 +73,9 @@
   }
   .sidebar a:hover { color: var(--accent); }
   .sidebar a.section-link { font-weight: 600; color: var(--text); margin-top: 12px; font-size: 14px; }
+  .sidebar a.sub-link { padding-left: 16px; font-weight: 400; margin-top: 4px; font-size: 13px; color: var(--text-secondary); }
+  .sidebar a.sub-link:hover { color: var(--accent); }
+
   .main { flex: 1; max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
   .theme-toggle {
     position: fixed; top: 20px; right: 24px; z-index: 100;
@@ -141,26 +144,84 @@
 <nav class="sidebar">
 <div class="sidebar-title">📖 目录导航</div>
   <a href="index.html" style="display:inline-block;margin-bottom:20px;padding:6px 14px;background:var(--accent-light);color:var(--accent);border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;">← 返回主页</a>
-  <a href="#what" class="section-link">什么是 Claude Code</a>
-  <a href="#prereq" class="section-link">0. 前置知识</a>
-  <a href="#sec-1" class="section-link">1. 安装与启动</a>
-  <a href="#sec-2" class="section-link">2. 基本使用</a>
-  <a href="#sec-3" class="section-link">3. 斜杠命令</a>
-  <a href="#sec-4" class="section-link">4. 实用技巧</a>
-  <a href="#sec-5" class="section-link">5. 核心概念</a>
-  <a href="#sec-6" class="section-link">6. Claude Code 与 OpenClaw</a>
-  <a href="#sec-7" class="section-link">7. 实战案例</a>
-  <a href="#sec-8" class="section-link">8. 进阶技巧</a>
-  <a href="#sec-9" class="section-link">9. 最佳实践</a>
-  <a href="#sec-10" class="section-link">10. 常见问题</a>
-  <a href="#sec-11" class="section-link">11. 术语表</a>
-  <a href="#sec-12" class="section-link">12. 命令速查卡</a>
+  <a href="#什么是-Claude-Code-" class="section-link">什么是 Claude Code？</a>
+  <a href="#它能做什么" class="sub-link">它能做什么？</a>
+  <a href="#它和-chatgpt-网页版-claude-有什么区别" class="sub-link">它和 ChatGPT / 网页版 Claude 有什么区别？</a>
+  <a href="#sec-0" class="section-link">0前置知识：在开始之前你需要了解的概念</a>
+  <a href="#01-什么是终端terminal-命令行" class="sub-link">0.1 什么是终端（Terminal）/ 命令行？</a>
+  <a href="#02-终端基础命令速查5-个就够了" class="sub-link">0.2 终端基础命令速查（5 个就够了）</a>
+  <a href="#03-什么是目录文件夹和根目录" class="sub-link">0.3 什么是目录/文件夹和根目录？</a>
+  <a href="#04-什么是-nodejs什么是-npm" class="sub-link">0.4 什么是 Node.js？什么是 npm？</a>
+  <a href="#05-什么是项目依赖dependencies" class="sub-link">0.5 什么是项目依赖（Dependencies）？</a>
+  <a href="#06-什么是-md-文件" class="sub-link">0.6 什么是 .md 文件？</a>
+  <a href="#sec-1" class="section-link">1环境准备与安装</a>
+  <a href="#11-安装-claude-code" class="sub-link">1.1 安装 Claude Code</a>
+  <a href="#12-认证登录" class="sub-link">1.2 认证登录</a>
+  <a href="#13-启动-claude-code" class="sub-link">1.3 启动 Claude Code</a>
+  <a href="#14-常见安装问题排查" class="sub-link">1.4 常见安装问题排查</a>
+  <a href="#sec-2" class="section-link">2基本使用方式</a>
+  <a href="#21-直接提问" class="sub-link">2.1 直接提问</a>
+  <a href="#22-让它执行命令" class="sub-link">2.2 让它执行命令</a>
+  <a href="#23-让它写代码" class="sub-link">2.3 让它写代码</a>
+  <a href="#24-让它修改现有代码" class="sub-link">2.4 让它修改现有代码</a>
+  <a href="#25-多行输入" class="sub-link">2.5 多行输入</a>
+  <a href="#sec-3" class="section-link">3常用斜杠命令</a>
+  <a href="#sec-4" class="section-link">4实用技巧</a>
+  <a href="#41-用-codecode-直接执行命令" class="sub-link">4.1 用 ! 直接执行命令</a>
+  <a href="#42-用-codecode-引用文件" class="sub-link">4.2 用 @ 引用文件</a>
+  <a href="#43-用-codethinkcode-触发深度思考" class="sub-link">4.3 用 think 触发深度思考</a>
+  <a href="#44-拖拽文件到终端" class="sub-link">4.4 拖拽文件到终端</a>
+  <a href="#45-粘贴图片" class="sub-link">4.5 粘贴图片</a>
+  <a href="#46-设置预算上限" class="sub-link">4.6 设置预算上限</a>
+  <a href="#47-权限模式" class="sub-link">4.7 权限模式</a>
+  <a href="#48-键盘快捷键速查" class="sub-link">4.8 键盘快捷键速查</a>
+  <a href="#49-更多实战场景" class="sub-link">4.9 更多实战场景</a>
+  <a href="#sec-5" class="section-link">5核心概念详解</a>
+  <a href="#51-skill技能-给-claude-code-装技能包" class="sub-link">5.1 Skill（技能）—— 给 Claude Code 装"技能包"</a>
+  <a href="#52-mcp模型上下文协议-让-claude-code-连接外部世界" class="sub-link">5.2 MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</a>
+  <a href="#53-claudemd项目记忆文件-告诉-claude-我们项目的规矩" class="sub-link">5.3 CLAUDE.md（项目记忆文件）—— 告诉 Claude "我们项目的规矩"</a>
+  <a href="#54-memory记忆系统-让-claude-记住重要信息" class="sub-link">5.4 Memory（记忆系统）—— 让 Claude 记住重要信息</a>
+  <a href="#55-plan-mode规划模式-先看计划再动手" class="sub-link">5.5 Plan Mode（规划模式）—— 先看计划，再动手</a>
+  <a href="#56-子代理sub-agents-给-claude-配小弟" class="sub-link">5.6 子代理（Sub-agents）—— 给 Claude 配"小弟"</a>
+  <a href="#57-hooks钩子-自动化的规则引擎" class="sub-link">5.7 Hooks（钩子）—— 自动化的"规则引擎"</a>
+  <a href="#sec-6" class="section-link">6Claude Code 与 OpenClaw 的关系</a>
+  <a href="#三者的关系" class="sub-link">三者的关系</a>
+  <a href="#一句话类比" class="sub-link">一句话类比</a>
+  <a href="#核心区别" class="sub-link">核心区别</a>
+  <a href="#常见误解" class="sub-link">常见误解</a>
+  <a href="#61-openclaw-快速了解" class="sub-link">6.1 OpenClaw 快速了解</a>
+  <a href="#sec-7" class="section-link">7实战案例</a>
+  <a href="#案例-1从零创建项目" class="sub-link">案例 1：从零创建项目</a>
+  <a href="#案例-2修复-bug" class="sub-link">案例 2：修复 Bug</a>
+  <a href="#案例-3快速搭建原型" class="sub-link">案例 3：快速搭建原型</a>
+  <a href="#案例-4数据分析" class="sub-link">案例 4：数据分析</a>
+  <a href="#案例-5写竞品分析" class="sub-link">案例 5：写竞品分析</a>
+  <a href="#案例-6批量操作" class="sub-link">案例 6：批量操作</a>
+  <a href="#案例-7让-claude-帮你创建配置文件" class="sub-link">案例 7：让 Claude 帮你创建配置文件</a>
+  <a href="#sec-8" class="section-link">8进阶技巧</a>
+  <a href="#81-claude-code-是怎么工作的-代理循环" class="sub-link">8.1 Claude Code 是怎么工作的？—— 代理循环</a>
+  <a href="#82-上下文窗口管理" class="sub-link">8.2 上下文窗口管理</a>
+  <a href="#83-提示词的进阶技巧" class="sub-link">8.3 提示词的进阶技巧</a>
+  <a href="#84-模型选择指南" class="sub-link">8.4 模型选择指南</a>
+  <a href="#85-省钱实战指南" class="sub-link">8.5 省钱实战指南</a>
+  <a href="#sec-9" class="section-link">9最佳实践</a>
+  <a href="#这样做效果更好" class="sub-link">✅ 这样做效果更好</a>
+  <a href="#避免这样做" class="sub-link">❌ 避免这样做</a>
+  <a href="#sec-10" class="section-link">10常见问题</a>
+  <a href="#基础问题" class="sub-link">基础问题</a>
+  <a href="#claude-code-相关" class="sub-link">Claude Code 相关</a>
+  <a href="#openclaw-相关" class="sub-link">OpenClaw 相关</a>
+  <a href="#sec-11" class="section-link">11术语表</a>
+  <a href="#sec-12" class="section-link">12命令速查卡</a>
+  <a href="#终端基础命令" class="sub-link">终端基础命令</a>
+  <a href="#claude-code-命令" class="sub-link">Claude Code 命令</a>
+  <a href="#openclaw-运维命令" class="sub-link">OpenClaw 运维命令</a>
 </nav>
 <main class="main">
 <h1>Claude Code 完全指南（从入门到进阶）</h1>
 <h2 id="什么是-Claude-Code-">什么是 Claude Code？</h2>
 <div class="callout callout-blue">💡 <strong>一句话理解</strong>：Claude Code 是一个住在你终端（命令行）里的 AI 编程助手。你用自然语言告诉它想做什么，它就能帮你读代码、写代码、运行命令、管理文件——就像一个随时在线的程序员搭档。</div>
-<h3>它能做什么？</h3>
+<h3 id="它能做什么">它能做什么？</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>能力</th>
@@ -193,7 +254,7 @@
   </tr>
   </tbody>
 </table></div>
-<h3>它和 ChatGPT / 网页版 Claude 有什么区别？</h3>
+<h3 id="它和-chatgpt-网页版-claude-有什么区别">它和 ChatGPT / 网页版 Claude 有什么区别？</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>对比项</th>
@@ -231,7 +292,7 @@
 <hr>
 <h2 id="sec-0"><span class="section-num">0</span>前置知识：在开始之前你需要了解的概念</h2>
 <div class="callout callout-yellow">📚 如果你从未接触过编程，这一章会帮你理解后面会反复出现的几个基本概念。已经有一定基础的同学可以跳过。</div>
-<h3>0.1 什么是终端（Terminal）/ 命令行？</h3>
+<h3 id="01-什么是终端terminal-命令行">0.1 什么是终端（Terminal）/ 命令行？</h3>
 <p><strong>你平时怎么操作电脑？</strong> 点击图标、双击文件、右键菜单——这叫"图形界面"。</p>
 <p><strong>终端是另一种操作电脑的方式</strong>：你输入一行文字命令，电脑执行后把结果显示出来。</p>
 <p>举个例子：</p>
@@ -257,7 +318,7 @@
 </table></div>
 <p>打开后你会看到一个黑色（或蓝色）的窗口，里面有一个闪烁的光标，等待你输入命令。<strong>这就是终端。</strong></p>
 <div class="callout callout-green">💡 <strong>小技巧</strong>：建议把终端固定到任务栏/Dock 栏上，后续你会经常用到它。</div>
-<h3>0.2 终端基础命令速查（5 个就够了）</h3>
+<h3 id="02-终端基础命令速查5-个就够了">0.2 终端基础命令速查（5 个就够了）</h3>
 <p>你不需要成为终端高手，以下 5 个命令覆盖了 90% 的日常操作：</p>
 <div class="table-wrap"><table>
   <thead><tr>
@@ -294,23 +355,23 @@
   </tbody>
 </table></div>
 <div class="callout callout-green">🎯 <strong>练习一下</strong>：打开终端，依次执行 <code>pwd</code> → <code>ls</code> → <code>cd Desktop</code> → <code>mkdir ai-tools</code> → <code>cd ai-tools</code>。如果每一步都成功了，终端入门完成！</div>
-<h3>0.3 什么是目录/文件夹和根目录？</h3>
+<h3 id="03-什么是目录文件夹和根目录">0.3 什么是目录/文件夹和根目录？</h3>
 <p>"目录"就是"文件夹"，两个词是同一个东西。程序员习惯叫"目录"。</p>
 <p><strong>根目录</strong>就是你项目文件夹的最顶层：</p>
 <pre><code class="language-plaintext">my-website/            ← 这就是项目根目录&lt;br&gt;├── src/               ← 源代码目录&lt;br&gt;│   ├── index.js&lt;br&gt;│   └── style.css&lt;br&gt;├── package.json       ← 项目配置文件&lt;br&gt;└── README.md          ← 项目说明文件&lt;br&gt;</code></pre>
 <p><strong>为什么 Claude Code 要在根目录启动？</strong> 因为启动后它会自动扫描当前目录的所有文件。在子目录启动就像只翻开书的其中一页，看不到全貌。</p>
-<h3>0.4 什么是 Node.js？什么是 npm？</h3>
+<h3 id="04-什么是-nodejs什么是-npm">0.4 什么是 Node.js？什么是 npm？</h3>
 <p><strong>Node.js</strong> 是一个让 JavaScript 代码能在电脑上运行的环境。Claude Code 是用 JavaScript 写的，所以需要 Node.js 才能运行。</p>
 <p><strong>npm</strong> 是 Node.js 的"应用商店"，用来安装各种工具。<code>npm install xxx</code> 就像在应用商店点"安装"。</p>
 <p>npm 随着 Node.js 一起安装，装了 Node.js 就自动有了 npm。</p>
-<h3>0.5 什么是项目依赖（Dependencies）？</h3>
+<h3 id="05-什么是项目依赖dependencies">0.5 什么是项目依赖（Dependencies）？</h3>
 <p><strong>依赖就是你的项目需要用到的"别人的代码"。</strong> 比如你做网站需要用到 React（别人写好的 UI 框架）。</p>
 <p><strong>package.json</strong> 是项目的"购物清单"，记录了需要哪些依赖。<code>npm install</code> 就是按清单把所有依赖下载下来。</p>
-<h3>0.6 什么是 .md 文件？</h3>
+<h3 id="06-什么是-md-文件">0.6 什么是 .md 文件？</h3>
 <p><code>.md</code> 是 Markdown 文件，一种简单的排版语言，用纯文本就能写出带格式的文档。飞书、Notion 底层很多都是 Markdown。后面创建 Skill 和 CLAUDE.md 时都是写 <code>.md</code> 文件。</p>
 <hr>
 <h2 id="sec-1"><span class="section-num">1</span>环境准备与安装</h2>
-<h3>1.1 安装 Claude Code</h3>
+<h3 id="11-安装-claude-code">1.1 安装 Claude Code</h3>
 <p>Claude Code 提供了<strong>原生安装器</strong>，不需要安装 Node.js 也能用，一行命令搞定。</p>
 <p><strong>Mac 用户：</strong></p>
 <pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash&lt;br&gt;</code></pre>
@@ -330,7 +391,7 @@
 <p>看到版本号说明安装成功。</p>
 <div class="callout callout-green"><span class="emoji">💡</span> <strong>不想用命令行安装？</strong> 也可以在 VSCode 扩展商店搜索 "Claude Code" 安装，直接在编辑器里使用。</div>
 <hr>
-<h3>1.2 认证登录</h3>
+<h3 id="12-认证登录">1.2 认证登录</h3>
 <p>安装好后需要连接你的账号。推荐两种方式：</p>
 <p><strong>方式一：API Key（推荐 ⭐）</strong></p>
 <p>API Key 是一串密钥，类似于你的「AI 使用通行证」。按使用量付费，用多少扣多少，灵活且经济。</p>
@@ -351,7 +412,7 @@
 <p>所有项目显示绿色 ✓ 就说明一切正常。</p>
 <div class="callout callout-yellow"><span class="emoji">💰</span> <strong>费用参考</strong>：日常轻度使用，月费用大约 $5-$15。建议在 Anthropic Console 设置月度上限，防止意外超支。</div>
 <hr>
-<h3>1.3 启动 Claude Code</h3>
+<h3 id="13-启动-claude-code">1.3 启动 Claude Code</h3>
 <pre><code class="language-bash">cd 你的项目目录    # 先进入项目文件夹&lt;br&gt;claude             # 启动&lt;br&gt;</code></pre>
 <p>看到 <code>></code> 提示符后就可以对话了。试试第一句话：</p>
 <pre><code class="language-plaintext">&gt; 你好，请用中文介绍一下你自己，以及你能帮我做什么&lt;br&gt;</code></pre>
@@ -364,7 +425,7 @@
 <p>你的浏览器会打开这个网页——这就是 Claude Code 帮你创建的第一个作品。</p>
 <p><strong>退出方式</strong>：输入 <code>/exit</code> 或按 <code>Ctrl + C</code> 两次。</p>
 <hr>
-<h3>1.4 常见安装问题排查</h3>
+<h3 id="14-常见安装问题排查">1.4 常见安装问题排查</h3>
 <h4>❓ 输入 <code>claude</code> 后提示 "command not found"</h4>
 <p>说明安装没有成功，或者 PATH 没有设置好。尝试：</p>
 <p>1. 重新运行安装命令</p>
@@ -389,15 +450,15 @@
 <p>1. 在确认提示 <code>[Y/n]</code> 时输入 <code>n</code> 拒绝执行</p>
 <p>1. 如果已经执行了，可以说「撤销刚才的修改」</p>
 <h2 id="sec-2"><span class="section-num">2</span>基本使用方式</h2>
-<h3>2.1 直接提问</h3>
+<h3 id="21-直接提问">2.1 直接提问</h3>
 <pre><code class="language-plaintext">&gt; 帮我解释一下这个项目的代码结构&lt;br&gt;</code></pre>
-<h3>2.2 让它执行命令</h3>
+<h3 id="22-让它执行命令">2.2 让它执行命令</h3>
 <pre><code class="language-plaintext">&gt; 帮我运行 npm install&lt;br&gt;</code></pre>
-<h3>2.3 让它写代码</h3>
+<h3 id="23-让它写代码">2.3 让它写代码</h3>
 <pre><code class="language-plaintext">&gt; 帮我写一个 Python 函数，实现快速排序&lt;br&gt;</code></pre>
-<h3>2.4 让它修改现有代码</h3>
+<h3 id="24-让它修改现有代码">2.4 让它修改现有代码</h3>
 <pre><code class="language-plaintext">&gt; 帮我给 src/utils.js 里的 formatDate 函数加上时区处理&lt;br&gt;</code></pre>
-<h3>2.5 多行输入</h3>
+<h3 id="25-多行输入">2.5 多行输入</h3>
 <p>按 <strong>Shift + Enter</strong> 换行，输入完再按 Enter 发送。</p>
 <hr>
 <h2 id="sec-3"><span class="section-num">3</span>常用斜杠命令</h2>
@@ -457,26 +518,26 @@
 </table></div>
 <hr>
 <h2 id="sec-4"><span class="section-num">4</span>实用技巧</h2>
-<h3>4.1 用 <code>!</code> 直接执行命令</h3>
+<h3 id="41-用-codecode-直接执行命令">4.1 用 <code>!</code> 直接执行命令</h3>
 <p>加 <code>!</code> 前缀可以直接运行命令，省去 Claude 思考的时间和费用：</p>
 <pre><code class="language-plaintext">&gt; ! git status&lt;br&gt;&gt; ! dir&lt;br&gt;&gt; ! npm test -- --filter=auth&lt;br&gt;</code></pre>
 <p>这样可以省去 Claude 思考的时间和 Token 消耗。</p>
-<h3>4.2 用 <code>@</code> 引用文件</h3>
+<h3 id="42-用-codecode-引用文件">4.2 用 <code>@</code> 引用文件</h3>
 <p>用 <code>@</code> 可以直接让 Claude 读取指定文件：</p>
 <pre><code class="language-plaintext">&gt; 请阅读 @README.md 并告诉我这个项目是做什么的&lt;br&gt;&gt; 看看 @src/components/Header.tsx 有什么问题&lt;br&gt;</code></pre>
-<h3>4.3 用 <code>think</code> 触发深度思考</h3>
+<h3 id="43-用-codethinkcode-触发深度思考">4.3 用 <code>think</code> 触发深度思考</h3>
 <p>复杂问题前加 <code>think</code> 或 <code>think hard</code>，让 Claude 先深入思考再回答：</p>
 <pre><code class="language-plaintext">&gt; think: 我们的产品日活从 5000 涨到了 50000，但付费转化率从 5% 降到了 2%，可能的原因有哪些？&lt;br&gt;&lt;br&gt;&gt; think hard: 请帮我设计一个完整的用户增长漏斗分析框架，包含关键指标、数据采集点和分析方法&lt;br&gt;</code></pre>
-<h3>4.4 拖拽文件到终端</h3>
+<h3 id="44-拖拽文件到终端">4.4 拖拽文件到终端</h3>
 <p>图片、PDF、CSV 等文件可以直接拖拽到终端窗口，自动填入路径：</p>
 <pre><code class="language-plaintext">&gt; 请分析 /Users/yourname/Desktop/report.pdf 的主要结论&lt;br&gt;</code></pre>
-<h3>4.5 粘贴图片</h3>
+<h3 id="45-粘贴图片">4.5 粘贴图片</h3>
 <p>Claude Code 支持直接粘贴图片（Ctrl+V）。可以粘贴 UI 设计稿让它照着实现，或粘贴报错截图让它诊断。</p>
-<h3>4.6 设置预算上限</h3>
+<h3 id="46-设置预算上限">4.6 设置预算上限</h3>
 <p>担心费用失控？启动时设限：</p>
 <pre><code class="language-bash">claude --max-budget-usd 5&lt;br&gt;</code></pre>
 <p>这次对话最多花 $5，到了上限自动停止。</p>
-<h3>4.7 权限模式</h3>
+<h3 id="47-权限模式">4.7 权限模式</h3>
 <p>按 <strong>Shift + Tab</strong> 可以在三种模式间切换：</p>
 <div class="table-wrap"><table>
   <thead><tr>
@@ -508,7 +569,7 @@
 <p>- 或者直接说「撤销刚才的修改」</p>
 <div class="callout callout-yellow"><span class="emoji">⚠️</span> 检查点只覆盖文件修改。如果 Claude 执行了影响外部系统的操作（如调用 API、修改数据库），那是无法回退的——这就是为什么 Claude 在执行这类命令前会特别谨慎地征求同意。</div>
 <hr>
-<h3>4.8 键盘快捷键速查</h3>
+<h3 id="48-键盘快捷键速查">4.8 键盘快捷键速查</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>快捷键</th>
@@ -542,7 +603,7 @@
   </tbody>
 </table></div>
 <hr>
-<h3>4.9 更多实战场景</h3>
+<h3 id="49-更多实战场景">4.9 更多实战场景</h3>
 <h4>场景：让 Claude 分析数据文件</h4>
 <pre><code class="language-plaintext">&gt; 请读取 user_data.csv，告诉我：&lt;br&gt;&gt; 1. 一共有多少条数据&lt;br&gt;&gt; 2. 有哪些字段&lt;br&gt;&gt; 3. 有没有异常值或空值&lt;br&gt;&gt; 4. 给一个简单的数据摘要&lt;br&gt;</code></pre>
 <h4>场景：批量处理文件</h4>
@@ -551,7 +612,7 @@
 <h4>场景：写竞品分析</h4>
 <pre><code class="language-plaintext">&gt; 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：&lt;br&gt;&gt; 分析 Jasper、Copy.ai、Notion AI&lt;br&gt;&gt; 每个列出：核心功能、定价、目标用户、优势和不足&lt;br&gt;&gt; 最后给出对比总结表格，用中文撰写&lt;br&gt;</code></pre>
 <h2 id="sec-5"><span class="section-num">5</span>核心概念详解</h2>
-<h3>5.1 Skill（技能）—— 给 Claude Code 装"技能包"</h3>
+<h3 id="51-skill技能-给-claude-code-装技能包">5.1 Skill（技能）—— 给 Claude Code 装"技能包"</h3>
 <div class="callout callout-blue">🎯 <strong>一句话理解</strong>：Skill 就是你预先写好的"操作手册"，告诉 Claude Code "遇到某类任务时，按这个步骤来做"。</div>
 <h4>为什么需要 Skill？</h4>
 <p>每次重复说明流程很麻烦。<strong>Skill 把流程打包成一个命令</strong>，以后只需要输入 <code>/deploy</code> 就行了。</p>
@@ -641,7 +702,7 @@
   </tbody>
 </table></div>
 <hr>
-<h3>5.2 MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</h3>
+<h3 id="52-mcp模型上下文协议-让-claude-code-连接外部世界">5.2 MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</h3>
 <div class="callout callout-blue">💡 <strong>一句话理解</strong>：MCP 就是一个"插头"，让 Claude Code 能连接飞书、GitHub、数据库等外部服务。</div>
 <h4>用比喻理解 MCP</h4>
 <p>想象 Claude Code 是一个很聪明的人，但被关在一间屋子里（你的电脑终端）。</p>
@@ -661,7 +722,7 @@
 <div class="callout callout-yellow"><span class="emoji">⚠️</span> <strong>注意</strong>：每个 MCP Server 会占用上下文空间。装太多会吃掉大量空间。用 <code>/mcp</code> 命令查看占用情况，按需启停。</div>
 <div class="callout callout-green"><span class="emoji">💡</span> <strong>小贴士</strong>：MCP 服务器有很多现成的，可以在 MCP 市场（如 mcp.so）搜索你需要的工具。</div>
 <hr>
-<h3>5.3 CLAUDE.md（项目记忆文件）—— 告诉 Claude "我们项目的规矩"</h3>
+<h3 id="53-claudemd项目记忆文件-告诉-claude-我们项目的规矩">5.3 CLAUDE.md（项目记忆文件）—— 告诉 Claude "我们项目的规矩"</h3>
 <div class="callout callout-blue">💡 <strong>一句话理解</strong>：CLAUDE.md 就是你写给 Claude Code 的"项目说明书"，每次启动时它会自动阅读。</div>
 <h4>快速创建</h4>
 <p>在项目文件夹里启动 Claude Code 后，输入：</p>
@@ -722,7 +783,7 @@
 </table></div>
 <p>启动 Claude Code 时，这些文件全部自动加载。</p>
 <hr>
-<h3>5.4 Memory（记忆系统）—— 让 Claude 记住重要信息</h3>
+<h3 id="54-memory记忆系统-让-claude-记住重要信息">5.4 Memory（记忆系统）—— 让 Claude 记住重要信息</h3>
 <div class="callout callout-blue">💡 <strong>一句话理解</strong>：Memory 是 Claude Code 的"笔记本"，把重要信息记下来，下次对话还记得。</div>
 <h4>Memory vs CLAUDE.md</h4>
 <div class="table-wrap"><table>
@@ -752,7 +813,7 @@
 <h4>使用方式</h4>
 <pre><code class="language-plaintext">&gt; 记住：我习惯用 4 空格缩进&lt;br&gt;&gt; 记住：我更喜欢用 Tailwind CSS&lt;br&gt;</code></pre>
 <hr>
-<h3>5.5 Plan Mode（规划模式）—— 先看计划，再动手</h3>
+<h3 id="55-plan-mode规划模式-先看计划再动手">5.5 Plan Mode（规划模式）—— 先看计划，再动手</h3>
 <div class="callout callout-blue">🎯 <strong>一句话理解</strong>：Plan Mode 让 Claude 先把"施工计划"给你看，你批准后才开始干活。</div>
 <h4>最佳工作流：探索 → 规划 → 执行</h4>
 <p><strong>第一步：探索</strong>（按 Shift+Tab 进入 Plan Mode）</p>
@@ -765,7 +826,7 @@
 <pre><code class="language-plaintext">&gt; 用描述性的 commit message 提交代码，然后开一个 PR&lt;br&gt;</code></pre>
 <div class="callout callout-green"><span class="emoji">💡</span> <strong>什么时候不需要规划？</strong> 简单任务直接做——改个拼写错误、加一行日志。<strong>如果你能一句话描述清楚要改什么，就跳过规划。</strong></div>
 <hr>
-<h3>5.6 子代理（Sub-agents）—— 给 Claude 配"小弟"</h3>
+<h3 id="56-子代理sub-agents-给-claude-配小弟">5.6 子代理（Sub-agents）—— 给 Claude 配"小弟"</h3>
 <div class="callout callout-blue">💡 <strong>一句话理解</strong>：子代理是 Claude 派出的"分身"，在独立的上下文中完成子任务，做完只把结论带回来。</div>
 <h4>为什么需要子代理？</h4>
 <p>上下文窗口是有限的。如果一个任务需要读 50 个文件，全塞进主对话空间就满了。</p>
@@ -778,7 +839,7 @@
 <pre><code class="language-markdown"># .claude/agents/reviewer.md&lt;br&gt;---&lt;br&gt;name: reviewer&lt;br&gt;description: 代码审查代理&lt;br&gt;model: sonnet&lt;br&gt;---&lt;br&gt;你是一个高级代码审查员。审查时关注：&lt;br&gt;1. 代码质量和可读性&lt;br&gt;2. 潜在的 Bug&lt;br&gt;3. 安全隐患&lt;br&gt;4. 性能问题&lt;br&gt;给出具体的改进建议，引用代码行号。&lt;br&gt;</code></pre>
 <div class="callout callout-green"><span class="emoji">💡</span> <strong>PM 实用场景</strong>：你可以创建一个「PRD 审查员」子代理，让它专门检查 PRD 中的逻辑漏洞、缺失的用户故事、不清晰的验收标准。</div>
 <hr>
-<h3>5.7 Hooks（钩子）—— 自动化的"规则引擎"</h3>
+<h3 id="57-hooks钩子-自动化的规则引擎">5.7 Hooks（钩子）—— 自动化的"规则引擎"</h3>
 <div class="callout callout-blue">🎁 <strong>一句话理解</strong>：Hook 是在特定节点<strong>强制自动执行</strong>的脚本。CLAUDE.md 是"建议"，Hook 是"必须执行"。</div>
 <h4>适用场景</h4>
 <p>- 每次编辑文件后自动跑 ESLint</p>
@@ -790,9 +851,9 @@
 <p>也可以用 <code>/hooks</code> 命令进入交互式配置界面。</p>
 <h2 id="sec-6"><span class="section-num">6</span>Claude Code 与 OpenClaw 的关系</h2>
 <div class="callout callout-blue">💡 很多人会混淆 Claude Code 和 OpenClaw。简单说：<strong>它们是两个独立的工具，解决不同的问题，但共享同一个 AI 大脑（Claude）。</strong></div>
-<h3>三者的关系</h3>
+<h3 id="三者的关系">三者的关系</h3>
 <pre><code class="language-plaintext">Claude（AI 模型，真正"会思考"的部分）&lt;br&gt;  ├── Claude Code 调用它来工作&lt;br&gt;  └── OpenClaw 调用它来工作&lt;br&gt;</code></pre>
-<h3>一句话类比</h3>
+<h3 id="一句话类比">一句话类比</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>工具</th>
@@ -813,7 +874,7 @@
   </tr>
   </tbody>
 </table></div>
-<h3>核心区别</h3>
+<h3 id="核心区别">核心区别</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>对比项</th>
@@ -848,12 +909,12 @@
   </tr>
   </tbody>
 </table></div>
-<h3>常见误解</h3>
+<h3 id="常见误解">常见误解</h3>
 <p><strong>误解一："必须先装 Claude Code 才能用 OpenClaw"</strong> → 不需要，完全独立安装。</p>
 <p><strong>误解二："OpenClaw 自带 AI"</strong> → 不对，OpenClaw 是平台框架，必须配置 LLM（如 Claude）才能工作。</p>
 <p><strong>误解三："Claude Code 只能写代码"</strong> → 不对，它的核心能力是"用自然语言操作电脑"，PM 可以用它搭原型、写 PRD、分析数据。</p>
 <hr>
-<h3>6.1 OpenClaw 快速了解</h3>
+<h3 id="61-openclaw-快速了解">6.1 OpenClaw 快速了解</h3>
 <div class="callout callout-blue">🎁 <strong>一句话理解</strong>：OpenClaw 是一个开源的 AI Agent 平台，让 AI "住进"你每天用的飞书里，像发微信一样和 AI 对话。</div>
 <h4>它能做什么？</h4>
 <p>- <strong>主动提醒你</strong>（定时任务、日程提醒）</p>
@@ -883,23 +944,23 @@
 <div class="callout callout-yellow">🎁 - <code>dmPolicy</code> 保持 <code>"pairing"</code>，不要改 <code>"open"</code>（否则任何人都能和你的 AI 对话） - 不要在存有敏感数据的电脑上安装 - 在 Anthropic Console 设好月度费用上限 - 第三方 Skill 包可能有安全风险，谨慎安装</div>
 <hr>
 <h2 id="sec-7"><span class="section-num">7</span>实战案例</h2>
-<h3>案例 1：从零创建项目</h3>
+<h3 id="案例-1从零创建项目">案例 1：从零创建项目</h3>
 <pre><code class="language-plaintext">&gt; 帮我创建一个 Python Flask 项目，实现待办事项 API&lt;br&gt;&gt; 支持增删改查、SQLite 存储、基本错误处理&lt;br&gt;&gt; 顺便写好 README 和 .gitignore&lt;br&gt;</code></pre>
-<h3>案例 2：修复 Bug</h3>
+<h3 id="案例-2修复-bug">案例 2：修复 Bug</h3>
 <pre><code class="language-plaintext">&gt; 运行 npm start 报错："TypeError: Cannot read property 'map' of undefined"&lt;br&gt;&gt; 帮我找到原因并修复&lt;br&gt;</code></pre>
-<h3>案例 3：快速搭建原型</h3>
+<h3 id="案例-3快速搭建原型">案例 3：快速搭建原型</h3>
 <pre><code class="language-plaintext">&gt; 帮我创建一个 todo-app.html，实现待办事项应用原型：&lt;br&gt;&gt; - 顶部输入框和"添加"按钮&lt;br&gt;&gt; - 待办列表，可标记完成和删除&lt;br&gt;&gt; - 现代简洁 UI，蓝白为主&lt;br&gt;&gt; - 所有代码放在一个 HTML 文件里&lt;br&gt;</code></pre>
-<h3>案例 4：数据分析</h3>
+<h3 id="案例-4数据分析">案例 4：数据分析</h3>
 <pre><code class="language-plaintext">&gt; 请读取 user_data.csv，告诉我：&lt;br&gt;&gt; 1. 一共有多少条数据&lt;br&gt;&gt; 2. 有哪些字段&lt;br&gt;&gt; 3. 有没有异常值或空值&lt;br&gt;&gt; 4. 给一个简单的数据摘要&lt;br&gt;</code></pre>
-<h3>案例 5：写竞品分析</h3>
+<h3 id="案例-5写竞品分析">案例 5：写竞品分析</h3>
 <pre><code class="language-plaintext">&gt; 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：&lt;br&gt;&gt; 分析 Jasper、Copy.ai、Notion AI&lt;br&gt;&gt; 每个列出：核心功能、定价、目标用户、优势和不足&lt;br&gt;&gt; 最后给出对比总结表格，用中文撰写&lt;br&gt;</code></pre>
-<h3>案例 6：批量操作</h3>
+<h3 id="案例-6批量操作">案例 6：批量操作</h3>
 <pre><code class="language-plaintext">&gt; 帮我把 src/components/ 下所有 .jsx 文件改成 .tsx&lt;br&gt;&gt; 并且给每个组件的 props 添加 TypeScript 类型定义&lt;br&gt;</code></pre>
-<h3>案例 7：让 Claude 帮你创建配置文件</h3>
+<h3 id="案例-7让-claude-帮你创建配置文件">案例 7：让 Claude 帮你创建配置文件</h3>
 <pre><code class="language-plaintext">&gt; 帮我创建一个 CLAUDE.md 文件，项目信息如下：&lt;br&gt;&gt; - Vue 3 + Vite 前端项目&lt;br&gt;&gt; - Element Plus 组件库&lt;br&gt;&gt; - ESLint + Prettier 代码规范&lt;br&gt;&gt; - Vitest 测试框架&lt;br&gt;</code></pre>
 <hr>
 <h2 id="sec-8"><span class="section-num">8</span>进阶技巧</h2>
-<h3>8.1 Claude Code 是怎么工作的？—— 代理循环</h3>
+<h3 id="81-claude-code-是怎么工作的-代理循环">8.1 Claude Code 是怎么工作的？—— 代理循环</h3>
 <p>理解 Claude Code 背后的工作逻辑，会帮你写出更好的指令、更快拿到想要的结果。</p>
 <h4>代理循环：收集 → 行动 → 验证</h4>
 <p>每次你给 Claude 一个任务，它都会经历三个阶段：</p>
@@ -939,7 +1000,7 @@
 </table></div>
 <p>Claude 会根据你的指令自动选择用哪些工具。你说「修复这个测试」，它可能会：先运行测试看哪个失败 → 读错误信息 → 搜索相关代码 → 改代码 → 再跑测试验证。整个过程自动串联。</p>
 <hr>
-<h3>8.2 上下文窗口管理</h3>
+<h3 id="82-上下文窗口管理">8.2 上下文窗口管理</h3>
 <p>上下文窗口（Context Window）是 Claude 的「工作记忆」。你的对话、Claude 读过的文件、运行过的命令输出——全都塞在里面。</p>
 <p><strong>关键点：上下文窗口是有限的。</strong> 一旦塞满，Claude 的表现会明显下降——它会「忘记」早期的指令，犯更多错误。</p>
 <div class="table-wrap"><table>
@@ -964,7 +1025,7 @@
 </table></div>
 <div class="callout callout-green"><span class="emoji">💡</span> <strong>核心原则</strong>：每个新任务开始前用 <code>/clear</code>，对话变慢时用 <code>/compact</code>，持久化规则写进 CLAUDE.md 而不是靠对话记忆。</div>
 <hr>
-<h3>8.3 提示词的进阶技巧</h3>
+<h3 id="83-提示词的进阶技巧">8.3 提示词的进阶技巧</h3>
 <h4>委派，不要指令</h4>
 <p>❌ 不好的方式：</p>
 <pre><code class="language-plaintext">&gt; 打开 src/auth/login.ts，找到第 42 行的 refreshToken 函数，&lt;br&gt;&gt; 把 if 条件改成 token.expiry &lt; Date.now() - 60000&lt;br&gt;</code></pre>
@@ -998,7 +1059,7 @@
   </tbody>
 </table></div>
 <hr>
-<h3>8.4 模型选择指南</h3>
+<h3 id="84-模型选择指南">8.4 模型选择指南</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>模型</th>
@@ -1029,7 +1090,7 @@
 </table></div>
 <p>用 <code>/model</code> 切换。大部分时间用 Sonnet 就够了。</p>
 <hr>
-<h3>8.5 省钱实战指南</h3>
+<h3 id="85-省钱实战指南">8.5 省钱实战指南</h3>
 <p>Claude Code 按 Token 计费，Token 就是 AI 处理文本的基本单位。</p>
 <div class="table-wrap"><table>
   <thead><tr>
@@ -1061,7 +1122,7 @@
 </table></div>
 <div class="callout callout-yellow"><span class="emoji">💰</span> <strong>费用参考</strong>：使用 Sonnet，平均每位开发者每天约 $6，90% 的用户每天不超过 $12。作为轻度使用预计远低于此。</div>
 <h2 id="sec-9"><span class="section-num">9</span>最佳实践</h2>
-<h3>✅ 这样做效果更好</h3>
+<h3 id="这样做效果更好">✅ 这样做效果更好</h3>
 <p>1. <strong>在项目根目录启动</strong> — Claude Code 能读取完整项目结构</p>
 <p>1. <strong>清晰描述需求</strong> — "帮我用 React 写一个带搜索和分页的用户列表页面" 比 "帮我写个页面" 好得多</p>
 <p>1. <strong>提供上下文</strong> — 告诉它技术栈、约束条件、参考示例</p>
@@ -1070,7 +1131,7 @@
 <p>1. <strong>用 CLAUDE.md 保存项目规范</strong> — 避免每次重复说明</p>
 <p>1. <strong>给 Claude 自我检查的方式</strong> — "修好后跑测试确认" 比 "修好就行" 效果好得多</p>
 <p>1. <strong>把 Claude 当同事委派</strong> — 给方向和上下文，不要写微操指令</p>
-<h3>❌ 避免这样做</h3>
+<h3 id="避免这样做">❌ 避免这样做</h3>
 <p>1. ❌ 不要一句话描述模糊需求（"帮我做个网站"）</p>
 <p>1. ❌ 不要让它一次性修改太多不相关的文件</p>
 <p>1. ❌ 不要忽略它的确认提示直接说"全部同意"</p>
@@ -1079,7 +1140,7 @@
 <p>1. ❌ 不要写过于详细的微操指令（"打开第42行，改成..."）——委派给它</p>
 <hr>
 <h2 id="sec-10"><span class="section-num">10</span>常见问题</h2>
-<h3>基础问题</h3>
+<h3 id="基础问题">基础问题</h3>
 <p><strong>Q: 完全不懂编程，能用 Claude Code 吗？</strong>A: 能！核心交互方式是自然语言——你用中文告诉它想做什么就行。它会帮你写代码、执行命令、创建文件。你只需要检查结果是否符合预期。</p>
 <p><strong>Q: 使用 Claude Code 要花多少钱？</strong>A: 用 <code>/cost</code> 查看费用。日常轻度使用月费约 $5-$15，建议在 <a href="https://console.anthropic.com/">console.anthropic.com</a> 设置月度上限。</p>
 <p><strong>Q: 对话太长、响应变慢怎么办？</strong>A: 用 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清除重新开始。复杂任务建议拆成多次短对话。</p>
@@ -1088,11 +1149,11 @@
 <p><strong>Q: Claude Code 会不会把我电脑搞坏？</strong>A: 它在执行任何操作前都会先告诉你并等你确认。仔细看操作说明再确认就不会有问题。</p>
 <p><strong>Q: Claude Code 和 OpenClaw 必须一起用吗？</strong>A: 不需要，完全独立。你可以只用其中一个，装了两个也互不干扰。</p>
 <p><strong>Q: 这些工具安全吗？</strong>A: Claude Code 是 Anthropic 官方产品，传输加密。但发给 AI 的内容会发送到服务器处理，请避免发送密码、银行卡号等敏感信息。</p>
-<h3>Claude Code 相关</h3>
+<h3 id="claude-code-相关">Claude Code 相关</h3>
 <p><strong>Q: Claude Code 和 claude.ai 网页版有什么区别？</strong>A: claude.ai 网页版是一个聊天界面，你只能在网页上对话。Claude Code 运行在你的电脑终端里，它能直接读写你电脑上的文件、运行命令、理解整个项目。简单说：网页版只能聊天，Claude Code 能动手干活。</p>
 <p><strong>Q: 对话太长了，Claude 开始「犯傻」怎么办？</strong>A: 这是上下文窗口接近满载的正常现象。输入 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清空重来。建议复杂任务拆成多次短对话。</p>
 <p><strong>Q: Claude 执行了我不想要的操作怎么办？</strong>A: 1. 按 <code>Esc</code> 立即停止生成；2. 确认提示时输入 <code>n</code> 拒绝；3. 如果已执行，说"撤销刚才的修改"。</p>
-<h3>OpenClaw 相关</h3>
+<h3 id="openclaw-相关">OpenClaw 相关</h3>
 <p><strong>Q: 飞书免费版能用 OpenClaw 吗？</strong>A: 能。自建应用和机器人功能对所有飞书版本开放，包括免费版。</p>
 <p><strong>Q: 飞书机器人需要服务器吗？</strong>A: 不需要。OpenClaw 使用 WebSocket 长连接，你的电脑直接连接飞书云端，不需要公网 IP。</p>
 <p><strong>Q: 能同时连飞书和 WhatsApp 吗？</strong>A: 能。OpenClaw 原生支持多渠道同时在线，互不影响。</p>
@@ -1204,7 +1265,7 @@
 </table></div>
 <hr>
 <h2 id="sec-12"><span class="section-num">12</span>命令速查卡</h2>
-<h3>终端基础命令</h3>
+<h3 id="终端基础命令">终端基础命令</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>命令</th>
@@ -1244,7 +1305,7 @@
   </tr>
   </tbody>
 </table></div>
-<h3>Claude Code 命令</h3>
+<h3 id="claude-code-命令">Claude Code 命令</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>命令</th>
@@ -1325,7 +1386,7 @@
   </tr>
   </tbody>
 </table></div>
-<h3>OpenClaw 运维命令</h3>
+<h3 id="openclaw-运维命令">OpenClaw 运维命令</h3>
 <div class="table-wrap"><table>
   <thead><tr>
     <th>命令</th>
