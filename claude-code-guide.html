@@ -9,22 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAFAF8;
-    --bg-card: #FFFFFF;
-    --bg-code: #F1F5F9;
-    --bg-callout-blue: #EFF6FF;
-    --bg-callout-yellow: #FFFBEB;
-    --bg-callout-green: #F0FDF4;
-    --bg-callout-orange: #FFF7ED;
-    --bg-table-header: #F1F5F9;
-    --bg-table-alt: #F8FAFC;
-    --text: #1A1A2E;
-    --text-secondary: #475569;
-    --text-muted: #64748B;
-    --accent: #2563EB;
-    --accent-light: #DBEAFE;
-    --border: #E2E8F0;
-    --border-light: #F1F5F9;
+    --bg: #FAFAF8; --bg-card: #FFFFFF; --bg-code: #F1F5F9;
+    --bg-callout-blue: #EFF6FF; --bg-callout-yellow: #FFFBEB;
+    --bg-callout-green: #F0FDF4; --bg-callout-orange: #FFF7ED;
+    --bg-table-header: #F1F5F9; --bg-table-alt: #F8FAFC;
+    --text: #1A1A2E; --text-secondary: #475569; --text-muted: #64748B;
+    --accent: #2563EB; --accent-light: #DBEAFE;
+    --border: #E2E8F0; --border-light: #F1F5F9;
     --code-text: #0F172A;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
@@ -32,44 +23,26 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0F172A;
-      --bg-card: #1E293B;
-      --bg-code: #1E293B;
-      --bg-callout-blue: #172554;
-      --bg-callout-yellow: #422006;
-      --bg-callout-green: #052E16;
-      --bg-callout-orange: #431407;
-      --bg-table-header: #1E293B;
-      --bg-table-alt: #0F172A;
-      --text: #E2E8F0;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-      --accent: #60A5FA;
-      --accent-light: #1E3A5F;
-      --border: #334155;
-      --border-light: #1E293B;
+      --bg: #0F172A; --bg-card: #1E293B; --bg-code: #1E293B;
+      --bg-callout-blue: #172554; --bg-callout-yellow: #422006;
+      --bg-callout-green: #052E16; --bg-callout-orange: #431407;
+      --bg-table-header: #1E293B; --bg-table-alt: #0F172A;
+      --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+      --accent: #60A5FA; --accent-light: #1E3A5F;
+      --border: #334155; --border-light: #1E293B;
       --code-text: #E2E8F0;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
       --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0F172A;
-    --bg-card: #1E293B;
-    --bg-code: #1E293B;
-    --bg-callout-blue: #172554;
-    --bg-callout-yellow: #422006;
-    --bg-callout-green: #052E16;
-    --bg-callout-orange: #431407;
-    --bg-table-header: #1E293B;
-    --bg-table-alt: #0F172A;
-    --text: #E2E8F0;
-    --text-secondary: #94A3B8;
-    --text-muted: #64748B;
-    --accent: #60A5FA;
-    --accent-light: #1E3A5F;
-    --border: #334155;
-    --border-light: #1E293B;
+    --bg: #0F172A; --bg-card: #1E293B; --bg-code: #1E293B;
+    --bg-callout-blue: #172554; --bg-callout-yellow: #422006;
+    --bg-callout-green: #052E16; --bg-callout-orange: #431407;
+    --bg-table-header: #1E293B; --bg-table-alt: #0F172A;
+    --text: #E2E8F0; --text-secondary: #94A3B8; --text-muted: #64748B;
+    --accent: #60A5FA; --accent-light: #1E3A5F;
+    --border: #334155; --border-light: #1E293B;
     --code-text: #E2E8F0;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
@@ -78,12 +51,9 @@
   html { scroll-behavior: smooth; font-size: 16px; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
+    background: var(--bg); color: var(--text); line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  /* Layout */
   .page { display: flex; min-height: 100vh; }
   .sidebar {
     position: sticky; top: 0; height: 100vh; width: 280px; min-width: 280px;
@@ -102,10 +72,8 @@
     font-size: 13px; line-height: 1.5; transition: color 0.15s;
   }
   .sidebar a:hover { color: var(--accent); }
-  .sidebar a.section-link { font-weight: 600; color: var(--text); margin-top: 16px; font-size: 14px; }
-  .sidebar a.sub-link { padding-left: 16px; font-weight: 400; }
+  .sidebar a.section-link { font-weight: 600; color: var(--text); margin-top: 12px; font-size: 14px; }
   .main { flex: 1; max-width: 860px; margin: 0 auto; padding: 48px 40px 80px; }
-  /* Theme toggle */
   .theme-toggle {
     position: fixed; top: 20px; right: 24px; z-index: 100;
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
@@ -113,20 +81,15 @@
     box-shadow: var(--shadow-md); transition: all 0.2s;
   }
   .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-  /* Typography */
-  h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; text-wrap: balance; }
-  h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 56px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); line-height: 1.3; text-wrap: balance; }
-  h3 { font-size: 1.2rem; font-weight: 600; margin: 36px 0 12px; line-height: 1.4; text-wrap: balance; }
+  h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+  h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 56px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); line-height: 1.3; }
+  h3 { font-size: 1.2rem; font-weight: 600; margin: 36px 0 12px; line-height: 1.4; }
   h4 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; color: var(--text-secondary); }
   p { margin-bottom: 16px; color: var(--text); }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   strong { font-weight: 600; }
   hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
-  /* Intro section */
-  .intro { margin-bottom: 40px; }
-  .intro p { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; }
-  /* Callout */
   .callout {
     padding: 16px 20px; border-radius: var(--radius); margin: 20px 0;
     font-size: 0.95rem; line-height: 1.7; border-left: 4px solid;
@@ -136,11 +99,10 @@
   .callout-green { background: var(--bg-callout-green); border-color: #22C55E; }
   .callout-orange { background: var(--bg-callout-orange); border-color: #F97316; }
   .callout .emoji { margin-right: 6px; }
-  /* Code */
   code {
     font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
     font-size: 0.88em; background: var(--bg-code); color: var(--code-text);
-    padding: 2px 6px; border-radius: 4px; font-variant-ligatures: none;
+    padding: 2px 6px; border-radius: 4px;
   }
   pre {
     background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius);
@@ -148,7 +110,6 @@
     line-height: 1.65; box-shadow: var(--shadow-sm);
   }
   pre code { background: none; padding: 0; font-size: inherit; }
-  /* Tables */
   .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: var(--radius); border: 1px solid var(--border); }
   table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
   th {
@@ -159,660 +120,2027 @@
   td { padding: 10px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) td { background: var(--bg-table-alt); }
-  /* Lists */
   ul, ol { margin: 8px 0 16px 24px; }
   li { margin-bottom: 6px; }
   li::marker { color: var(--accent); }
-  /* Section numbering */
   .section-num {
     display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--accent);
     background: var(--accent-light); padding: 2px 10px; border-radius: 12px;
     margin-right: 8px; letter-spacing: 0.02em;
   }
-  /* Comparison cards */
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-  .compare-card {
-    padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);
-    background: var(--bg-card);
-  }
-  .compare-card h4 { margin: 0 0 8px; font-size: 0.95rem; }
-  /* Responsive */
   @media (max-width: 900px) {
     .sidebar { display: none; }
     .main { padding: 32px 20px 60px; }
-    .compare { grid-template-columns: 1fr; }
     .theme-toggle { top: 12px; right: 12px; }
   }
 </style>
 </head>
 <body>
-
 <button class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">🌓 主题</button>
-
 <div class="page">
 <nav class="sidebar">
-  <div class="sidebar-title">📖 目录导航</div>
-  <a href="index.html" style="display:inline-block;margin-bottom:20px;padding:6px 14px;background:var(--accent-light);color:var(--accent);border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;">← 返回主页</a>
+<div class="sidebar-title">📖 目录导航</div>
   <a href="#what" class="section-link">什么是 Claude Code</a>
   <a href="#prereq" class="section-link">0. 前置知识</a>
-  <a href="#terminal" class="sub-link">终端/命令行</a>
-  <a href="#commands5" class="sub-link">5 个基础命令</a>
-  <a href="#nodejs" class="sub-link">Node.js 与 npm</a>
-  <a href="#install" class="section-link">1. 安装与启动</a>
-  <a href="#auth" class="sub-link">认证登录</a>
-  <a href="#usage" class="section-link">2. 基本使用</a>
-  <a href="#slash" class="section-link">3. 斜杠命令</a>
-  <a href="#tips" class="section-link">4. 实用技巧</a>
-  <a href="#skill" class="section-link">5. 核心概念</a>
-  <a href="#skill-detail" class="sub-link">Skill 技能</a>
-  <a href="#mcp" class="sub-link">MCP 协议</a>
-  <a href="#claude-md" class="sub-link">CLAUDE.md</a>
-  <a href="#memory" class="sub-link">Memory 记忆</a>
-  <a href="#plan-mode" class="sub-link">Plan Mode</a>
-  <a href="#sub-agents" class="sub-link">子代理</a>
-  <a href="#hooks" class="sub-link">Hooks</a>
-  <a href="#openclaw" class="section-link">6. Claude Code 与 OpenClaw</a>
-  <a href="#cases" class="section-link">7. 实战案例</a>
-  <a href="#advanced" class="section-link">8. 进阶技巧</a>
-  <a href="#best" class="section-link">9. 最佳实践</a>
-  <a href="#faq" class="section-link">10. 常见问题</a>
+  <a href="#sec-1" class="section-link">1. 安装与启动</a>
+  <a href="#sec-2" class="section-link">2. 基本使用</a>
+  <a href="#sec-3" class="section-link">3. 斜杠命令</a>
+  <a href="#sec-4" class="section-link">4. 实用技巧</a>
+  <a href="#sec-5" class="section-link">5. 核心概念</a>
+  <a href="#sec-6" class="section-link">6. Claude Code 与 OpenClaw</a>
+  <a href="#sec-7" class="section-link">7. 实战案例</a>
+  <a href="#sec-8" class="section-link">8. 进阶技巧</a>
+  <a href="#sec-9" class="section-link">9. 最佳实践</a>
+  <a href="#sec-10" class="section-link">10. 常见问题</a>
+  <a href="#sec-11" class="section-link">11. 术语表</a>
+  <a href="#sec-12" class="section-link">12. 命令速查卡</a>
 </nav>
-
 <main class="main">
-
-<div class="intro">
-<h1>Claude Code 完全指南</h1>
-<p>从入门到进阶，一本面向零基础用户的 Claude Code 使用手册。涵盖环境准备、核心概念、实战案例、进阶技巧，以及与 OpenClaw 的关系。</p>
-</div>
-
-<!-- ==================== 什么是 Claude Code ==================== -->
-<h2 id="what">什么是 Claude Code？</h2>
-
-<div class="callout callout-blue">
-  <span class="emoji">💡</span> <strong>一句话理解</strong>：Claude Code 是一个住在你终端（命令行）里的 AI 编程助手。你用自然语言告诉它想做什么，它就能帮你读代码、写代码、运行命令、管理文件——就像一个随时在线的程序员搭档。
-</div>
-
+<h1>Claude Code 完全指南（从入门到进阶）</h1>
+<h2 id="什么是-Claude-Code-">什么是 Claude Code？</h2>
+<p><callout emoji="bulb" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：Claude Code 是一个住在你终端（命令行）里的 AI 编程助手。你用自然语言告诉它想做什么，它就能帮你读代码、写代码、运行命令、管理文件——就像一个随时在线的程序员搭档。</p>
+<p></callout></p>
 <h3>它能做什么？</h3>
-<div class="table-wrap"><table>
-<tr><th>能力</th><th>举例</th></tr>
-<tr><td>📖 阅读和理解代码</td><td>"帮我解释一下这个项目的代码结构"</td></tr>
-<tr><td>✏️ 编写和修改代码</td><td>"帮我写一个 Python 快速排序函数"</td></tr>
-<tr><td>🖥️ 执行终端命令</td><td>"帮我运行 npm install"</td></tr>
-<tr><td>🐛 调试和修复 Bug</td><td>"这段代码报错了，帮我找原因并修复"</td></tr>
-<tr><td>📁 管理文件</td><td>"帮我在 src 目录下创建一个新的组件文件"</td></tr>
-<tr><td>🔍 搜索代码库</td><td>"帮我找到所有调用 getUserInfo 的地方"</td></tr>
-</table></div>
-
+<p><lark-table rows="7" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      能力</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      举例</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      📖 阅读和理解代码</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "帮我解释一下这个项目的代码结构"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      ✏️ 编写和修改代码</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "帮我写一个 Python 快速排序函数"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      🖥️ 执行终端命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "帮我运行 npm install"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      🐛 调试和修复 Bug</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "这段代码报错了，帮我找原因并修复"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      📁 管理文件</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "帮我在 src 目录下创建一个新的组件文件"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      🔍 搜索代码库</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "帮我找到所有调用 getUserInfo 的地方"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
 <h3>它和 ChatGPT / 网页版 Claude 有什么区别？</h3>
-<div class="table-wrap"><table>
-<tr><th>对比项</th><th>ChatGPT / 网页版 Claude</th><th>Claude Code</th></tr>
-<tr><td>运行环境</td><td>浏览器里聊天</td><td>你电脑的终端里</td></tr>
-<tr><td>能否读你的代码</td><td>不能，需要你手动粘贴</td><td>能，直接读取你的项目文件</td></tr>
-<tr><td>能否修改文件</td><td>不能</td><td>能，直接帮你创建和编辑文件</td></tr>
-<tr><td>能否运行命令</td><td>不能</td><td>能，帮你在终端执行命令</td></tr>
-<tr><td>适用场景</td><td>通用问答、写小段代码</td><td>真正的项目开发工作</td></tr>
-</table></div>
-
-<!-- ==================== 前置知识 ==================== -->
-<h2 id="prereq"><span class="section-num">0</span>前置知识</h2>
-
-<div class="callout callout-yellow">
-  <span class="emoji">📚</span> 如果你从未接触过编程，这一章会帮你理解后面会反复出现的几个基本概念。已经有一定基础的同学可以跳过。
-</div>
-
-<h3 id="terminal">什么是终端（Terminal）/ 命令行？</h3>
-<p><strong>你平时怎么操作电脑？</strong> 点击图标、双击文件、右键菜单——这叫"图形界面"。<strong>终端是另一种操作电脑的方式</strong>：你输入一行文字命令，电脑执行后把结果显示出来。</p>
+<p><lark-table rows="6" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      对比项</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      ChatGPT / 网页版 Claude</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude Code</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      运行环境</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      浏览器里聊天</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你电脑的终端里</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      能否读你的代码</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      不能，需要你手动粘贴</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      能，直接读取你的项目文件</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      能否修改文件</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      不能</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      能，直接帮你创建和编辑文件</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      能否运行命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      不能</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      能，帮你在终端执行命令</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      适用场景</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      通用问答、写小段代码</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      真正的项目开发工作</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<hr>
+<h2 id="sec-0"><span class="section-num">0</span>前置知识：在开始之前你需要了解的概念</h2>
+<p><callout emoji="books" background-color="light-yellow"></p>
+<p>如果你从未接触过编程，这一章会帮你理解后面会反复出现的几个基本概念。已经有一定基础的同学可以跳过。</p>
+<p></callout></p>
+<h3>0.1 什么是终端（Terminal）/ 命令行？</h3>
+<p><strong>你平时怎么操作电脑？</strong> 点击图标、双击文件、右键菜单——这叫"图形界面"。</p>
+<p><strong>终端是另一种操作电脑的方式</strong>：你输入一行文字命令，电脑执行后把结果显示出来。</p>
 <p>举个例子：</p>
-<ul>
-<li>图形界面操作：打开文件管理器 → 找到文件夹 → 右键 → 删除</li>
-<li>终端操作：输入 <code>rm -rf 文件夹名</code> → 回车 → 完成</li>
-</ul>
+<p>- 图形界面操作：打开文件管理器 → 找到文件夹 → 右键 → 删除</p>
+<p>- 终端操作：输入 <code>rm -rf 文件夹名</code> → 回车 → 完成</p>
 <p><strong>为什么 Claude Code 要用终端？</strong> 因为终端是最高效的"人机对话"方式。Claude Code 住在终端里，你在终端里和它用文字对话，它就能帮你操作电脑。</p>
-
-<div class="table-wrap"><table>
-<tr><th>系统</th><th>打开方式</th></tr>
-<tr><td>Windows</td><td>按 <code>Win + X</code>，选择"Windows PowerShell"或"终端"；或者在开始菜单搜索"PowerShell"</td></tr>
-<tr><td>Mac</td><td>按 <code>Command + 空格</code>，输入 <code>Terminal</code>，按回车</td></tr>
-</table></div>
-
-<div class="callout callout-green">
-  <span class="emoji">💡</span> <strong>小技巧</strong>：建议把终端固定到任务栏/Dock 栏上，后续你会经常用到它。
-</div>
-
-<h3 id="commands5">终端基础命令速查（5 个就够了）</h3>
-<div class="table-wrap"><table>
-<tr><th>命令</th><th>含义</th><th>例子</th></tr>
-<tr><td><code>pwd</code></td><td>我在哪？（显示当前路径）</td><td><code>pwd</code> → <code>/Users/yourname</code></td></tr>
-<tr><td><code>ls</code> / <code>dir</code></td><td>这里有什么？（列出文件）</td><td><code>ls</code> → 显示当前目录文件列表</td></tr>
-<tr><td><code>cd 文件夹名</code></td><td>去别的地方（进入目录）</td><td><code>cd Desktop</code> → 进入桌面</td></tr>
-<tr><td><code>mkdir 文件夹名</code></td><td>创建新文件夹</td><td><code>mkdir my-project</code> → 创建项目目录</td></tr>
-<tr><td><code>clear</code></td><td>清空屏幕</td><td>屏幕太乱时用</td></tr>
-</table></div>
-
-<div class="callout callout-green">
-  <span class="emoji">🎯</span> <strong>练习一下</strong>：打开终端，依次执行 <code>pwd</code> → <code>ls</code> → <code>cd Desktop</code> → <code>mkdir ai-tools</code> → <code>cd ai-tools</code>。如果每一步都成功了，终端入门完成！
-</div>
-
-<h3>什么是目录/文件夹和根目录？</h3>
-<p>"目录"就是"文件夹"，两个词是同一个东西。<strong>根目录</strong>就是你项目文件夹的最顶层：</p>
-<pre><code>my-website/            ← 这就是项目根目录
-├── src/               ← 源代码目录
-│   ├── index.js
-│   └── style.css
-├── package.json       ← 项目配置文件
-└── README.md          ← 项目说明文件</code></pre>
-
-<h3 id="nodejs">什么是 Node.js？什么是 npm？</h3>
+<p><strong>怎么打开终端？</strong></p>
+<p><lark-table rows="3" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      系统</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      打开方式</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Windows</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按 <code>Win + X</code>，选择"Windows PowerShell"或"终端"；或者在开始菜单搜索"PowerShell"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Mac</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按 <code>Command + 空格</code>，输入 <code>Terminal</code>，按回车</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p>打开后你会看到一个黑色（或蓝色）的窗口，里面有一个闪烁的光标，等待你输入命令。<strong>这就是终端。</strong></p>
+<p><callout emoji="bulb" background-color="light-green"></p>
+<p><strong>小技巧</strong>：建议把终端固定到任务栏/Dock 栏上，后续你会经常用到它。</p>
+<p></callout></p>
+<h3>0.2 终端基础命令速查（5 个就够了）</h3>
+<p>你不需要成为终端高手，以下 5 个命令覆盖了 90% 的日常操作：</p>
+<p><lark-table rows="6" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      含义</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      例子</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>pwd</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      我在哪？（显示当前路径）</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>pwd</code> → <code>/Users/yourname</code></p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>ls</code> / <code>dir</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      这里有什么？（列出文件）</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>ls</code> → 显示当前目录文件列表</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>cd 文件夹名</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      去别的地方（进入目录）</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>cd Desktop</code> → 进入桌面</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>mkdir 文件夹名</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      创建新文件夹</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>mkdir my-project</code> → 创建项目目录</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>clear</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      清空屏幕</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      屏幕太乱时用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p><callout emoji="dart" background-color="light-green"></p>
+<p><strong>练习一下</strong>：打开终端，依次执行 <code>pwd</code> → <code>ls</code> → <code>cd Desktop</code> → <code>mkdir ai-tools</code> → <code>cd ai-tools</code>。如果每一步都成功了，终端入门完成！</p>
+<p></callout></p>
+<h3>0.3 什么是目录/文件夹和根目录？</h3>
+<p>"目录"就是"文件夹"，两个词是同一个东西。程序员习惯叫"目录"。</p>
+<p><strong>根目录</strong>就是你项目文件夹的最顶层：</p>
+<pre><code class="language-plaintext">my-website/            ← 这就是项目根目录&lt;br&gt;├── src/               ← 源代码目录&lt;br&gt;│   ├── index.js&lt;br&gt;│   └── style.css&lt;br&gt;├── package.json       ← 项目配置文件&lt;br&gt;└── README.md          ← 项目说明文件&lt;br&gt;</code></pre>
+<p><strong>为什么 Claude Code 要在根目录启动？</strong> 因为启动后它会自动扫描当前目录的所有文件。在子目录启动就像只翻开书的其中一页，看不到全貌。</p>
+<h3>0.4 什么是 Node.js？什么是 npm？</h3>
 <p><strong>Node.js</strong> 是一个让 JavaScript 代码能在电脑上运行的环境。Claude Code 是用 JavaScript 写的，所以需要 Node.js 才能运行。</p>
-<p><strong>npm</strong> 是 Node.js 的"应用商店"，用来安装各种工具。<code>npm install xxx</code> 就像在应用商店点"安装"。npm 随着 Node.js 一起安装，装了 Node.js 就自动有了 npm。</p>
-
-<h3>什么是项目依赖（Dependencies）？</h3>
-<p><strong>依赖就是你的项目需要用到的"别人的代码"。</strong> 比如你做网站需要用到 React（别人写好的 UI 框架）。<strong>package.json</strong> 是项目的"购物清单"，记录了需要哪些依赖。<code>npm install</code> 就是按清单把所有依赖下载下来。</p>
-
-<h3>什么是 .md 文件？</h3>
-<p><code>.md</code> 是 Markdown 文件，一种简单的排版语言，用纯文本就能写出带格式的文档。飞书、Notion 底层很多都是 Markdown。</p>
-
-<!-- ==================== 安装 ==================== -->
-<h2 id="install"><span class="section-num">1</span>环境准备与安装</h2>
-
-<h3>安装 Claude Code</h3>
+<p><strong>npm</strong> 是 Node.js 的"应用商店"，用来安装各种工具。<code>npm install xxx</code> 就像在应用商店点"安装"。</p>
+<p>npm 随着 Node.js 一起安装，装了 Node.js 就自动有了 npm。</p>
+<h3>0.5 什么是项目依赖（Dependencies）？</h3>
+<p><strong>依赖就是你的项目需要用到的"别人的代码"。</strong> 比如你做网站需要用到 React（别人写好的 UI 框架）。</p>
+<p><strong>package.json</strong> 是项目的"购物清单"，记录了需要哪些依赖。<code>npm install</code> 就是按清单把所有依赖下载下来。</p>
+<h3>0.6 什么是 .md 文件？</h3>
+<p><code>.md</code> 是 Markdown 文件，一种简单的排版语言，用纯文本就能写出带格式的文档。飞书、Notion 底层很多都是 Markdown。后面创建 Skill 和 CLAUDE.md 时都是写 <code>.md</code> 文件。</p>
+<hr>
+<h2 id="sec-1"><span class="section-num">1</span>环境准备与安装</h2>
+<h3>1.1 安装 Claude Code</h3>
 <p>Claude Code 提供了<strong>原生安装器</strong>，不需要安装 Node.js 也能用，一行命令搞定。</p>
 <p><strong>Mac 用户：</strong></p>
-<pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+<pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash&lt;br&gt;</code></pre>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>备选方案</strong>：如果 Mac 上装了 Homebrew，也可以用 <code>brew install --cask claude-code</code> 安装。</div>
 <p><strong>Windows 用户（PowerShell）：</strong></p>
-<pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+<pre><code class="language-bash">irm https://claude.ai/install.ps1 | iex&lt;br&gt;</code></pre>
+<p><strong>Windows 用户（WSL，推荐）：</strong></p>
+<p>WSL（Windows Subsystem for Linux）可以让你在 Windows 里运行 Linux 环境，Claude Code 在 Linux 下运行最稳定。</p>
+<p>第一步，以管理员身份打开 PowerShell（右键「开始」菜单 → Windows PowerShell（管理员））：</p>
+<pre><code class="language-powershell">wsl --install&lt;br&gt;</code></pre>
+<p>安装完成后电脑会要求重启，重启后自动弹出 Ubuntu 设置窗口，设置用户名和密码（可以设简单一点，但要记住）。</p>
+<p>设置完成后，打开「开始」菜单搜索 <strong>Ubuntu</strong>，在 Ubuntu 终端里：</p>
+<pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash&lt;br&gt;</code></pre>
+<div class="callout callout-yellow"><span class="emoji">⚠️</span> <strong>Windows 用户注意</strong>：后续所有终端命令，WSL 方式请在 Ubuntu 终端执行；PowerShell 方式请在 PowerShell 执行。</div>
 <p><strong>验证安装：</strong></p>
-<pre><code>claude --version</code></pre>
+<pre><code class="language-bash">claude --version&lt;br&gt;</code></pre>
 <p>看到版本号说明安装成功。</p>
-
-<div class="callout callout-green">
-  <span class="emoji">💡</span> <strong>不想用命令行安装？</strong> 也可以在 VSCode 扩展商店搜索 "Claude Code" 安装，直接在编辑器里使用。
-</div>
-
-<h3 id="auth">认证登录</h3>
-<p><strong>方式一：API Key（推荐）</strong></p>
-<ol>
-<li>访问 <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>，注册账号</li>
-<li>在 API Keys 页面创建密钥（<code>sk-ant-</code> 开头）</li>
-<li>在 Billing 页面添加付款方式，设置月度上限（如 $20）</li>
-<li>在终端设置环境变量：</li>
-</ol>
-<pre><code># Mac/Linux
-export ANTHROPIC_API_KEY="sk-ant-你的密钥"
-
-# Windows PowerShell
-$env:ANTHROPIC_API_KEY="sk-ant-你的密钥"</code></pre>
-
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>不想用命令行安装？</strong> 也可以在 VSCode 扩展商店搜索 "Claude Code" 安装，直接在编辑器里使用。</div>
+<hr>
+<h3>1.2 认证登录</h3>
+<p>安装好后需要连接你的账号。推荐两种方式：</p>
+<p><strong>方式一：API Key（推荐 ⭐）</strong></p>
+<p>API Key 是一串密钥，类似于你的「AI 使用通行证」。按使用量付费，用多少扣多少，灵活且经济。</p>
+<p>1. 访问 <a href="https://console.anthropic.com/">console.anthropic.com</a>，注册账号</p>
+<p>1. 在 API Keys 页面点击 <strong>Create Key</strong>，给密钥起个名字（如 <code>my-first-key</code>）</p>
+<p>1. 页面会显示以 <code>sk-ant-</code> 开头的密钥。<strong>立刻复制并保存到安全的地方</strong>，因为它只会显示一次！</p>
+<p>1. 在 Billing 页面添加付款方式，设置月度上限（如 $20）</p>
+<p>1. 在终端设置环境变量：</p>
+<pre><code class="language-bash"># Mac/Linux&lt;br&gt;export ANTHROPIC_API_KEY="sk-ant-你的密钥"&lt;br&gt;&lt;br&gt;# Windows PowerShell&lt;br&gt;$env:ANTHROPIC_API_KEY="sk-ant-你的密钥"&lt;br&gt;</code></pre>
+<div class="callout callout-orange"><span class="emoji">🔐</span> <strong>让 API Key 永久生效</strong>（推荐）：上面的命令只在当前终端窗口有效，关掉就失效了。要永久生效：</div>
+<div class="callout callout-blue"></div>
 <p><strong>方式二：Claude Pro/Max 订阅</strong></p>
+<p>如果你已经在使用 claude.ai 的付费订阅（Pro 或 Max 计划），可以直接用订阅账号登录。</p>
 <p>直接在终端输入 <code>claude</code>，会弹出浏览器让你用 claude.ai 账号登录。</p>
+<div class="callout callout-blue"><span class="emoji">📌</span> <strong>该选哪个？</strong> 如果只用 Claude Code，推荐 API Key（按量付费更灵活）。如果同时还在 claude.ai 网页端使用，选 Pro/Max 更划算。</div>
 <p><strong>确认登录成功：</strong></p>
-<pre><code>claude doctor</code></pre>
-
-<div class="callout callout-yellow">
-  <span class="emoji">💰</span> <strong>费用参考</strong>：日常轻度使用，月费用大约 $5-$15。建议在 Anthropic Console 设置月度上限，防止意外超支。
-</div>
-
-<h3>启动</h3>
-<pre><code>cd 你的项目目录    # 先进入项目文件夹
-claude             # 启动</code></pre>
-<p>看到 <code>></code> 提示符后就可以对话了。<strong>退出方式</strong>：输入 <code>/exit</code> 或按 <code>Ctrl + C</code> 两次。</p>
-
-<!-- ==================== 基本使用 ==================== -->
-<h2 id="usage"><span class="section-num">2</span>基本使用方式</h2>
-
-<h3>直接提问</h3>
-<pre><code>> 帮我解释一下这个项目的代码结构</code></pre>
-
-<h3>让它执行命令</h3>
-<pre><code>> 帮我运行 npm install</code></pre>
-
-<h3>让它写代码</h3>
-<pre><code>> 帮我写一个 Python 函数，实现快速排序</code></pre>
-
-<h3>让它修改现有代码</h3>
-<pre><code>> 帮我给 src/utils.js 里的 formatDate 函数加上时区处理</code></pre>
-
-<h3>多行输入</h3>
+<pre><code class="language-bash">claude doctor&lt;br&gt;</code></pre>
+<p>所有项目显示绿色 ✓ 就说明一切正常。</p>
+<div class="callout callout-yellow"><span class="emoji">💰</span> <strong>费用参考</strong>：日常轻度使用，月费用大约 $5-$15。建议在 Anthropic Console 设置月度上限，防止意外超支。</div>
+<hr>
+<h3>1.3 启动 Claude Code</h3>
+<pre><code class="language-bash">cd 你的项目目录    # 先进入项目文件夹&lt;br&gt;claude             # 启动&lt;br&gt;</code></pre>
+<p>看到 <code>></code> 提示符后就可以对话了。试试第一句话：</p>
+<pre><code class="language-plaintext">&gt; 你好，请用中文介绍一下你自己，以及你能帮我做什么&lt;br&gt;</code></pre>
+<h4>第一个作品：创建 hello.html</h4>
+<p>试试让 Claude 做点实际的事情：</p>
+<pre><code class="language-plaintext">&gt; 请在当前目录创建一个叫 hello.html 的文件，内容是一个简单的网页，&lt;br&gt;&gt; 标题写"我的第一个AI作品"，页面中间用大号字显示"Hello World! 这是 Claude Code 帮我做的 🎉"&lt;br&gt;</code></pre>
+<p>Claude 会在你面前实时编写代码并创建文件。完成后：</p>
+<p>- Mac 用户：<code>open hello.html</code></p>
+<p>- Windows 用户：<code>explorer.exe hello.html</code></p>
+<p>你的浏览器会打开这个网页——这就是 Claude Code 帮你创建的第一个作品。</p>
+<p><strong>退出方式</strong>：输入 <code>/exit</code> 或按 <code>Ctrl + C</code> 两次。</p>
+<hr>
+<h3>1.4 常见安装问题排查</h3>
+<h4>❓ 输入 <code>claude</code> 后提示 "command not found"</h4>
+<p>说明安装没有成功，或者 PATH 没有设置好。尝试：</p>
+<p>1. 重新运行安装命令</p>
+<p>1. 关闭终端，重新打开一个新的终端窗口</p>
+<p>1. 再次输入 <code>claude --version</code> 检查</p>
+<h4>❓ 提示认证失败 / API Key 无效</h4>
+<p>1. 确认你的 API Key 以 <code>sk-ant-</code> 开头</p>
+<p>1. 确认你在 Anthropic Console 中已添加付款方式</p>
+<p>1. 重新设置环境变量（检查有没有多余的空格或引号）</p>
+<h4>❓ Claude 回复很慢</h4>
+<p>1. 检查网络连接是否正常（可能需要代理/VPN）</p>
+<p>1. 用 <code>/model sonnet</code> 切换到更快的模型</p>
+<p>1. 用 <code>/compact</code> 压缩对话历史，释放上下文空间</p>
+<h4>❓ 对话越来越不准确</h4>
+<p>这是对话太长导致的「上下文疲劳」。解决方法：</p>
+<p>1. 输入 <code>/compact</code> 压缩历史</p>
+<p>1. 或者输入 <code>/clear</code> 清空，重新开始</p>
+<p>1. 复杂任务建议拆成多次短对话</p>
+<h4>❓ Claude 执行了我不想要的操作</h4>
+<p>不要慌。Claude Code 在执行操作前通常会请求确认。如果发现操作有误：</p>
+<p>1. 按 <code>Esc</code> 键立即停止当前生成</p>
+<p>1. 在确认提示 <code>[Y/n]</code> 时输入 <code>n</code> 拒绝执行</p>
+<p>1. 如果已经执行了，可以说「撤销刚才的修改」</p>
+<h2 id="sec-2"><span class="section-num">2</span>基本使用方式</h2>
+<h3>2.1 直接提问</h3>
+<pre><code class="language-plaintext">&gt; 帮我解释一下这个项目的代码结构&lt;br&gt;</code></pre>
+<h3>2.2 让它执行命令</h3>
+<pre><code class="language-plaintext">&gt; 帮我运行 npm install&lt;br&gt;</code></pre>
+<h3>2.3 让它写代码</h3>
+<pre><code class="language-plaintext">&gt; 帮我写一个 Python 函数，实现快速排序&lt;br&gt;</code></pre>
+<h3>2.4 让它修改现有代码</h3>
+<pre><code class="language-plaintext">&gt; 帮我给 src/utils.js 里的 formatDate 函数加上时区处理&lt;br&gt;</code></pre>
+<h3>2.5 多行输入</h3>
 <p>按 <strong>Shift + Enter</strong> 换行，输入完再按 Enter 发送。</p>
-
-<!-- ==================== 斜杠命令 ==================== -->
-<h2 id="slash"><span class="section-num">3</span>常用斜杠命令</h2>
-
-<div class="table-wrap"><table>
-<tr><th>命令</th><th>说明</th><th>使用场景</th></tr>
-<tr><td><code>/help</code></td><td>查看帮助信息</td><td>不知道怎么用的时候</td></tr>
-<tr><td><code>/model</code></td><td>切换 AI 模型</td><td>想用更强/更快的模型时</td></tr>
-<tr><td><code>/clear</code></td><td>清除当前对话上下文</td><td>换一个新话题时</td></tr>
-<tr><td><code>/compact</code></td><td>压缩对话历史</td><td>对话太长、响应变慢时</td></tr>
-<tr><td><code>/cost</code></td><td>查看 token 用量和费用</td><td>想知道花了多少钱时</td></tr>
-<tr><td><code>/config</code></td><td>查看或修改配置</td><td>调整设置时</td></tr>
-<tr><td><code>/fast</code></td><td>切换快速模式</td><td>想要更快的响应时</td></tr>
-<tr><td><code>/init</code></td><td>自动生成 CLAUDE.md</td><td>初始化项目配置时</td></tr>
-<tr><td><code>/context</code></td><td>查看上下文窗口使用情况</td><td>想知道哪些内容占了空间时</td></tr>
-</table></div>
-
-<!-- ==================== 实用技巧 ==================== -->
-<h2 id="tips"><span class="section-num">4</span>实用技巧</h2>
-
-<h3>用 <code>!</code> 直接执行命令</h3>
+<hr>
+<h2 id="sec-3"><span class="section-num">3</span>常用斜杠命令</h2>
+<p><lark-table rows="10" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      说明</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      使用场景</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/help</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看帮助信息</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      不知道怎么用的时候</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/model</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      切换 AI 模型</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      想用更强/更快的模型时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/clear</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      清除当前对话上下文</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      换一个新话题时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/compact</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      压缩对话历史</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      对话太长、响应变慢时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/cost</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看当前会话的 token 用量和费用</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      想知道花了多少钱时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/config</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看或修改配置</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      调整设置时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/fast</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      切换快速模式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      想要更快的响应时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/init</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      自动生成 CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      初始化项目配置时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/context</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看上下文窗口使用情况</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      想知道哪些内容占了空间时</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<hr>
+<h2 id="sec-4"><span class="section-num">4</span>实用技巧</h2>
+<h3>4.1 用 <code>!</code> 直接执行命令</h3>
 <p>加 <code>!</code> 前缀可以直接运行命令，省去 Claude 思考的时间和费用：</p>
-<pre><code>> ! git status
-> ! dir</code></pre>
-
-<h3>用 <code>@</code> 引用文件</h3>
-<pre><code>> 请阅读 @README.md 并告诉我这个项目是做什么的
-> 看看 @src/components/Header.tsx 有什么问题</code></pre>
-
-<h3>用 <code>think</code> 触发深度思考</h3>
-<pre><code>> think hard: 请帮我设计一个完整的用户增长漏斗分析框架</code></pre>
-
-<h3>拖拽文件到终端</h3>
-<p>图片、PDF、CSV 等文件可以直接拖拽到终端窗口，自动填入路径。</p>
-
-<h3>粘贴图片</h3>
+<pre><code class="language-plaintext">&gt; ! git status&lt;br&gt;&gt; ! dir&lt;br&gt;&gt; ! npm test -- --filter=auth&lt;br&gt;</code></pre>
+<p>这样可以省去 Claude 思考的时间和 Token 消耗。</p>
+<h3>4.2 用 <code>@</code> 引用文件</h3>
+<p>用 <code>@</code> 可以直接让 Claude 读取指定文件：</p>
+<pre><code class="language-plaintext">&gt; 请阅读 @README.md 并告诉我这个项目是做什么的&lt;br&gt;&gt; 看看 @src/components/Header.tsx 有什么问题&lt;br&gt;</code></pre>
+<h3>4.3 用 <code>think</code> 触发深度思考</h3>
+<p>复杂问题前加 <code>think</code> 或 <code>think hard</code>，让 Claude 先深入思考再回答：</p>
+<pre><code class="language-plaintext">&gt; think: 我们的产品日活从 5000 涨到了 50000，但付费转化率从 5% 降到了 2%，可能的原因有哪些？&lt;br&gt;&lt;br&gt;&gt; think hard: 请帮我设计一个完整的用户增长漏斗分析框架，包含关键指标、数据采集点和分析方法&lt;br&gt;</code></pre>
+<h3>4.4 拖拽文件到终端</h3>
+<p>图片、PDF、CSV 等文件可以直接拖拽到终端窗口，自动填入路径：</p>
+<pre><code class="language-plaintext">&gt; 请分析 /Users/yourname/Desktop/report.pdf 的主要结论&lt;br&gt;</code></pre>
+<h3>4.5 粘贴图片</h3>
 <p>Claude Code 支持直接粘贴图片（Ctrl+V）。可以粘贴 UI 设计稿让它照着实现，或粘贴报错截图让它诊断。</p>
-
-<h3>设置预算上限</h3>
-<pre><code>claude --max-budget-usd 5</code></pre>
+<h3>4.6 设置预算上限</h3>
+<p>担心费用失控？启动时设限：</p>
+<pre><code class="language-bash">claude --max-budget-usd 5&lt;br&gt;</code></pre>
 <p>这次对话最多花 $5，到了上限自动停止。</p>
-
-<h3>权限模式</h3>
+<h3>4.7 权限模式</h3>
 <p>按 <strong>Shift + Tab</strong> 可以在三种模式间切换：</p>
-<div class="table-wrap"><table>
-<tr><th>模式</th><th>说明</th></tr>
-<tr><td>建议模式（默认）</td><td>Claude 先告诉你计划，你确认后才执行</td></tr>
-<tr><td>自动模式</td><td>自动批准安全操作</td></tr>
-<tr><td>Plan Mode</td><td>只读不写，用于探索和规划</td></tr>
-</table></div>
-
-<!-- ==================== 核心概念 ==================== -->
-<h2 id="skill"><span class="section-num">5</span>核心概念详解</h2>
-
-<h3 id="skill-detail">Skill（技能）—— 给 Claude Code 装"技能包"</h3>
-<div class="callout callout-blue">
-  <span class="emoji">🎯</span> <strong>一句话理解</strong>：Skill 就是你预先写好的"操作手册"，告诉 Claude Code "遇到某类任务时，按这个步骤来做"。
-</div>
-<p>Skill 本质上就是一个 <code>.md</code> 文件，用自然语言写清楚执行步骤。就像你写给同事的操作手册，只不过"同事"换成了 Claude Code。</p>
-
+<p><lark-table rows="4" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      模式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      说明</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      建议模式（默认）</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 先告诉你计划，你确认后才执行</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      自动模式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      自动批准安全操作</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Plan Mode</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      只读不写，用于探索和规划</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<div class="callout callout-yellow"><span class="emoji">⚠️</span> <strong>注意</strong>：即使是自动模式，涉及删除文件等破坏性操作时，Claude Code 仍然会要求你确认。</div>
+<h4>白名单常用命令</h4>
+<p>把你信任的命令加入白名单，Claude 执行它们时就不会问你了。输入 <code>/permissions</code> 进入管理。常见的白名单候选：</p>
+<pre><code class="language-plaintext">npm test&lt;br&gt;npm run lint&lt;br&gt;git status&lt;br&gt;git diff&lt;br&gt;git log&lt;br&gt;</code></pre>
+<h4>检查点机制</h4>
+<p>每次 Claude 编辑文件前，它会自动对文件做快照。如果改坏了：</p>
+<p>- 按两次 <code>Esc</code> → 回退到上一步</p>
+<p>- 或者直接说「撤销刚才的修改」</p>
+<div class="callout callout-yellow"><span class="emoji">⚠️</span> 检查点只覆盖文件修改。如果 Claude 执行了影响外部系统的操作（如调用 API、修改数据库），那是无法回退的——这就是为什么 Claude 在执行这类命令前会特别谨慎地征求同意。</div>
+<hr>
+<h3>4.8 键盘快捷键速查</h3>
+<p><lark-table rows="7" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      快捷键</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      功能</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>Shift + Tab</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      切换权限模式（建议/自动/Plan）</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>Esc</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      停止 Claude 当前生成</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>Ctrl + C</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按两次退出 Claude Code</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>Shift + Enter</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      多行输入时换行</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>Ctrl + V</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      粘贴图片</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>↑</code> / <code>↓</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      浏览历史输入</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<hr>
+<h3>4.9 更多实战场景</h3>
+<h4>场景：让 Claude 分析数据文件</h4>
+<pre><code class="language-plaintext">&gt; 请读取 user_data.csv，告诉我：&lt;br&gt;&gt; 1. 一共有多少条数据&lt;br&gt;&gt; 2. 有哪些字段&lt;br&gt;&gt; 3. 有没有异常值或空值&lt;br&gt;&gt; 4. 给一个简单的数据摘要&lt;br&gt;</code></pre>
+<h4>场景：批量处理文件</h4>
+<pre><code class="language-plaintext">&gt; 请看看 /Users/yourname/Desktop/photos 文件夹里有什么文件，&lt;br&gt;&gt; 然后把所有文件按修改日期重命名为 "2026-08-20_001.jpg" 这样的格式&lt;br&gt;</code></pre>
+<div class="callout callout-yellow"><span class="emoji">⚠️</span> <strong>安全提示</strong>：Claude Code 执行文件操作前，通常会先告诉你它打算做什么，并请求你的确认（显示为 <code>[Y/n]</code>）。请先仔细阅读它的计划，确认没问题后再输入 <code>Y</code> 同意执行。</div>
+<h4>场景：写竞品分析</h4>
+<pre><code class="language-plaintext">&gt; 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：&lt;br&gt;&gt; 分析 Jasper、Copy.ai、Notion AI&lt;br&gt;&gt; 每个列出：核心功能、定价、目标用户、优势和不足&lt;br&gt;&gt; 最后给出对比总结表格，用中文撰写&lt;br&gt;</code></pre>
+<h2 id="sec-5"><span class="section-num">5</span>核心概念详解</h2>
+<h3>5.1 Skill（技能）—— 给 Claude Code 装"技能包"</h3>
+<p><callout emoji="dart" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：Skill 就是你预先写好的"操作手册"，告诉 Claude Code "遇到某类任务时，按这个步骤来做"。</p>
+<p></callout></p>
+<h4>为什么需要 Skill？</h4>
+<p>每次重复说明流程很麻烦。<strong>Skill 把流程打包成一个命令</strong>，以后只需要输入 <code>/deploy</code> 就行了。</p>
+<h4>Skill 的本质</h4>
+<p>就是一个 <code>.md</code> 文件，用自然语言写清楚执行步骤。就像你写给同事的操作手册，只不过"同事"换成了 Claude Code。</p>
 <h4>两种 Skill 类型</h4>
-<div class="table-wrap"><table>
-<tr><th>类型</th><th>说明</th><th>触发方式</th></tr>
-<tr><td><strong>参考型</strong></td><td>Claude 需要时自动加载</td><td>自动，不用管</td></tr>
-<tr><td><strong>工作流型</strong></td><td>你主动用 <code>/命令</code> 触发</td><td>手动输入命令</td></tr>
-</table></div>
-
-<p><strong>工作流型示例</strong>（代码审查）：</p>
-<pre><code># .claude/skills/review/SKILL.md
----
-name: review
-description: 代码审查流程
----
-当用户要求审查代码时：
-1. 检查语法错误
-2. 检查潜在 Bug
-3. 检查代码风格
-4. 检查安全漏洞
-5. 给出改进建议</code></pre>
-
-<div class="callout callout-green">
-  <span class="emoji">💡</span> <strong>不知道怎么创建？</strong> 直接让 Claude Code 帮你："帮我创建 .claude/skills/ 目录，并在里面创建一个 review.md 文件。" 它会自动完成。
-</div>
-
+<p><lark-table rows="3" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      类型</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      说明</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      触发方式</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <strong>参考型</strong></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 需要时自动加载</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      自动，不用管</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <strong>工作流型</strong></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你主动用 <code>/命令</code> 触发</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      手动输入命令</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p><strong>参考型示例</strong>（API 规范）：</p>
+<pre><code class="language-markdown"># .claude/skills/api-conventions/SKILL.md&lt;br&gt;---&lt;br&gt;name: api-conventions&lt;br&gt;description: 我们的 REST API 设计规范&lt;br&gt;---&lt;br&gt;- URL 用 kebab-case（如 /user-profiles）&lt;br&gt;- JSON 字段用 camelCase（如 userName）&lt;br&gt;- 列表接口必须支持分页&lt;br&gt;</code></pre>
+<p>当 Claude 写 API 代码时，会自动参考这个规范。</p>
+<p><strong>工作流型示例</strong>（修复 Issue）：</p>
+<pre><code class="language-markdown"># .claude/skills/fix-issue/SKILL.md&lt;br&gt;---&lt;br&gt;name: fix-issue&lt;br&gt;description: 修复 GitHub Issue 的标准流程&lt;br&gt;---&lt;br&gt;修复 GitHub Issue: $ARGUMENTS&lt;br&gt;&lt;br&gt;1. 用 `gh issue view` 查看 Issue 详情&lt;br&gt;2. 理解问题描述&lt;br&gt;3. 搜索相关代码&lt;br&gt;4. 实现修复&lt;br&gt;5. 写测试并运行&lt;br&gt;6. 确保 lint 和类型检查通过&lt;br&gt;7. 写描述性 commit message&lt;br&gt;8. push 并创建 PR&lt;br&gt;</code></pre>
+<p>使用时输入 <code>/fix-issue 1234</code> 即可。</p>
+<h4>CLAUDE.md vs Skill 怎么选？</h4>
+<p><lark-table rows="5" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      对比项</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Skill</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      加载方式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      每次启动都加载</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按需加载</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      适用内容</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目固定规范</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      可复用的工作流</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      上下文占用</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      始终占用</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      需要时才占用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      典型用途</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      技术栈、代码规范</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      部署流程、审查清单</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>不知道怎么创建？</strong> 直接让 Claude Code 帮你："帮我创建 .claude/skills/ 目录，并在里面创建一个 review.md 文件。" 它会自动完成。</div>
 <h4>Skills 生态资源</h4>
-<div class="table-wrap"><table>
-<tr><th>资源</th><th>地址</th></tr>
-<tr><td>官方 Skills 仓库</td><td>github.com/anthropics/skills</td></tr>
-<tr><td>Skills 市场</td><td>skills.sh / skillsmp.com</td></tr>
-<tr><td>ClawHub 社区</td><td>clawhub.ai</td></tr>
-<tr><td>OpenClaw Skills</td><td>通过 <code>openclaw plugins install</code> 安装</td></tr>
-</table></div>
-
+<p>网上有大量现成的 Skill 可以直接安装使用：</p>
+<p><lark-table rows="5" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      资源</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      地址</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      官方 Skills 仓库</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      github.com/anthropics/skills</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Skills 市场</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      skills.sh / skillsmp.com</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      ClawHub 社区</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      clawhub.ai</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      OpenClaw Skills</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      通过 <code>openclaw plugins install</code> 安装</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
 <hr>
-
-<h3 id="mcp">MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</h3>
-<div class="callout callout-blue">
-  <span class="emoji">🔌</span> <strong>一句话理解</strong>：MCP 就是一个"插头"，让 Claude Code 能连接飞书、GitHub、数据库等外部服务。
-</div>
-<p>想象 Claude Code 是一个很聪明的人，但被关在一间屋子里（你的电脑终端）。<strong>MCP 就是给这个屋子装了很多扇窗户和门</strong>：</p>
-<ul>
-<li>通过"飞书窗户"读写飞书文档</li>
-<li>通过"GitHub 门"操作代码仓库</li>
-<li>通过"数据库窗户"查询数据</li>
-</ul>
-
-<p><strong>怎么配置？</strong> 在配置文件中添加 MCP 服务器：</p>
-<pre><code>// ~/.claude/settings.json
-{
-  "mcpServers": {
-    "feishu": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/feishu-mcp-server"],
-      "env": {
-        "FEISHU_APP_ID": "你的应用ID",
-        "FEISHU_APP_SECRET": "你的应用密钥"
-      }
-    }
-  }
-}</code></pre>
-
-<div class="callout callout-yellow">
-  <span class="emoji">⚠️</span> <strong>注意</strong>：每个 MCP Server 会占用上下文空间。装太多会吃掉大量空间。用 <code>/mcp</code> 命令查看占用情况，按需启停。
-</div>
-
+<h3>5.2 MCP（模型上下文协议）—— 让 Claude Code 连接外部世界</h3>
+<p><callout emoji="electric_plug" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：MCP 就是一个"插头"，让 Claude Code 能连接飞书、GitHub、数据库等外部服务。</p>
+<p></callout></p>
+<h4>用比喻理解 MCP</h4>
+<p>想象 Claude Code 是一个很聪明的人，但被关在一间屋子里（你的电脑终端）。</p>
+<p><strong>MCP 就是给这个屋子装了很多扇窗户和门</strong>：</p>
+<p>- 通过"飞书窗户"读写飞书文档</p>
+<p>- 通过"GitHub 门"操作代码仓库</p>
+<p>- 通过"数据库窗户"查询数据</p>
+<p>每扇"窗户"就是一个 <strong>MCP 服务器</strong>。</p>
+<h4>怎么配置？</h4>
+<p>在配置文件中添加 MCP 服务器：</p>
+<pre><code class="language-json">// ~/.claude/settings.json&lt;br&gt;{&lt;br&gt;  "mcpServers": {&lt;br&gt;    "feishu": {&lt;br&gt;      "command": "npx",&lt;br&gt;      "args": ["-y", "@anthropic-ai/feishu-mcp-server"],&lt;br&gt;      "env": {&lt;br&gt;        "FEISHU_APP_ID": "你的应用ID",&lt;br&gt;        "FEISHU_APP_SECRET": "你的应用密钥"&lt;br&gt;      }&lt;br&gt;    }&lt;br&gt;  }&lt;br&gt;}&lt;br&gt;</code></pre>
+<p>配置后重启 Claude Code 即可生效。</p>
+<p>也可以用命令行添加：</p>
+<pre><code class="language-bash">claude mcp add github -- gh-mcp&lt;br&gt;claude mcp add postgres -- pg-mcp --connection-string "postgresql://..."&lt;br&gt;</code></pre>
+<h4>实际案例</h4>
+<pre><code class="language-plaintext">&gt; 帮我读取这个飞书文档的内容：https://mi.feishu.cn/wiki/xxxxx&lt;br&gt;&gt; 查看 GitHub Issue #42 的详情，然后实现它&lt;br&gt;&gt; 查询数据库中上周新增用户数&lt;br&gt;</code></pre>
+<div class="callout callout-yellow"><span class="emoji">⚠️</span> <strong>注意</strong>：每个 MCP Server 会占用上下文空间。装太多会吃掉大量空间。用 <code>/mcp</code> 命令查看占用情况，按需启停。</div>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>小贴士</strong>：MCP 服务器有很多现成的，可以在 MCP 市场（如 mcp.so）搜索你需要的工具。</div>
 <hr>
-
-<h3 id="claude-md">CLAUDE.md（项目记忆文件）</h3>
-<div class="callout callout-blue">
-  <span class="emoji">📋</span> <strong>一句话理解</strong>：CLAUDE.md 就是你写给 Claude Code 的"项目说明书"，每次启动时它会自动阅读。
-</div>
-<p><strong>快速创建</strong>：在项目文件夹里启动 Claude Code 后，输入 <code>/init</code>，Claude 会自动扫描项目帮你生成。</p>
-
+<h3>5.3 CLAUDE.md（项目记忆文件）—— 告诉 Claude "我们项目的规矩"</h3>
+<p><callout emoji="clipboard" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：CLAUDE.md 就是你写给 Claude Code 的"项目说明书"，每次启动时它会自动阅读。</p>
+<p></callout></p>
+<h4>快速创建</h4>
+<p>在项目文件夹里启动 Claude Code 后，输入：</p>
+<pre><code class="language-plaintext">/init&lt;br&gt;</code></pre>
+<p>Claude 会自动扫描项目，帮你生成 CLAUDE.md。</p>
+<h4>手动创建示例</h4>
+<pre><code class="language-markdown"># 项目说明&lt;br&gt;&lt;br&gt;这是一个电商后台管理系统。&lt;br&gt;&lt;br&gt;## 技术栈&lt;br&gt;- 前端：React 18 + TypeScript + Ant Design&lt;br&gt;- 后端：Node.js + Express + Prisma&lt;br&gt;&lt;br&gt;## 常用命令&lt;br&gt;- 启动：`npm run dev`&lt;br&gt;- 测试：`npm test`&lt;br&gt;- 构建：`npm run build`&lt;br&gt;&lt;br&gt;## 代码规范&lt;br&gt;- 使用 TypeScript，不要写 JavaScript&lt;br&gt;- 组件使用函数式组件&lt;br&gt;- 文件命名使用 camelCase&lt;br&gt;- 提交信息使用中文&lt;br&gt;&lt;br&gt;## 注意事项&lt;br&gt;- IMPORTANT: 修改数据库迁移文件前必须先问我&lt;br&gt;- src/config/ 包含敏感信息，不要提交到 git&lt;br&gt;</code></pre>
 <h4>写 CLAUDE.md 的核心原则</h4>
 <p><strong>只写 Claude 无法自己推断出来的东西。</strong></p>
-<div class="compare">
-  <div class="compare-card">
-    <h4>✅ 应该写的</h4>
-    <ul>
-      <li>构建和测试命令</li>
-      <li>代码规范中的特殊约定</li>
-      <li>重要注意事项（用 <code>IMPORTANT:</code> 标记）</li>
-    </ul>
-  </div>
-  <div class="compare-card">
-    <h4>❌ 不应该写的</h4>
-    <ul>
-      <li>Claude 读代码就能知道的</li>
-      <li>标准语言约定</li>
-      <li>经常变化的信息</li>
-    </ul>
-  </div>
-</div>
-
-<div class="callout callout-green">
-  <span class="emoji">💡</span> <strong>检验标准</strong>：对每一行问自己——"删掉这行，Claude 会犯错吗？"如果不会，就删掉。臃肿的 CLAUDE.md 反而会让 Claude 忽略重要指令。
-</div>
-
+<p>✅ 应该写的：</p>
+<p>- 构建和测试命令</p>
+<p>- 代码规范中的特殊约定</p>
+<p>- 重要注意事项（用 <code>IMPORTANT:</code> 标记）</p>
+<p>❌ 不应该写的：</p>
+<p>- Claude 读代码就能知道的（如"这个项目用 React"）</p>
+<p>- 标准语言约定（如"Python 用 4 空格缩进"）</p>
+<p>- 经常变化的信息</p>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>检验标准</strong>：对每一行问自己——"删掉这行，Claude 会犯错吗？"如果不会，就删掉。臃肿的 CLAUDE.md 反而会让 Claude 忽略重要指令。</div>
+<h4>用 <code>@</code> 导入其他文件</h4>
+<p>CLAUDE.md 支持 <code>@路径</code> 语法引用其他文件，避免重复维护：</p>
+<pre><code class="language-markdown">项目概览请看 @README.md&lt;br&gt;可用命令请看 @package.json&lt;br&gt;&lt;br&gt;# 其他规范&lt;br&gt;- Git 工作流：@docs/git-workflow.md&lt;br&gt;- 个人偏好：@~/.claude/my-preferences.md&lt;br&gt;</code></pre>
 <h4>模块化规则</h4>
 <p>规范太多？用 <code>.claude/rules/</code> 目录拆分：</p>
-<pre><code>.claude/
-├── CLAUDE.md              # 主文件：核心规范
-└── rules/
-    ├── code-style.md      # 代码风格
-    ├── testing.md          # 测试约定
-    └── api-design.md       # API 设计规范</code></pre>
-
+<pre><code class="language-plaintext">.claude/&lt;br&gt;├── CLAUDE.md              # 主文件：核心规范&lt;br&gt;└── rules/&lt;br&gt;    ├── code-style.md      # 代码风格&lt;br&gt;    ├── testing.md          # 测试约定&lt;br&gt;    └── api-design.md       # API 设计规范&lt;br&gt;</code></pre>
+<p><code>.claude/rules/</code> 下的所有 <code>.md</code> 文件会自动加载。还可以用 YAML 前置信息限定规则只在处理特定文件时生效：</p>
+<pre><code class="language-markdown">---&lt;br&gt;paths: src/api/**/*.ts&lt;br&gt;---&lt;br&gt;# API 开发规则&lt;br&gt;- 所有接口必须做输入校验&lt;br&gt;- 使用标准错误响应格式&lt;br&gt;</code></pre>
+<p>这样只有当 Claude 处理 <code>src/api/</code> 下的 TypeScript 文件时，这些规则才会激活。</p>
+<h4>记忆的层级体系</h4>
+<p>Claude Code 支持<strong>多层记忆</strong>，从全局到局部：</p>
+<p><lark-table rows="5" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      层级</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      文件位置</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      作用范围</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      全局</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>~/.claude/CLAUDE.md</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      所有项目通用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      项目</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>项目/CLAUDE.md</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      当前项目</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      规则</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>.claude/rules/*.md</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按条件加载</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Skill</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>.claude/skills/*/SKILL.md</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      按需加载</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p>启动 Claude Code 时，这些文件全部自动加载。</p>
 <hr>
-
-<h3 id="memory">Memory（记忆系统）</h3>
-<div class="callout callout-blue">
-  <span class="emoji">🧠</span> <strong>一句话理解</strong>：Memory 是 Claude Code 的"笔记本"，把重要信息记下来，下次对话还记得。
-</div>
-<pre><code>> 记住：我习惯用 4 空格缩进
-> 记住：我更喜欢用 Tailwind CSS</code></pre>
-
+<h3>5.4 Memory（记忆系统）—— 让 Claude 记住重要信息</h3>
+<p><callout emoji="brain" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：Memory 是 Claude Code 的"笔记本"，把重要信息记下来，下次对话还记得。</p>
+<p></callout></p>
+<h4>Memory vs CLAUDE.md</h4>
+<p><lark-table rows="4" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      对比项</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Memory</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      写作者</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你手动编写</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 自动或按你要求记录</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      内容</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目固定信息</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      对话中积累的偏好</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      位置</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目目录下</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 内部存储</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<h4>使用方式</h4>
+<pre><code class="language-plaintext">&gt; 记住：我习惯用 4 空格缩进&lt;br&gt;&gt; 记住：我更喜欢用 Tailwind CSS&lt;br&gt;</code></pre>
 <hr>
-
-<h3 id="plan-mode">Plan Mode（规划模式）</h3>
-<div class="callout callout-blue">
-  <span class="emoji">🗺️</span> <strong>一句话理解</strong>：Plan Mode 让 Claude 先把"施工计划"给你看，你批准后才开始干活。
-</div>
+<h3>5.5 Plan Mode（规划模式）—— 先看计划，再动手</h3>
+<p><callout emoji="dart" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：Plan Mode 让 Claude 先把"施工计划"给你看，你批准后才开始干活。</p>
+<p></callout></p>
 <h4>最佳工作流：探索 → 规划 → 执行</h4>
-<ol>
-<li><strong>探索</strong>（按 Shift+Tab 进入 Plan Mode）：<code>> 读一下 src/auth/ 目录，帮我理解登录流程</code></li>
-<li><strong>规划</strong>（还在 Plan Mode）：<code>> 我想加上 Google OAuth 登录，给我一个详细计划</code></li>
-<li><strong>执行</strong>（再按 Shift+Tab 切回）：<code>> 按照计划实现，写好后跑测试</code></li>
-<li><strong>提交</strong>：<code>> 用描述性的 commit message 提交，然后开 PR</code></li>
-</ol>
-
+<p><strong>第一步：探索</strong>（按 Shift+Tab 进入 Plan Mode）</p>
+<pre><code class="language-plaintext">&gt; 读一下 src/auth/ 目录，帮我理解登录流程是怎么实现的&lt;br&gt;</code></pre>
+<p><strong>第二步：规划</strong>（还在 Plan Mode）</p>
+<pre><code class="language-plaintext">&gt; 我想加上 Google OAuth 登录。需要改哪些文件？给我一个详细计划&lt;br&gt;</code></pre>
+<p><strong>第三步：执行</strong>（再按 Shift+Tab 切回 Normal Mode）</p>
+<pre><code class="language-plaintext">&gt; 按照刚才的计划实现 OAuth 流程，写好后跑一下测试&lt;br&gt;</code></pre>
+<p><strong>第四步：提交</strong></p>
+<pre><code class="language-plaintext">&gt; 用描述性的 commit message 提交代码，然后开一个 PR&lt;br&gt;</code></pre>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>什么时候不需要规划？</strong> 简单任务直接做——改个拼写错误、加一行日志。<strong>如果你能一句话描述清楚要改什么，就跳过规划。</strong></div>
 <hr>
-
-<h3 id="sub-agents">子代理（Sub-agents）</h3>
-<div class="callout callout-blue">
-  <span class="emoji">👥</span> <strong>一句话理解</strong>：子代理是 Claude 派出的"分身"，在独立的上下文中完成子任务，做完只把结论带回来。
-</div>
-<p>上下文窗口是有限的。子代理在独立的上下文窗口里工作，就像让实习生去做调研，ta 看了 100 页材料，最后给你一页摘要。</p>
-<pre><code>> 帮我做一个代码库审计。用子代理分别检查：
-> 1. 安全漏洞
-> 2. 性能问题
-> 3. 代码规范违规
-> 最后汇总给我一份报告</code></pre>
-
+<h3>5.6 子代理（Sub-agents）—— 给 Claude 配"小弟"</h3>
+<p><callout emoji="busts_in_silhouette" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：子代理是 Claude 派出的"分身"，在独立的上下文中完成子任务，做完只把结论带回来。</p>
+<p></callout></p>
+<h4>为什么需要子代理？</h4>
+<p>上下文窗口是有限的。如果一个任务需要读 50 个文件，全塞进主对话空间就满了。</p>
+<p>子代理解决这个问题：它在<strong>独立的上下文窗口</strong>里工作，就像让实习生去做调研，ta 看了 100 页材料，最后给你一页摘要。</p>
+<h4>使用方式</h4>
+<p>你不需要手动创建，当任务复杂时 Claude 会自动决定。也可以主动建议：</p>
+<pre><code class="language-plaintext">&gt; 帮我做一个代码库审计。用子代理分别检查：&lt;br&gt;&gt; 1. 安全漏洞&lt;br&gt;&gt; 2. 性能问题&lt;br&gt;&gt; 3. 代码规范违规&lt;br&gt;&gt; 最后汇总给我一份报告&lt;br&gt;</code></pre>
+<h4>自定义子代理</h4>
+<p>在 <code>.claude/agents/</code> 目录下创建：</p>
+<pre><code class="language-markdown"># .claude/agents/reviewer.md&lt;br&gt;---&lt;br&gt;name: reviewer&lt;br&gt;description: 代码审查代理&lt;br&gt;model: sonnet&lt;br&gt;---&lt;br&gt;你是一个高级代码审查员。审查时关注：&lt;br&gt;1. 代码质量和可读性&lt;br&gt;2. 潜在的 Bug&lt;br&gt;3. 安全隐患&lt;br&gt;4. 性能问题&lt;br&gt;给出具体的改进建议，引用代码行号。&lt;br&gt;</code></pre>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>PM 实用场景</strong>：你可以创建一个「PRD 审查员」子代理，让它专门检查 PRD 中的逻辑漏洞、缺失的用户故事、不清晰的验收标准。</div>
 <hr>
-
-<h3 id="hooks">Hooks（钩子）</h3>
-<div class="callout callout-blue">
-  <span class="emoji">⚙️</span> <strong>一句话理解</strong>：Hook 是在特定节点<strong>强制自动执行</strong>的脚本。CLAUDE.md 是"建议"，Hook 是"必须执行"。
-</div>
-<ul>
-<li>每次编辑文件后自动跑 ESLint</li>
-<li>禁止 Claude 修改某些敏感文件</li>
-<li>每次提交前自动运行测试</li>
-</ul>
-
-<!-- ==================== Claude Code 与 OpenClaw ==================== -->
-<h2 id="openclaw"><span class="section-num">6</span>Claude Code 与 OpenClaw 的关系</h2>
-
-<div class="callout callout-blue">
-  <span class="emoji">🔌</span> 很多人会混淆 Claude Code 和 OpenClaw。简单说：<strong>它们是两个独立的工具，解决不同的问题，但共享同一个 AI 大脑（Claude）。</strong>
-</div>
-
+<h3>5.7 Hooks（钩子）—— 自动化的"规则引擎"</h3>
+<p><callout emoji="gift" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：Hook 是在特定节点<strong>强制自动执行</strong>的脚本。CLAUDE.md 是"建议"，Hook 是"必须执行"。</p>
+<p></callout></p>
+<h4>适用场景</h4>
+<p>- 每次编辑文件后自动跑 ESLint</p>
+<p>- 禁止 Claude 修改某些敏感文件</p>
+<p>- 每次提交前自动运行测试</p>
+<h4>创建方式</h4>
+<p>最简单的方式——让 Claude 帮你写：</p>
+<pre><code class="language-plaintext">&gt; 帮我写一个 Hook：每次编辑文件后自动运行 eslint&lt;br&gt;&gt; 再写一个 Hook：禁止修改 migrations/ 文件夹里的文件&lt;br&gt;</code></pre>
+<p>也可以用 <code>/hooks</code> 命令进入交互式配置界面。</p>
+<h2 id="sec-6"><span class="section-num">6</span>Claude Code 与 OpenClaw 的关系</h2>
+<p><callout emoji="electric_plug" background-color="light-blue"></p>
+<p>很多人会混淆 Claude Code 和 OpenClaw。简单说：<strong>它们是两个独立的工具，解决不同的问题，但共享同一个 AI 大脑（Claude）。</strong></p>
+<p></callout></p>
 <h3>三者的关系</h3>
-<pre><code>Claude（AI 模型，真正"会思考"的部分）
-  ├── Claude Code 调用它来工作
-  └── OpenClaw 调用它来工作</code></pre>
-
+<pre><code class="language-plaintext">Claude（AI 模型，真正"会思考"的部分）&lt;br&gt;  ├── Claude Code 调用它来工作&lt;br&gt;  └── OpenClaw 调用它来工作&lt;br&gt;</code></pre>
 <h3>一句话类比</h3>
-<div class="table-wrap"><table>
-<tr><th>工具</th><th>类比</th></tr>
-<tr><td>Claude</td><td>公司里的 AI 专家（大脑）</td></tr>
-<tr><td>Claude Code</td><td>你去专家办公室找他——主动上门、用完离开</td></tr>
-<tr><td>OpenClaw</td><td>专家住在你家里——7×24 小时在线、主动帮你干活</td></tr>
-</table></div>
-
+<p><lark-table rows="4" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      工具</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      类比</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Claude</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      公司里的 AI 专家（大脑）</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Claude Code</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你去专家办公室找他——主动上门、用完离开</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      OpenClaw</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      专家住在你家里——7×24 小时在线、主动帮你干活</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
 <h3>核心区别</h3>
-<div class="table-wrap"><table>
-<tr><th>对比项</th><th>Claude Code</th><th>OpenClaw</th></tr>
-<tr><td>运行方式</td><td>你主动打开，用完关掉</td><td>常驻后台，7×24 在线</td></tr>
-<tr><td>交互方式</td><td>在终端里对话</td><td>在飞书/WhatsApp 里发消息</td></tr>
-<tr><td>核心优势</td><td>深度理解代码库，专注项目开发</td><td>连接消息平台，碎片化使用</td></tr>
-<tr><td>官方产品</td><td>✅ Anthropic 官方</td><td>❌ 开源社区产品</td></tr>
-</table></div>
-
+<p><lark-table rows="6" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      对比项</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude Code</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      OpenClaw</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      运行方式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你主动打开，用完关掉</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      常驻后台，7×24 在线</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      交互方式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      在终端里对话</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      在飞书/WhatsApp 里发消息</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      核心优势</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      深度理解代码库，专注项目开发</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      连接消息平台，碎片化使用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      是否需要安装</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      是</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      是（独立安装）</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      官方产品</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      ✅ Anthropic 官方</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      ❌ 开源社区产品</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
 <h3>常见误解</h3>
-<ul>
-<li><strong>"必须先装 Claude Code 才能用 OpenClaw"</strong> → 不需要，完全独立安装。</li>
-<li><strong>"OpenClaw 自带 AI"</strong> → 不对，必须配置 LLM（如 Claude）才能工作。</li>
-<li><strong>"Claude Code 只能写代码"</strong> → 不对，PM 可以用它搭原型、写 PRD、分析数据。</li>
-</ul>
-
-<h3>OpenClaw 快速了解</h3>
-<div class="callout callout-blue">
-  <span class="emoji">🦞</span> <strong>一句话理解</strong>：OpenClaw 是一个开源的 AI Agent 平台，让 AI "住进"你每天用的飞书里，像发微信一样和 AI 对话。
-</div>
-<p><strong>它能做什么？</strong></p>
-<ul>
-<li><strong>主动提醒你</strong>（定时任务、日程提醒）</li>
-<li><strong>记住你的偏好</strong>（持久记忆，跨对话保持上下文）</li>
-<li><strong>操作你的电脑</strong>（读写文件、执行命令、浏览网页）</li>
-<li><strong>连接多个平台</strong>（飞书、WhatsApp、Telegram 等同时在线）</li>
-</ul>
-<p><strong>安装</strong>（需要 Node.js 22+）：</p>
-<pre><code>npm install -g openclaw@latest
-openclaw onboard --install-daemon</code></pre>
-<p><strong>日常运维</strong>：</p>
-<pre><code>openclaw gateway status          # 查看状态
-openclaw gateway restart         # 重启
-openclaw logs --follow           # 查看日志
-openclaw doctor                  # 诊断问题</code></pre>
-
-<div class="callout callout-orange">
-  <span class="emoji">⚠️</span> <strong>安全要点</strong>：<code>dmPolicy</code> 保持 <code>"pairing"</code>，不要改 <code>"open"</code>；不要在存有敏感数据的电脑上安装；在 Anthropic Console 设好月度费用上限。
-</div>
-
-<!-- ==================== 实战案例 ==================== -->
-<h2 id="cases"><span class="section-num">7</span>实战案例</h2>
-
-<h3>案例 1：从零创建项目</h3>
-<pre><code>> 帮我创建一个 Python Flask 项目，实现待办事项 API
-> 支持增删改查、SQLite 存储、基本错误处理
-> 顺便写好 README 和 .gitignore</code></pre>
-
-<h3>案例 2：修复 Bug</h3>
-<pre><code>> 运行 npm start 报错："TypeError: Cannot read property 'map' of undefined"
-> 帮我找到原因并修复</code></pre>
-
-<h3>案例 3：快速搭建原型</h3>
-<pre><code>> 帮我创建一个 todo-app.html，实现待办事项应用原型：
-> - 顶部输入框和"添加"按钮
-> - 待办列表，可标记完成和删除
-> - 现代简洁 UI，蓝白为主
-> - 所有代码放在一个 HTML 文件里</code></pre>
-
-<h3>案例 4：数据分析</h3>
-<pre><code>> 请读取 user_data.csv，告诉我：
-> 1. 一共有多少条数据
-> 2. 有哪些字段
-> 3. 有没有异常值或空值
-> 4. 给一个简单的数据摘要</code></pre>
-
-<h3>案例 5：写竞品分析</h3>
-<pre><code>> 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：
-> 分析 Jasper、Copy.ai、Notion AI
-> 每个列出：核心功能、定价、目标用户、优势和不足
-> 最后给出对比总结表格，用中文撰写</code></pre>
-
-<h3>案例 6：批量操作</h3>
-<pre><code>> 帮我把 src/components/ 下所有 .jsx 文件改成 .tsx
-> 并且给每个组件的 props 添加 TypeScript 类型定义</code></pre>
-
-<!-- ==================== 进阶技巧 ==================== -->
-<h2 id="advanced"><span class="section-num">8</span>进阶技巧</h2>
-
-<h3>提示词的进阶技巧</h3>
-<h4>委派，不要指令</h4>
-<div class="compare">
-  <div class="compare-card">
-    <h4>❌ 不好的方式</h4>
-    <pre><code>> 打开 src/auth/login.ts，
-> 找到第 42 行的 refreshToken
-> 函数，把 if 条件改成
-> token.expiry < Date.now()
-> - 60000</code></pre>
-  </div>
-  <div class="compare-card">
-    <h4>✅ 更好的方式</h4>
-    <pre><code>> 登录流程中，用户的 token
-> 过期后刷新失败了。
-> 相关代码在 src/auth/ 目录。
-> 帮我查一下问题并修复它。</code></pre>
-  </div>
-</div>
-<p>把 Claude 当成有能力的同事来委派任务，给它方向和上下文，让它自己决定怎么做。</p>
-
-<h3>上下文窗口管理</h3>
-<div class="table-wrap"><table>
-<tr><th>命令</th><th>作用</th></tr>
-<tr><td><code>/clear</code></td><td>清空上下文，新任务开始前用</td></tr>
-<tr><td><code>/compact</code></td><td>压缩历史，保留关键信息丢弃细节</td></tr>
-<tr><td><code>/context</code></td><td>查看上下文使用情况</td></tr>
-</table></div>
-
-<h3>模型选择指南</h3>
-<div class="table-wrap"><table>
-<tr><th>模型</th><th>特点</th><th>适用场景</th></tr>
-<tr><td>Sonnet</td><td>快速、性价比高</td><td>日常使用，大多数任务</td></tr>
-<tr><td>Opus</td><td>更强大、更贵</td><td>复杂推理、长文档分析</td></tr>
-<tr><td>Haiku</td><td>最快、最便宜</td><td>简单问答</td></tr>
-</table></div>
-
-<h3>省钱实战指南</h3>
-<div class="table-wrap"><table>
-<tr><th>技巧</th><th>说明</th></tr>
-<tr><td>选对模型</td><td>日常用 Sonnet，复杂任务才用 Opus</td></tr>
-<tr><td>管理上下文</td><td>用 <code>/clear</code> 和 <code>/compact</code> 减少无效 token</td></tr>
-<tr><td>精准提示词</td><td>"修复 src/auth/login.ts 的 token 刷新 bug" 比 "修复那个 bug" 省很多</td></tr>
-<tr><td>设预算上限</td><td><code>claude --max-budget-usd 5</code> 限制单次会话费用</td></tr>
-<tr><td>用 <code>!</code> 执行命令</td><td>省去 Claude 思考的 token</td></tr>
-</table></div>
-
-<div class="callout callout-yellow">
-  <span class="emoji">💰</span> <strong>费用参考</strong>：使用 Sonnet，平均每位开发者每天约 $6，90% 的用户每天不超过 $12。作为轻度使用预计远低于此。
-</div>
-
-<!-- ==================== 最佳实践 ==================== -->
-<h2 id="best"><span class="section-num">9</span>最佳实践</h2>
-
-<div class="compare">
-  <div class="compare-card">
-    <h4>✅ 这样做效果更好</h4>
-    <ul>
-      <li><strong>在项目根目录启动</strong> — Claude Code 能读取完整项目结构</li>
-      <li><strong>清晰描述需求</strong> — "帮我用 React 写一个带搜索和分页的用户列表页面" 比 "帮我写个页面" 好得多</li>
-      <li><strong>提供上下文</strong> — 告诉它技术栈、约束条件、参考示例</li>
-      <li><strong>善用 Plan Mode</strong> — 复杂任务先看计划再执行</li>
-      <li><strong>检查结果</strong> — 输出不一定完美，养成检查的习惯</li>
-      <li><strong>用 CLAUDE.md 保存项目规范</strong> — 避免每次重复说明</li>
-    </ul>
-  </div>
-  <div class="compare-card">
-    <h4>❌ 避免这样做</h4>
-    <ul>
-      <li>不要一句话描述模糊需求（"帮我做个网站"）</li>
-      <li>不要让它一次性修改太多不相关的文件</li>
-      <li>不要忽略它的确认提示直接说"全部同意"</li>
-      <li>不要在不清楚后果的情况下让它执行删除操作</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ==================== 常见问题 ==================== -->
-<h2 id="faq"><span class="section-num">10</span>常见问题</h2>
-
-<h3>Q: 完全不懂编程，能用 Claude Code 吗？</h3>
-<p>A: 能！核心交互方式是自然语言——你用中文告诉它想做什么就行。它会帮你写代码、执行命令、创建文件。你只需要检查结果是否符合预期。</p>
-
-<h3>Q: 使用 Claude Code 要花多少钱？</h3>
-<p>A: 用 <code>/cost</code> 查看费用。日常轻度使用月费约 $5-$15，建议设置月度上限。</p>
-
-<h3>Q: 对话太长、响应变慢怎么办？</h3>
-<p>A: 用 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清除重新开始。复杂任务建议拆成多次短对话。</p>
-
-<h3>Q: Claude Code 写的代码有 Bug 怎么办？</h3>
-<p>A: 直接告诉它："运行时报错了，错误是 xxx，帮我修复。"</p>
-
-<h3>Q: 怎么让 Claude Code 记住我的偏好？</h3>
-<p>A: 两种方式：写在 CLAUDE.md 里（永久生效），或直接说"记住：xxx"。</p>
-
-<h3>Q: Claude Code 会不会把我电脑搞坏？</h3>
-<p>A: 它在执行任何操作前都会先告诉你并等你确认。仔细看操作说明再确认就不会有问题。</p>
-
-<h3>Q: Claude Code 和 OpenClaw 必须一起用吗？</h3>
-<p>A: 不需要，完全独立。你可以只用其中一个，装了两个也互不干扰。</p>
-
-<h3>Q: 这些工具安全吗？</h3>
-<p>A: Claude Code 是 Anthropic 官方产品，传输加密。但发给 AI 的内容会发送到服务器处理，请避免发送密码、银行卡号等敏感信息。</p>
-
+<p><strong>误解一："必须先装 Claude Code 才能用 OpenClaw"</strong> → 不需要，完全独立安装。</p>
+<p><strong>误解二："OpenClaw 自带 AI"</strong> → 不对，OpenClaw 是平台框架，必须配置 LLM（如 Claude）才能工作。</p>
+<p><strong>误解三："Claude Code 只能写代码"</strong> → 不对，它的核心能力是"用自然语言操作电脑"，PM 可以用它搭原型、写 PRD、分析数据。</p>
 <hr>
-
-<div class="callout callout-blue">
-  <span class="emoji">🚀</span> <strong>最后的话</strong>：善用 Skill 让重复工作自动化，善用 MCP 连接外部工具，善用 CLAUDE.md 让它了解你的项目，善用 OpenClaw 让 AI 住进你的飞书——你会发现工作效率大大提升！
-</div>
-
+<h3>6.1 OpenClaw 快速了解</h3>
+<p><callout emoji="gift" background-color="light-blue"></p>
+<p><strong>一句话理解</strong>：OpenClaw 是一个开源的 AI Agent 平台，让 AI "住进"你每天用的飞书里，像发微信一样和 AI 对话。</p>
+<p></callout></p>
+<h4>它能做什么？</h4>
+<p>- <strong>主动提醒你</strong>（定时任务、日程提醒）</p>
+<p>- <strong>记住你的偏好</strong>（持久记忆，跨对话保持上下文）</p>
+<p>- <strong>操作你的电脑</strong>（读写文件、执行命令、浏览网页）</p>
+<p>- <strong>连接多个平台</strong>（飞书、WhatsApp、Telegram 等同时在线）</p>
+<h4>核心理念</h4>
+<p>- <strong>自托管</strong>：运行在你的设备上，数据完全可控</p>
+<p>- <strong>主动执行</strong>：不只是给建议，而是真正干活</p>
+<p>- <strong>多通道</strong>：一个 Gateway 同时服务多个平台</p>
+<p>- <strong>开放生态</strong>：52+ 内置 Skills + 社区市场</p>
+<h4>安装（需要 Node.js 22+）</h4>
+<pre><code class="language-bash">npm install -g openclaw@latest&lt;br&gt;openclaw onboard --install-daemon&lt;br&gt;</code></pre>
+<p>向导中选择 <strong>Anthropic</strong> → 粘贴 API Key → 模型选 <strong>claude-sonnet-4-5</strong> → Skills 选 Yes。</p>
+<h4>连接飞书</h4>
+<pre><code class="language-bash"># 1. 安装飞书插件&lt;br&gt;openclaw plugins install @openclaw/feishu&lt;br&gt;&lt;br&gt;# 2. 添加飞书渠道（需要先在飞书开放平台创建应用）&lt;br&gt;openclaw channels add&lt;br&gt;# 选择 Feishu，粘贴 App ID + App Secret&lt;br&gt;&lt;br&gt;# 3. 重启网关&lt;br&gt;openclaw gateway restart&lt;br&gt;</code></pre>
+<p>飞书应用创建步骤：</p>
+<p>1. 访问 open.feishu.cn/app → 创建企业自建应用</p>
+<p>1. 获取 App ID 和 App Secret</p>
+<p>1. 权限管理 → 批量开通消息相关权限</p>
+<p>1. 应用能力 → 开启机器人</p>
+<p>1. 事件配置 → 使用长连接 → 添加 <code>im.message.receive_v1</code></p>
+<p>1. 版本管理 → 创建版本 → 发布</p>
+<h4>日常运维</h4>
+<pre><code class="language-bash">openclaw gateway status          # 查看状态&lt;br&gt;openclaw gateway restart         # 重启&lt;br&gt;openclaw logs --follow           # 查看日志&lt;br&gt;openclaw doctor                  # 诊断问题&lt;br&gt;npm install -g openclaw@latest   # 更新&lt;br&gt;</code></pre>
+<h4>安全要点</h4>
+<p><callout emoji="gift" background-color="light-yellow"></p>
+<p>- <code>dmPolicy</code> 保持 <code>"pairing"</code>，不要改 <code>"open"</code>（否则任何人都能和你的 AI 对话）</p>
+<p>- 不要在存有敏感数据的电脑上安装</p>
+<p>- 在 Anthropic Console 设好月度费用上限</p>
+<p>- 第三方 Skill 包可能有安全风险，谨慎安装</p>
+<p></callout></p>
+<hr>
+<h2 id="sec-7"><span class="section-num">7</span>实战案例</h2>
+<h3>案例 1：从零创建项目</h3>
+<pre><code class="language-plaintext">&gt; 帮我创建一个 Python Flask 项目，实现待办事项 API&lt;br&gt;&gt; 支持增删改查、SQLite 存储、基本错误处理&lt;br&gt;&gt; 顺便写好 README 和 .gitignore&lt;br&gt;</code></pre>
+<h3>案例 2：修复 Bug</h3>
+<pre><code class="language-plaintext">&gt; 运行 npm start 报错："TypeError: Cannot read property 'map' of undefined"&lt;br&gt;&gt; 帮我找到原因并修复&lt;br&gt;</code></pre>
+<h3>案例 3：快速搭建原型</h3>
+<pre><code class="language-plaintext">&gt; 帮我创建一个 todo-app.html，实现待办事项应用原型：&lt;br&gt;&gt; - 顶部输入框和"添加"按钮&lt;br&gt;&gt; - 待办列表，可标记完成和删除&lt;br&gt;&gt; - 现代简洁 UI，蓝白为主&lt;br&gt;&gt; - 所有代码放在一个 HTML 文件里&lt;br&gt;</code></pre>
+<h3>案例 4：数据分析</h3>
+<pre><code class="language-plaintext">&gt; 请读取 user_data.csv，告诉我：&lt;br&gt;&gt; 1. 一共有多少条数据&lt;br&gt;&gt; 2. 有哪些字段&lt;br&gt;&gt; 3. 有没有异常值或空值&lt;br&gt;&gt; 4. 给一个简单的数据摘要&lt;br&gt;</code></pre>
+<h3>案例 5：写竞品分析</h3>
+<pre><code class="language-plaintext">&gt; 请创建 competitor-analysis.md，做一份"AI 写作助手"赛道的竞品分析：&lt;br&gt;&gt; 分析 Jasper、Copy.ai、Notion AI&lt;br&gt;&gt; 每个列出：核心功能、定价、目标用户、优势和不足&lt;br&gt;&gt; 最后给出对比总结表格，用中文撰写&lt;br&gt;</code></pre>
+<h3>案例 6：批量操作</h3>
+<pre><code class="language-plaintext">&gt; 帮我把 src/components/ 下所有 .jsx 文件改成 .tsx&lt;br&gt;&gt; 并且给每个组件的 props 添加 TypeScript 类型定义&lt;br&gt;</code></pre>
+<h3>案例 7：让 Claude 帮你创建配置文件</h3>
+<pre><code class="language-plaintext">&gt; 帮我创建一个 CLAUDE.md 文件，项目信息如下：&lt;br&gt;&gt; - Vue 3 + Vite 前端项目&lt;br&gt;&gt; - Element Plus 组件库&lt;br&gt;&gt; - ESLint + Prettier 代码规范&lt;br&gt;&gt; - Vitest 测试框架&lt;br&gt;</code></pre>
+<hr>
+<h2 id="sec-8"><span class="section-num">8</span>进阶技巧</h2>
+<h3>8.1 Claude Code 是怎么工作的？—— 代理循环</h3>
+<p>理解 Claude Code 背后的工作逻辑，会帮你写出更好的指令、更快拿到想要的结果。</p>
+<h4>代理循环：收集 → 行动 → 验证</h4>
+<p>每次你给 Claude 一个任务，它都会经历三个阶段：</p>
+<pre><code class="language-plaintext">你的指令&lt;br&gt;  ↓&lt;br&gt;① 收集上下文（读文件、搜索代码、看项目结构）&lt;br&gt;  ↓&lt;br&gt;② 采取行动（编辑文件、运行命令、生成代码）&lt;br&gt;  ↓&lt;br&gt;③ 验证结果（运行测试、检查输出、对比预期）&lt;br&gt;  ↓&lt;br&gt;如果不对 → 回到 ① 继续调整&lt;br&gt;如果通过 → 交付结果&lt;br&gt;</code></pre>
+<p>这就是「代理循环」（Agentic Loop）。Claude 不是简单地生成一段文字——它会像一个真正的工程师一样，边做边检查、边改边学。</p>
+<p><strong>你是循环的一部分。</strong> 你可以随时按 <code>Esc</code> 中断 Claude，给它补充信息或纠正方向。你不需要等它做完才说话。</p>
+<h4>四类内置工具</h4>
+<p>Claude Code 之所以能「动手干活」，是因为它有四类工具：</p>
+<p><lark-table rows="5" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      工具类型</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      作用</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      示例</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      文件读写</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      创建、编辑、删除文件</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      创建组件、修改配置</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      终端命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      执行 shell 命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      运行测试、安装依赖</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      搜索工具</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      在代码库中搜索</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      找函数定义、搜索关键词</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      子代理</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      派出独立分身</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      并行检查多个维度</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p>Claude 会根据你的指令自动选择用哪些工具。你说「修复这个测试」，它可能会：先运行测试看哪个失败 → 读错误信息 → 搜索相关代码 → 改代码 → 再跑测试验证。整个过程自动串联。</p>
+<hr>
+<h3>8.2 上下文窗口管理</h3>
+<p>上下文窗口（Context Window）是 Claude 的「工作记忆」。你的对话、Claude 读过的文件、运行过的命令输出——全都塞在里面。</p>
+<p><strong>关键点：上下文窗口是有限的。</strong> 一旦塞满，Claude 的表现会明显下降——它会「忘记」早期的指令，犯更多错误。</p>
+<p><lark-table rows="4" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      作用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/clear</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      清空上下文，新任务开始前用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/compact</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      压缩历史，保留关键信息丢弃细节</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/context</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看上下文使用情况</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<div class="callout callout-green"><span class="emoji">💡</span> <strong>核心原则</strong>：每个新任务开始前用 <code>/clear</code>，对话变慢时用 <code>/compact</code>，持久化规则写进 CLAUDE.md 而不是靠对话记忆。</div>
+<hr>
+<h3>8.3 提示词的进阶技巧</h3>
+<h4>委派，不要指令</h4>
+<p>❌ 不好的方式：</p>
+<pre><code class="language-plaintext">&gt; 打开 src/auth/login.ts，找到第 42 行的 refreshToken 函数，&lt;br&gt;&gt; 把 if 条件改成 token.expiry &lt; Date.now() - 60000&lt;br&gt;</code></pre>
+<p>✅ 更好的方式：</p>
+<pre><code class="language-plaintext">&gt; 登录流程中，用户的 token 过期后刷新失败了。&lt;br&gt;&gt; 相关代码在 src/auth/ 目录。帮我查一下问题并修复它。&lt;br&gt;</code></pre>
+<p>把 Claude 当成有能力的同事来委派任务，给它方向和上下文，让它自己决定怎么做。</p>
+<h4>提供验证标准</h4>
+<p>给 Claude 一种自我检查的方式，有测试用例它就能跑测试，有截图它就能对比。</p>
+<p><lark-table rows="5" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      验证方式</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      示例</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      跑测试</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "修好后运行 <code>npm test</code> 确认通过"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      对比截图</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "粘贴设计稿，实现后截图对比"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      检查错误</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "确保浏览器控制台没有报错"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      类型检查</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "运行 <code>pnpm typecheck</code> 确保没有类型错误"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<hr>
+<h3>8.4 模型选择指南</h3>
+<p><lark-table rows="4" cols="4" header-row="true" column-widths="183,183,183,183"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      模型</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      特点</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      适用场景</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      价格</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Sonnet</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      快速、性价比高</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      日常使用，大多数任务</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      中等</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Opus</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      更强大、更贵</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      复杂推理、长文档分析</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      较贵</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Haiku</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      最快、最便宜</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      简单问答</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      最便宜</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p>用 <code>/model</code> 切换。大部分时间用 Sonnet 就够了。</p>
+<hr>
+<h3>8.5 省钱实战指南</h3>
+<p>Claude Code 按 Token 计费，Token 就是 AI 处理文本的基本单位。</p>
+<p><lark-table rows="6" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      技巧</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      说明</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      选对模型</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      日常用 Sonnet，复杂任务才用 Opus</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      管理上下文</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      用 <code>/clear</code> 和 <code>/compact</code> 减少无效 token</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      精准提示词</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      "修复 src/auth/login.ts 的 token 刷新 bug" 比 "修复那个 bug" 省很多</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      设预算上限</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>claude --max-budget-usd 5</code> 限制单次会话费用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      用 <code>!</code> 执行命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      省去 Claude 思考的 token</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<div class="callout callout-yellow"><span class="emoji">💰</span> <strong>费用参考</strong>：使用 Sonnet，平均每位开发者每天约 $6，90% 的用户每天不超过 $12。作为轻度使用预计远低于此。</div>
+<h2 id="sec-9"><span class="section-num">9</span>最佳实践</h2>
+<h3>✅ 这样做效果更好</h3>
+<p>1. <strong>在项目根目录启动</strong> — Claude Code 能读取完整项目结构</p>
+<p>1. <strong>清晰描述需求</strong> — "帮我用 React 写一个带搜索和分页的用户列表页面" 比 "帮我写个页面" 好得多</p>
+<p>1. <strong>提供上下文</strong> — 告诉它技术栈、约束条件、参考示例</p>
+<p>1. <strong>善用 Plan Mode</strong> — 复杂任务先看计划再执行（探索→规划→执行→提交）</p>
+<p>1. <strong>检查结果</strong> — Claude Code 的输出不一定完美，养成检查的习惯</p>
+<p>1. <strong>用 CLAUDE.md 保存项目规范</strong> — 避免每次重复说明</p>
+<p>1. <strong>给 Claude 自我检查的方式</strong> — "修好后跑测试确认" 比 "修好就行" 效果好得多</p>
+<p>1. <strong>把 Claude 当同事委派</strong> — 给方向和上下文，不要写微操指令</p>
+<h3>❌ 避免这样做</h3>
+<p>1. ❌ 不要一句话描述模糊需求（"帮我做个网站"）</p>
+<p>1. ❌ 不要让它一次性修改太多不相关的文件</p>
+<p>1. ❌ 不要忽略它的确认提示直接说"全部同意"</p>
+<p>1. ❌ 不要在不清楚后果的情况下让它执行删除操作</p>
+<p>1. ❌ 不要在一个超长对话里塞太多不相关的任务</p>
+<p>1. ❌ 不要写过于详细的微操指令（"打开第42行，改成..."）——委派给它</p>
+<hr>
+<h2 id="sec-10"><span class="section-num">10</span>常见问题</h2>
+<h3>基础问题</h3>
+<p><strong>Q: 完全不懂编程，能用 Claude Code 吗？</strong>A: 能！核心交互方式是自然语言——你用中文告诉它想做什么就行。它会帮你写代码、执行命令、创建文件。你只需要检查结果是否符合预期。</p>
+<p><strong>Q: 使用 Claude Code 要花多少钱？</strong>A: 用 <code>/cost</code> 查看费用。日常轻度使用月费约 $5-$15，建议在 <a href="https://console.anthropic.com/">console.anthropic.com</a> 设置月度上限。</p>
+<p><strong>Q: 对话太长、响应变慢怎么办？</strong>A: 用 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清除重新开始。复杂任务建议拆成多次短对话。</p>
+<p><strong>Q: Claude Code 写的代码有 Bug 怎么办？</strong>A: 直接告诉它："运行时报错了，错误是 xxx，帮我修复。"</p>
+<p><strong>Q: 怎么让 Claude Code 记住我的偏好？</strong>A: 两种方式：写在 CLAUDE.md 里（永久生效），或直接说"记住：xxx"。</p>
+<p><strong>Q: Claude Code 会不会把我电脑搞坏？</strong>A: 它在执行任何操作前都会先告诉你并等你确认。仔细看操作说明再确认就不会有问题。</p>
+<p><strong>Q: Claude Code 和 OpenClaw 必须一起用吗？</strong>A: 不需要，完全独立。你可以只用其中一个，装了两个也互不干扰。</p>
+<p><strong>Q: 这些工具安全吗？</strong>A: Claude Code 是 Anthropic 官方产品，传输加密。但发给 AI 的内容会发送到服务器处理，请避免发送密码、银行卡号等敏感信息。</p>
+<h3>Claude Code 相关</h3>
+<p><strong>Q: Claude Code 和 claude.ai 网页版有什么区别？</strong>A: claude.ai 网页版是一个聊天界面，你只能在网页上对话。Claude Code 运行在你的电脑终端里，它能直接读写你电脑上的文件、运行命令、理解整个项目。简单说：网页版只能聊天，Claude Code 能动手干活。</p>
+<p><strong>Q: 对话太长了，Claude 开始「犯傻」怎么办？</strong>A: 这是上下文窗口接近满载的正常现象。输入 <code>/compact</code> 压缩历史，或 <code>/clear</code> 清空重来。建议复杂任务拆成多次短对话。</p>
+<p><strong>Q: Claude 执行了我不想要的操作怎么办？</strong>A: 1. 按 <code>Esc</code> 立即停止生成；2. 确认提示时输入 <code>n</code> 拒绝；3. 如果已执行，说"撤销刚才的修改"。</p>
+<h3>OpenClaw 相关</h3>
+<p><strong>Q: 飞书免费版能用 OpenClaw 吗？</strong>A: 能。自建应用和机器人功能对所有飞书版本开放，包括免费版。</p>
+<p><strong>Q: 飞书机器人需要服务器吗？</strong>A: 不需要。OpenClaw 使用 WebSocket 长连接，你的电脑直接连接飞书云端，不需要公网 IP。</p>
+<p><strong>Q: 能同时连飞书和 WhatsApp 吗？</strong>A: 能。OpenClaw 原生支持多渠道同时在线，互不影响。</p>
+<hr>
+<h2 id="sec-11"><span class="section-num">11</span>术语表</h2>
+<p><lark-table rows="20" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      术语</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      英文</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      简单解释</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      终端</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Terminal</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      用文字命令操作电脑的窗口，区别于鼠标点击的图形界面</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令行</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Command Line</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      同终端，强调"输入一行命令"的交互方式</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      根目录</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Root Directory</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目文件夹的最顶层，Claude Code 从这里开始扫描项目</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Node.js</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Node.js</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      让 JavaScript 能在电脑上运行的环境，Claude Code 依赖它</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      npm</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      npm</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Node.js 的"应用商店"，用来安装各种工具和依赖</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      依赖</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Dependencies</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目需要用到的"别人的代码"，如 React、Express</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      package.json</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      package.json</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      项目的"购物清单"，记录了需要哪些依赖</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      API Key</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      API Key</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      你的"AI 使用通行证"，一串以 sk-ant- 开头的密钥</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Token</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Token</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      AI 处理文本的基本单位，也是计费单位</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      上下文窗口</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Context Window</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 的"工作记忆"，塞满后表现会下降</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      写给 Claude 的"项目说明书"，每次启动自动读取</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Skill</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Skill</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      预先写好的"操作手册"，可复用的工作流</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      MCP</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Model Context Protocol</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      让 Claude 连接外部服务的"插头"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Hook</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Hook</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      在特定节点强制自动执行的脚本</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Plan Mode</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Plan Mode</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      只读不写的模式，用于探索和规划</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      子代理</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Sub-agent</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 派出的"分身"，在独立上下文中完成子任务</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      代理循环</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Agentic Loop</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Claude 收集→行动→验证的工作循环</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Gateway</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Gateway</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      OpenClaw 的网关服务，负责连接消息平台</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      Pairing</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      Pairing</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      OpenClaw 的配对机制，确认"你是机器人的主人"</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<hr>
+<h2 id="sec-12"><span class="section-num">12</span>命令速查卡</h2>
+<h3>终端基础命令</h3>
+<p><lark-table rows="7" cols="3" header-row="true" column-widths="244,244,244"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      含义</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      示例</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>pwd</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      我在哪？</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>pwd</code> → <code>/Users/yourname</code></p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>ls</code> / <code>dir</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      这里有什么？</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>ls</code> → 列出当前目录文件</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>cd 文件夹名</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      去别的地方</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>cd Desktop</code> → 进入桌面</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>cd ..</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      回到上一层</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>cd ..</code> → 返回上级目录</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>mkdir 文件夹名</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      创建新文件夹</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>mkdir my-project</code></p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>clear</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      清空屏幕</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      <code>clear</code></p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<h3>Claude Code 命令</h3>
+<p><lark-table rows="19" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      作用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>claude</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      启动 Claude Code</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>claude "问题"</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      快速提问（不进入交互模式）</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>claude -c</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      继续上次对话</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>claude --max-budget-usd 5</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      限制本次会话费用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>claude doctor</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      检查安装和认证状态</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/help</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看帮助</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/model</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      切换 AI 模型</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/clear</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      清除当前对话上下文</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/compact</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      压缩对话历史</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/cost</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看当前会话费用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/config</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看或修改配置</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/init</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      自动生成 CLAUDE.md</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/context</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看上下文窗口使用情况</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/permissions</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      管理权限白名单</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/hooks</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      管理钩子</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/mcp</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看 MCP Server 状态</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/fast</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      切换快速模式</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>/exit</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      退出 Claude Code</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<h3>OpenClaw 运维命令</h3>
+<p><lark-table rows="8" cols="2" header-row="true" column-widths="350,350"></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      命令</p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      作用</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw gateway status</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看网关状态</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw gateway restart</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      重启网关</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw logs --follow</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      查看实时日志</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw doctor</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      诊断问题</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw channels add</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      添加消息渠道</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>openclaw plugins install xxx</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      安装插件</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p>  <lark-tr></p>
+<p>    <lark-td></p>
+<p>      <code>npm install -g openclaw@latest</code></p>
+<p>    </lark-td></p>
+<p>    <lark-td></p>
+<p>      更新 OpenClaw</p>
+<p>    </lark-td></p>
+<p>  </lark-tr></p>
+<p></lark-table></p>
+<p><callout emoji="rocket" background-color="light-blue"></p>
+<p><strong>最后的话</strong>：善用 Skill 让重复工作自动化，善用 MCP 连接外部工具，善用 CLAUDE.md 让它了解你的项目，善用 OpenClaw 让 AI 住进你的飞书——你会发现工作效率大大提升！</p>
+<p></callout></p>
+<p>**：善用 Skill 让重复工作自动化，善用 MCP 连接外部工具，善用 CLAUDE.md 让它了解你的项目，善用 OpenClaw 让 AI 住进你的飞书——你会发现工作效率大大提升！</p>
 </main>
 </div>
-
 <script>
 function toggleTheme() {
   const root = document.documentElement;
   const current = root.getAttribute('data-theme');
-  if (current === 'dark') {
-    root.removeAttribute('data-theme');
-  } else if (current === 'light') {
-    root.setAttribute('data-theme', 'dark');
-  } else {
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  }
+  if (current === 'dark') { root.setAttribute('data-theme', 'light'); }
+  else if (current === 'light') { root.removeAttribute('data-theme'); }
+  else { root.setAttribute('data-theme', 'dark'); }
 }
 </script>
 </body>
